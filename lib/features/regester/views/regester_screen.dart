@@ -3,6 +3,8 @@ import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
 
+import '../../onboarding/views/widgets/button_Started.dart';
+
 class CustomRegesterScreen extends StatelessWidget {
   const CustomRegesterScreen({super.key});
 
@@ -76,6 +78,7 @@ class CustomRegesterScreen extends StatelessWidget {
 
             ),
 
+            CustomButtonStarted(),
 
           ],
         ),
