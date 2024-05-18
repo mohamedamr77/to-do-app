@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/core/imageCore.dart';
+import 'package:todo/core/textCore.dart';
 
 class CustomOnboarding extends StatelessWidget {
   const CustomOnboarding({super.key});
@@ -17,7 +18,22 @@ class CustomOnboarding extends StatelessWidget {
                     height: MediaQuery.of(context).size.height*0.45,
                   ),
                 ),
-                
+                SizedBox(height: 50,),
+                SizedBox(
+                  width: 125,
+                  height: 59,
+                  child: Text(AppText.onboardingTitleText,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 22,
+                    fontFamily: "LexendDeca",
+
+
+                  ),
+
+                  ),
+                ),
               ],
            ),
     );
