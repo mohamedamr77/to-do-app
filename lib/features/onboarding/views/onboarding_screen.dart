@@ -18,10 +18,10 @@ class CustomOnboarding extends StatelessWidget {
                     height: MediaQuery.of(context).size.height*0.45,
                   ),
                 ),
-                SizedBox(height: 50,),
+                SizedBox(height: MediaQuery.of(context).size.height*0.04,),
                 SizedBox(
-                  width: 125,
-                  height: 59,
+                  width: MediaQuery.of(context).size.width*0.4,
+                  height: MediaQuery.of(context).size.height*0.09,
                   child: Text(AppText.onboardingTitleText,
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -34,6 +34,7 @@ class CustomOnboarding extends StatelessWidget {
 
                   ),
                 ),
+
               ],
            ),
     );
