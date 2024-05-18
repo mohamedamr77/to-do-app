@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/imageCore.dart';
+import 'package:todo/core/textCore.dart';
 
 class CustomRegesterScreen extends StatelessWidget {
   const CustomRegesterScreen({super.key});
@@ -61,8 +62,20 @@ class CustomRegesterScreen extends StatelessWidget {
                 ]
               ),
 
+
             ]
             ),
+            SizedBox(height: 5,),
+            Text(AppText.addPhotoText,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: AppColor.slateGrayColor,
+                fontFamily: "LexendDecaRegularStyle",
+              ),
+
+            ),
+
 
           ],
         ),

@@ -9,6 +9,7 @@ class AppColor{
   static const Color skyBlueColor=  Color(0xff74B3E3);
   static const Color  lightPurpleColor=  Color(0xffCDADD2);
   static const Color  mediumBlueColor=  Color(0xff68A2D0);
+  static const Color  slateGrayColor=  Color(0xff6E6A7C);
   static const Color  whiteColor=  Colors.white;
 
 
