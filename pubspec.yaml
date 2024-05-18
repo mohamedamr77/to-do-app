@@ -77,6 +77,10 @@ flutter:
      - family: LexendDeca
        fonts:
          - asset: assets/fonts/LexendDeca-SemiBold.ttf
+
+     - family: LexendDecaRegularStyle
+       fonts:
+         - asset: assets/fonts/LexendDeca-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

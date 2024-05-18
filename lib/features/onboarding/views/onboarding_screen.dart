@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
 
@@ -34,7 +35,20 @@ class CustomOnboarding extends StatelessWidget {
 
                   ),
                 ),
-
+                SizedBox(height: MediaQuery.of(context).size.height*0.03,),
+                SizedBox(
+                   width: MediaQuery.of(context).size.width*0.75,
+                   height: MediaQuery.of(context).size.height*0.1,
+                   child: Text(AppText.onboardingDescriptionText.trim(),
+                   textAlign: TextAlign.center,
+                   style: TextStyle(
+                     color: AppColor.greyColor,
+                     fontWeight: FontWeight.w400,
+                     fontSize: 14,
+                     fontFamily: "LexendDecaRegularStyle",
+                   ),
+                   ),
+                 ),
               ],
            ),
     );
