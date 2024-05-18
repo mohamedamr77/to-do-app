@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import '../../../../core/colorCore.dart';
 import '../../../../core/imageCore.dart';
 import '../../../../core/textCore.dart';
+import '../../../regester/views/regester_screen.dart';
 
 class CustomButtonStarted extends StatelessWidget {
-  const CustomButtonStarted({super.key});
+   CustomButtonStarted({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +16,12 @@ class CustomButtonStarted extends StatelessWidget {
           alignment: Alignment.centerRight,
           children: [
             GestureDetector(
-              onTap: (){},
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomRegesterScreen(),));
+              },
               child: Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(vertical: 14),
+                padding: const EdgeInsets.symmetric(vertical: 14),
                 width: double.infinity,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -30,7 +34,7 @@ class CustomButtonStarted extends StatelessWidget {
                       end: Alignment.centerRight,
                     )
                 ),
-                child: Text(AppText.startText,
+                child: const Text(AppText.startText,
                   style: TextStyle(
                     fontSize: 19,
                     fontFamily: "LexendDeca",
