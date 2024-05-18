@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo/core/imageCore.dart';
+import 'package:todo/core/textCore.dart';
 
 
 
@@ -22,7 +24,7 @@ class CustomOnboarding extends StatelessWidget {
                 SizedBox(height: MediaQuery.of(context).size.height*0.02,),
                 CustomTextDescription(),
                 SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-                CustomButtonStarted(),
+                CustomButtonStarted(text: AppText.startText, trailing: Image.asset(AppImage.arrowStartImage),),
               ],
            ),
     );

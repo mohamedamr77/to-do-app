@@ -1,12 +1,14 @@
+
 import 'package:flutter/material.dart';
 import '../../../../core/colorCore.dart';
-import '../../../../core/imageCore.dart';
-import '../../../../core/textCore.dart';
+
 import '../../../regester/views/regester_screen.dart';
 
 class CustomButtonStarted extends StatelessWidget {
-   CustomButtonStarted({super.key});
+   CustomButtonStarted({super.key,required this.text,required this.trailing});
 
+    String text;
+    Widget?  trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,8 @@ class CustomButtonStarted extends StatelessWidget {
                       end: Alignment.centerRight,
                     )
                 ),
-                child: const Text(AppText.startText,
-                  style: TextStyle(
+                child:  Text(text,
+                  style:const TextStyle(
                     fontSize: 19,
                     fontFamily: "LexendDeca",
                     color: Colors.white,
@@ -45,7 +47,7 @@ class CustomButtonStarted extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Image.asset(AppImage.arrowStartImage),
+              child: trailing,
             ),
           ]
       ),

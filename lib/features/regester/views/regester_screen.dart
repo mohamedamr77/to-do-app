@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:todo/core/colorCore.dart';
-import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/features/regester/views/widgets/enter_name.dart';
 import 'package:todo/features/regester/views/widgets/stack_baner_addPhoto.dart';
@@ -36,8 +35,7 @@ class CustomRegesterScreen extends StatelessWidget {
 
                 EnterName(),
 
-                CustomButtonStarted(),
-
+                CustomButtonStarted(text: 'Get Started ', trailing: null,),
 
               ],
             ),

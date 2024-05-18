@@ -11,7 +11,7 @@ class CustomStackBannerAddPhoto extends StatelessWidget {
     return  Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          Image(image: AssetImage(AppImage.regesterImage)),
+          const Image(image: AssetImage(AppImage.regesterImage)),
 
           Stack(
               alignment: Alignment.center,
@@ -23,7 +23,7 @@ class CustomStackBannerAddPhoto extends StatelessWidget {
                   // height: 120,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                           colors: [
                             AppColor.skyBlueColor,
                             AppColor.lightPurpleColor,
@@ -31,11 +31,11 @@ class CustomStackBannerAddPhoto extends StatelessWidget {
                       )
                   ),
                 ),
+
                 Container(
-                  width: MediaQuery.of(context).size.width*0.325,
-                  height: MediaQuery.of(context).size.height*0.156,
-                  // width: 118,
-                  // height: 118,
+                  width: MediaQuery.of(context).size.width*0.325, //width=128
+                  height: MediaQuery.of(context).size.height*0.156, //height=118
+
                   decoration: BoxDecoration(
                     color: AppColor.whiteColor,
                     borderRadius: BorderRadius.circular(20),
@@ -43,13 +43,14 @@ class CustomStackBannerAddPhoto extends StatelessWidget {
                   child: ShaderMask(
 
                     shaderCallback: (Rect bounds) {
-                      return LinearGradient(colors: [
+                      return const LinearGradient(colors: [
                         AppColor.skyBlueColor,
                         AppColor.mediumBlueColor,
                       ]
                       ).createShader(bounds);
                     },
-                    child: Icon(Icons.add_a_photo,
+                    child: const Icon(
+                      Icons.add_a_photo,
                       color:  AppColor.whiteColor,
                       size: 40,
                     ),
