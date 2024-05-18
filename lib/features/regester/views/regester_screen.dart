@@ -135,7 +135,8 @@ class CustomRegesterScreen extends StatelessWidget {
               ),
           
               CustomButtonStarted(),
-          
+
+
             ],
           ),
         ),
