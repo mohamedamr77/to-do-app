@@ -35,7 +35,7 @@ class CustomOnboarding extends StatelessWidget {
 
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height*0.03,),
+                SizedBox(height: MediaQuery.of(context).size.height*0.02,),
                 SizedBox(
                    width: MediaQuery.of(context).size.width*0.75,
                    height: MediaQuery.of(context).size.height*0.1,
@@ -49,6 +49,45 @@ class CustomOnboarding extends StatelessWidget {
                    ),
                    ),
                  ),
+                SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+                Padding(
+                  padding: const EdgeInsets.all(22),
+                  child: Stack(
+                    alignment: Alignment.centerRight,
+                    children: [
+                      GestureDetector(
+                        onTap: (){},
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.symmetric(vertical: 14),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              gradient: LinearGradient(
+                                colors: [
+                                   AppColor.lightBlueColor,
+                                   AppColor.shadeOfPinkColor.withOpacity(0.5),
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              )
+                          ),
+                          child: Text(AppText.startText,
+                            style: TextStyle(
+                              fontSize: 19,
+                              fontFamily: "LexendDeca",
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(AppImage.arrowStartImage),
+                      ),
+                    ]
+                  ),
+                )
               ],
            ),
     );
