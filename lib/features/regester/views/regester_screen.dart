@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/imageCore.dart';
 
 class CustomRegesterScreen extends StatelessWidget {
@@ -14,45 +15,52 @@ class CustomRegesterScreen extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 children: [
               Image(image: AssetImage(AppImage.regesterImage)),
+
               Stack(
                 alignment: Alignment.center,
                 children:[
                   Container(
-                  width: 120,
-                  height: 120,
+                  width: MediaQuery.of(context).size.width*0.3353,
+                  height: MediaQuery.of(context).size.height*0.16,
+                  //   width: 120,
+                  // height: 120,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       gradient: LinearGradient(
                           colors: [
-                            Color(0xff74B3E3),
-                            Color(0xffCDADD2),
+                             AppColor.skyBlueColor,
+                             AppColor.lightPurpleColor,
                           ]
                       )
                   ),
                 ),
                   Container(
-                    width: 118,
-                    height: 118,
+                    width: MediaQuery.of(context).size.width*0.325,
+                    height: MediaQuery.of(context).size.height*0.156,
+                    // width: 118,
+                    // height: 118,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColor.whiteColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: ShaderMask(
 
                       shaderCallback: (Rect bounds) {
                         return LinearGradient(colors: [
-                              Color(0xff76B3E3),
-                              Color(0xff68A2D0),
-                        ]).createShader(bounds);
+                              AppColor.skyBlueColor,
+                               AppColor.mediumBlueColor,
+                        ]
+                        ).createShader(bounds);
                       },
                       child: Icon(Icons.add_a_photo,
-                        color: Colors.white,
+                        color:  AppColor.whiteColor,
                         size: 40,
                       ),
                     ),
                   )
                 ]
               ),
+
             ]
             ),
 
