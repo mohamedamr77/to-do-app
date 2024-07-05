@@ -72,6 +72,54 @@ class HomePageBody extends StatelessWidget {
               const SizedBox(width: 10,),
               ]
           ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14),
+          child: Card(
+            color: ColorApp.whiteColor,
+            child: ListTile(
+              leading: SvgPicture.asset(ImageApp.leadingItemDismissibleImage),
+              title: const Text("Studying Flutter",
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'LexendDecaRegularStyle',
+                color: Color(0xff24252C),
+              ),
+
+              ),
+              subtitle: const Text(
+                "02:00 pm",
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'LexendDecaRegularStyle',
+                  color: ColorApp.subtitleListTileHomeScreenColor,
+                ),
+
+              ),
+              trailing: GestureDetector(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 7,horizontal: 14),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    color: ColorApp.appbarHomeScreenColor
+                  ),
+                  child: Text("Done",
+                    style: TextStyle(
+                      color: ColorApp.whiteColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: "LexendDecaRegularStyle",
+
+                    ),
+                  ),
+                ),
+              )
+
+
+            ),
+          ),
         )
       ],
     );

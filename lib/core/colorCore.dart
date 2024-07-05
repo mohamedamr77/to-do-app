@@ -13,6 +13,8 @@ class ColorApp{
   static const Color  whiteColor=  Colors.white;
   static const Color  appbarHomeScreenColor=  Color(0xff90B6E2);
   static const Color  textAppbarHomeScreenColor=  Color(0xff306BA6);
+  static const Color  titleListTileHomeScreenColor=  Color(0xff24252C);
+  static const Color  subtitleListTileHomeScreenColor=  Color(0xff90B6E2);
 
 
 }
