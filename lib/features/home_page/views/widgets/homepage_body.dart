@@ -18,7 +18,12 @@ class HomePageBody extends StatelessWidget {
           color: ColorApp.appbarHomeScreenColor,
           child: Row(
             children: [
-              SvgPicture.asset(ImageApp.menuImage),
+              GestureDetector(
+                onTap: (){
+                  Scaffold.of(context).openDrawer();
+                },
+                child: SvgPicture.asset(ImageApp.menuImage),
+              ),
               const SizedBox(width: 15,),
               Padding(
                 padding: const EdgeInsets.only(top: 48),
@@ -194,7 +199,7 @@ class HomePageBody extends StatelessWidget {
                 ),
               );
             },
-          itemCount:  3,
+          itemCount:  4,
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(
                 height: 10,
