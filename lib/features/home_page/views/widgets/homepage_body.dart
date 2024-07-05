@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
@@ -73,54 +72,137 @@ class HomePageBody extends StatelessWidget {
               ]
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14),
-          child: Card(
-            color: ColorApp.whiteColor,
-            child: ListTile(
-              leading: SvgPicture.asset(ImageApp.leadingItemDismissibleImage),
-              title: const Text("Studying Flutter",
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                fontFamily: 'LexendDecaRegularStyle',
-                color: Color(0xff24252C),
-              ),
+        Expanded(
+          child: ListView.separated(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            itemBuilder: (context, index) {
+              //Color(0xffBD5461),
+              // SvgPicture.asset("assets/images/svg/dele_dismissible.svg"),
+              return Dismissible(
+                confirmDismiss: (DismissDirection direction) async{
+                  if(direction==DismissDirection.startToEnd){
+                    return await showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Delete"),
+                            content: Text("Are you sure you want to delete this item?"),
+                            actions: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pop(false);
+                          },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(vertical: 7,horizontal: 14),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(6),
+                                      color: ColorApp.appbarHomeScreenColor
+                                  ),
+                                  child: Text("Cancel",
+                                    style: TextStyle(
+                                      color: ColorApp.whiteColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: "LexendDecaRegularStyle",
 
-              ),
-              subtitle: const Text(
-                "02:00 pm",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'LexendDecaRegularStyle',
-                  color: ColorApp.subtitleListTileHomeScreenColor,
-                ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pop(true);
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(vertical: 7,horizontal: 14),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(6),
+                                      color: Colors.red
+                                  ),
+                                  child: Text("Delete",
+                                    style: TextStyle(
+                                      color: ColorApp.whiteColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: "LexendDecaRegularStyle",
 
-              ),
-              trailing: GestureDetector(
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 7,horizontal: 14),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6),
-                    color: ColorApp.appbarHomeScreenColor
-                  ),
-                  child: Text("Done",
-                    style: TextStyle(
-                      color: ColorApp.whiteColor,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: "LexendDecaRegularStyle",
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );;
+                        },
+                    );
+                  }
 
+                },
+                background: Card(
+                  color:Color(0xffBD5461) ,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: ListTile(
+                      leading:  SvgPicture.asset("assets/images/svg/dele_dismissible.svg",),
                     ),
                   ),
                 ),
-              )
+                key: GlobalKey(),
+                child: Card(
+                  color: ColorApp.whiteColor,
+                  child: ListTile(
+                      leading: SvgPicture.asset(ImageApp.leadingItemDismissibleImage),
+                      title: const Text("Studying Flutter",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'LexendDecaRegularStyle',
+                          color: Color(0xff24252C),
+                        ),
+
+                      ),
+                      subtitle: const Text(
+                        "02:00 pm",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'LexendDecaRegularStyle',
+                          color: ColorApp.subtitleListTileHomeScreenColor,
+                        ),
+
+                      ),
+                      trailing: GestureDetector(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 7,horizontal: 14),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6),
+                              color: ColorApp.appbarHomeScreenColor
+                          ),
+                          child: Text("Done",
+                            style: TextStyle(
+                              color: ColorApp.whiteColor,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "LexendDecaRegularStyle",
+
+                            ),
+                          ),
+                        ),
+                      )
 
 
-            ),
+                  ),
+                ),
+              );
+            },
+          itemCount:  3,
+            separatorBuilder: (BuildContext context, int index) {
+              return SizedBox(
+                height: 10,
+              );
+          },
+
           ),
-        )
+        ),
       ],
     );
   }
