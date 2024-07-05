@@ -8,7 +8,6 @@ import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import 'package:todo/features/regester/views/widgets/enter_name.dart';
-import 'package:todo/features/regester/views/widgets/stack_baner_addPhoto.dart';
 import '../../../core/imageCore.dart';
 import '../../onboarding/views/widgets/button_Started.dart';
 
@@ -136,7 +135,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
 
                 const SizedBox(height: 5,),
 
-                const EnterName(),
+                 EnterName(controller: nameController,),
 
                 CustomButtonStarted(text: 'Get Started ', trailing: null,
                   onTap: () {

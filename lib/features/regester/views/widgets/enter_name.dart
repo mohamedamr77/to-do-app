@@ -3,7 +3,7 @@ import '../../../../core/colorCore.dart';
 import '../../../../core/textCore.dart';
 
 class EnterName extends StatelessWidget {
-  const EnterName({super.key, this.controller});
+  const EnterName({super.key,required this.controller});
  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {

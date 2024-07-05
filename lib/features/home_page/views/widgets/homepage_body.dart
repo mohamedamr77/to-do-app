@@ -15,18 +15,18 @@ class HomePageBody extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 23,horizontal: 12),
+          padding: const EdgeInsets.symmetric(vertical: 23,horizontal: 12),
           color: ColorApp.appbarHomeScreenColor,
           child: Row(
             children: [
               SvgPicture.asset(ImageApp.menuImage),
-              SizedBox(width: 15,),
+              const SizedBox(width: 15,),
               Padding(
                 padding: const EdgeInsets.only(top: 48),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Hello!",
+                    const Text("Hello!",
                     style: TextStyle(
                       color: ColorApp.textAppbarHomeScreenColor,
                       fontSize: 14,
@@ -35,15 +35,15 @@ class HomePageBody extends StatelessWidget {
                     ),
                     ),
                     Text(name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: ColorApp.textAppbarHomeScreenColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       fontFamily: 'LexendDeca',
                     ),
                     ),
-                    SizedBox(height: 12,),
-                    Text("Saturday, May 25th",
+                    const SizedBox(height: 12,),
+                    const Text("Saturday, May 25th",
                       style: TextStyle(
                         color: ColorApp.whiteColor,
                         fontSize: 16,
@@ -54,11 +54,11 @@ class HomePageBody extends StatelessWidget {
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 30,
                     backgroundColor: ColorApp.whiteColor,
                   ),
@@ -69,7 +69,7 @@ class HomePageBody extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(width: 10,),
+              const SizedBox(width: 10,),
               ]
           ),
         )
