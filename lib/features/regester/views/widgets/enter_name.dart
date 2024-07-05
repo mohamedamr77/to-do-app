@@ -15,14 +15,12 @@ class EnterName extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height*0.154,
-              //   width: 120,
-              // height: 120,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   gradient: const LinearGradient(
                       colors: [
-                        AppColor.skyBlueColor,
-                        AppColor.lightPurpleColor,
+                        ColorApp.skyBlueColor,
+                        ColorApp.lightPurpleColor,
                       ]
                   )
               ),
@@ -35,7 +33,7 @@ class EnterName extends StatelessWidget {
               // width: 118,
               // height: 118,
               decoration: BoxDecoration(
-                color: AppColor.whiteColor,
+                color: ColorApp.whiteColor,
                 borderRadius: BorderRadius.circular(20),
               ),
               child:
@@ -49,7 +47,7 @@ class EnterName extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: AppColor.slateGrayColor,
+                      color: ColorApp.slateGrayColor,
                       fontFamily: "LexendDecaRegularStyle",
                     ),
                   ),

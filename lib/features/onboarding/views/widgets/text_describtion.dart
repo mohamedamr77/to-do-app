@@ -14,7 +14,7 @@ class CustomTextDescription extends StatelessWidget {
       child: Text(AppText.onboardingDescriptionText.trim(),
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: AppColor.greyColor,
+          color: ColorApp.greyColor,
           fontWeight: FontWeight.w400,
           fontSize: 14,
           fontFamily: "LexendDecaRegularStyle",

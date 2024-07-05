@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo/features/home_page/views/HomePageScreen.dart';
+import 'package:todo/features/regester/views/regester_screen.dart';
 
 import 'features/onboarding/views/onboarding_screen.dart';
 
 
 void main(){
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,7 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:CustomOnboarding(),
+      routes: {
+        CustomRegesterScreen.id: (context) => const CustomRegesterScreen(),
+        CustomOnboarding.id: (context) => const CustomOnboarding(),
+        HomePageScreen.id: (context) =>  HomePageScreen(),
+      },
+      initialRoute: CustomOnboarding.id,
       debugShowCheckedModeBanner: false,
     );
   }

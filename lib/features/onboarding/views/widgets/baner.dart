@@ -9,7 +9,7 @@ class CustomBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Image(
-        image: const AssetImage(AppImage.onBoardingImage),
+        image: const AssetImage(ImageApp.onBoardingImage),
         width: MediaQuery.of(context).size.width*0.75,
         height: MediaQuery.of(context).size.height*0.45,
       ),

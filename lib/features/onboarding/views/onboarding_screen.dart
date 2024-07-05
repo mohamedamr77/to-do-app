@@ -4,6 +4,7 @@ import 'package:todo/core/textCore.dart';
 
 
 
+import '../../regester/views/regester_screen.dart';
 import 'widgets/baner.dart';
 import 'widgets/button_Started.dart';
 import 'widgets/text_bold.dart';
@@ -11,20 +12,23 @@ import 'widgets/text_describtion.dart';
 
 class CustomOnboarding extends StatelessWidget {
   const CustomOnboarding({super.key});
-
+  static  String id="OnBoarding Screen";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
            body: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomBanner(),
+                const CustomBanner(),
                 SizedBox(height: MediaQuery.of(context).size.height*0.04,),
-                CustomTextBold(),
+                const CustomTextBold(),
                 SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-                CustomTextDescription(),
+                const CustomTextDescription(),
                 SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-                CustomButtonStarted(text: AppText.startText, trailing: Image.asset(AppImage.arrowStartImage),),
+                CustomButtonStarted(text: AppText.startText, trailing: Image.asset(ImageApp.arrowStartImage), onTap: () {
+                  Navigator.pushNamed(context, CustomRegesterScreen.id
+                  );
+                },),
               ],
            ),
     );

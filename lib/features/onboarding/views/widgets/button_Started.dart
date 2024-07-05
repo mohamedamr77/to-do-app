@@ -5,10 +5,11 @@ import '../../../../core/colorCore.dart';
 import '../../../regester/views/regester_screen.dart';
 
 class CustomButtonStarted extends StatelessWidget {
-   CustomButtonStarted({super.key,required this.text,required this.trailing});
+   CustomButtonStarted({super.key,required this.text,required this.trailing,required this.onTap});
 
     String text;
     Widget?  trailing;
+   void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +19,7 @@ class CustomButtonStarted extends StatelessWidget {
           alignment: Alignment.centerRight,
           children: [
             GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomRegesterScreen(),));
-              },
+              onTap: onTap,
               child: Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(vertical: 14),
@@ -29,8 +28,8 @@ class CustomButtonStarted extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     gradient: LinearGradient(
                       colors: [
-                        AppColor.lightBlueColor,
-                        AppColor.shadeOfPinkColor.withOpacity(0.5),
+                        ColorApp.lightBlueColor,
+                        ColorApp.shadeOfPinkColor.withOpacity(0.5),
                       ],
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,

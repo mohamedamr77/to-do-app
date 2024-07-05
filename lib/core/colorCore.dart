@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class AppColor{
+class ColorApp{
   static const Color greyColor=Color(0xff8E8E8E);
   static const Color lightBlueColor= Color(0xff50BCEE);
   static const Color shadeOfPinkColor=  Color(0xffBE65AA);
@@ -11,6 +11,8 @@ class AppColor{
   static const Color  mediumBlueColor=  Color(0xff68A2D0);
   static const Color  slateGrayColor=  Color(0xff6E6A7C);
   static const Color  whiteColor=  Colors.white;
+  static const Color  appbarHomeScreenColor=  Color(0xff90B6E2);
+  static const Color  textAppbarHomeScreenColor=  Color(0xff306BA6);
 
 
 }
