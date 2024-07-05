@@ -5,6 +5,7 @@ import 'package:todo/features/home_page/views/widgets/dialog_body.dart';
 import 'package:todo/features/home_page/views/widgets/homepage_body.dart';
 
 import '../../../core/colorCore.dart';
+import '../../add_task/views/screen.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key, required this.name, required this.photo});
@@ -22,7 +23,9 @@ class HomePageScreen extends StatelessWidget {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)
         ),
-        onPressed: ( ){ },
+        onPressed: ( ){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AddTaskScreen(),));
+        },
         child: Icon(Icons.add,
         size: 35,
         ),
@@ -44,7 +47,7 @@ class HomePageScreen extends StatelessWidget {
                 topRight: Radius.circular(60),
             ),
           ),
-        child: DialogBody(),
+        child: DialogBody(name: name, photo: photo,),
       ),
     );
   }
