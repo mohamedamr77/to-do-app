@@ -3,8 +3,8 @@ import '../../../../core/colorCore.dart';
 import '../../../../core/textCore.dart';
 
 class EnterName extends StatelessWidget {
-  const EnterName({super.key});
-
+  const EnterName({super.key, this.controller});
+ final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return   Padding(
@@ -53,6 +53,7 @@ class EnterName extends StatelessWidget {
                   ),
 
                   TextFormField(
+                    controller:controller ,
                     decoration: InputDecoration(
                       hintText: AppText.enterNameText,
                       border: InputBorder.none,

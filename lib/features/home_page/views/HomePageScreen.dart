@@ -1,15 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:todo/features/home_page/views/widgets/homepage_body.dart';
 
 class HomePageScreen extends StatelessWidget {
-   HomePageScreen({super.key,  this.name,  this.pictureUser});
+  const HomePageScreen({super.key, required this.name, required this.photo});
   static const id="homePage Screen";
-   String? name;
-   String? pictureUser;
+   final String name;
+   final File photo;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-          body: HomePageBody(name: '', pictureUser: '',),
+    return  Scaffold(
+          body: HomePageBody(name: name , pictureUser: photo,),
     );
   }
 }

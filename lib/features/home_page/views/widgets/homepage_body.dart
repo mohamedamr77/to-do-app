@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
@@ -6,7 +8,7 @@ import 'package:todo/core/imageCore.dart';
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key, required this.name, required this.pictureUser});
      final String name;
-     final String pictureUser;
+     final File pictureUser;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,7 +34,7 @@ class HomePageBody extends StatelessWidget {
                       fontFamily: 'LexendDeca',
                     ),
                     ),
-                    Text("Mohamed Amr",
+                    Text(name,
                     style: TextStyle(
                       color: ColorApp.textAppbarHomeScreenColor,
                       fontSize: 16,
@@ -57,14 +59,14 @@ class HomePageBody extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   CircleAvatar(
-                    radius: 24,
+                    radius: 30,
                     backgroundColor: ColorApp.whiteColor,
                   ),
                   CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.orange
+                    radius: 26,
+                    backgroundImage: FileImage(
+                      File(pictureUser.path),),
                   ),
-
                 ],
               ),
               SizedBox(width: 10,),

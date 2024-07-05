@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         CustomRegesterScreen.id: (context) => const CustomRegesterScreen(),
         CustomOnboarding.id: (context) => const CustomOnboarding(),
-        HomePageScreen.id: (context) =>  HomePageScreen(),
+       // HomePageScreen.id: (context) =>  HomePageScreen(),
       },
       initialRoute: CustomOnboarding.id,
       debugShowCheckedModeBanner: false,

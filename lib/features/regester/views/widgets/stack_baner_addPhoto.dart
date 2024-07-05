@@ -16,9 +16,8 @@ class CustomStackBannerAddPhoto extends StatefulWidget {
 
 class _CustomStackBannerAddPhotoState extends State<CustomStackBannerAddPhoto> {
   XFile ? myPhoto ;
-
+  final ImagePicker picker = ImagePicker();
   Future<XFile?>   pickImage( ) async{
-    final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     return image;
   }
@@ -85,15 +84,19 @@ class _CustomStackBannerAddPhotoState extends State<CustomStackBannerAddPhoto> {
                                       child: Image.file(File(myPhoto!.path),
                                         fit: BoxFit.fill,
                                       ),
-
-                                      ),),),),
+                                      ),
+                        ),
+                      ),
+                    ),
                   ]
               ),
 
 
             ]
         ),
+
         SizedBox(height: 5,),
+
         TextButton(
          onPressed: () {
            pickImage().then((value){
@@ -103,7 +106,7 @@ class _CustomStackBannerAddPhotoState extends State<CustomStackBannerAddPhoto> {
          },
          child:  Text( myPhoto==null?
          AppText.addPhotoText:
-    "Update photo"
+              "Update photo"
     ,
     style: TextStyle(
     fontSize: 14,
