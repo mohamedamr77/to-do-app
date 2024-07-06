@@ -21,17 +21,17 @@ class TaskDetailsBody extends StatelessWidget {
               const SizedBox(height: 20,),
               CustomContainerShowData(
                 title: 'Task Name',
-                detailsTitle: '${task.taskName.text}',
+                detailsTitle: task.taskName.text,
               ),
-              SizedBox(height: 16,),
+              const SizedBox(height: 16,),
               CustomContainerShowData(title: "Description", detailsTitle: task.taskDescriptionController.text),
-              SizedBox(height: 16,),
+              const SizedBox(height: 16,),
               Card(
             color: Colors.white,
             child: ListTile(
               leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
-              title:  Text("Start Date",
-                style: const TextStyle(
+              title:  const Text("Start Date",
+                style: TextStyle(
                   color: Color(0xff423F3F),
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -49,13 +49,13 @@ class TaskDetailsBody extends StatelessWidget {
               trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
             ),
           ),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               Card(
                 color: Colors.white,
                 child: ListTile(
                   leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
-                  title:  Text("End Date",
-                    style: const TextStyle(
+                  title:  const Text("End Date",
+                    style: TextStyle(
                       color: Color(0xff423F3F),
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -73,13 +73,13 @@ class TaskDetailsBody extends StatelessWidget {
                   trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
                 ),
               ),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               Card(
                 color: Colors.white,
                 child: ListTile(
                   leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
-                  title:  Text("Add Time",
-                    style: const TextStyle(
+                  title:  const Text("Add Time",
+                    style: TextStyle(
                       color: Color(0xff423F3F),
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -97,16 +97,16 @@ class TaskDetailsBody extends StatelessWidget {
                   trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
                 ),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               CustomButton(
-                backGroundColor: Color(0XFF90B6E2),
+                backGroundColor: const Color(0XFF90B6E2),
                 nameButton: 'Archive',
                 onTap: () {  },
                 image: "assets/images/svg/archievetaskIcon.svg",
               ),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               CustomButton(
-                backGroundColor: Color(0XFFBD5461),
+                backGroundColor: const Color(0XFFBD5461),
                 nameButton: 'Delete',
                 onTap: () {  },
                 image: "assets/images/svg/dele_dismissible.svg",

@@ -17,16 +17,16 @@ class CustomContainerShowData extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xff423F3F),
               fontSize: 14,
               fontWeight: FontWeight.w400,
               fontFamily: "LexendDecaRegularStyle",
             ),
           ),
-          SizedBox(height: 7,),
+          const SizedBox(height: 7,),
           Text(detailsTitle,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
               fontFamily: "LexendDecaRegularStyle",

@@ -12,7 +12,7 @@ import 'cutsom_field.dart';
 
 
 class AddTaskBody extends StatefulWidget {
-  AddTaskBody({super.key, required this.name,required this.photo});
+  const AddTaskBody({super.key, required this.name,required this.photo});
   final String name;
   final File photo;
   @override
