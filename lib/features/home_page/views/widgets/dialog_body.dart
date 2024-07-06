@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
+import 'package:todo/features/done_tasks/views/screen.dart';
 
 import '../../../archived_tasks/views/screen.dart';
 
@@ -77,6 +78,9 @@ class DialogBody extends StatelessWidget {
                Card(
                  color: const Color(0xffE8EFF2),
                  child: ListTile(
+                   onTap: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => const DoneTaskScreen(),));
+                   },
                    leading: SvgPicture.asset("assets/images/svg/doneTaskIcon.svg"),
                    title: const Text("Done Task",
                      style: TextStyle(

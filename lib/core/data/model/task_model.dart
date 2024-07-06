@@ -7,6 +7,7 @@ class TaskModel{
   DateTime endDateSelectedDate;
   TimeOfDay timeOfTask;
   bool archivedTask;
+  bool doneTask;
   TaskModel({
     required this.taskName,
     required this.taskDescriptionController,
@@ -14,6 +15,8 @@ class TaskModel{
     required this.endDateSelectedDate,
     required this.timeOfTask,
     this.archivedTask=false,
+    this.doneTask=false,
+
 }
 );
 }

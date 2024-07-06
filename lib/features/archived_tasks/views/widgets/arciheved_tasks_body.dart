@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/features/archived_tasks/views/widgets/card_list.dart';
-
-import '../../../../core/colorCore.dart';
 import '../../../../core/data/model/task_list.dart';
 import '../../../../core/data/model/task_model.dart';
 
