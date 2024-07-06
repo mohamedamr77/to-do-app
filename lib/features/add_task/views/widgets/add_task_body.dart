@@ -79,10 +79,9 @@ class AddTaskBody extends StatelessWidget {
                               endDateSelectedDate: endDateSelectedDate,
                               timeOfTask: selectedTime,
                           ));
-                      Navigator.pop(context,true);
+                       Navigator.pop(context);
                        print(tasksList.length);
                    },
-
                )
              ],
           ),
@@ -91,4 +90,3 @@ class AddTaskBody extends StatelessWidget {
     );
   }
 }
-
