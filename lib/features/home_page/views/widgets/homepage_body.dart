@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/core/imageCore.dart';
 
 class HomePageBody extends StatelessWidget {
@@ -140,7 +141,6 @@ class HomePageBody extends StatelessWidget {
                         },
                     );
                   }
-
                 },
                 background: Card(
                   color:Color(0xffBD5461) ,
@@ -156,7 +156,7 @@ class HomePageBody extends StatelessWidget {
                   color: ColorApp.whiteColor,
                   child: ListTile(
                       leading: SvgPicture.asset(ImageApp.leadingItemDismissibleImage),
-                      title: const Text("Studying Flutter",
+                      title:  Text('${tasksList[index].taskNameController.text}',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -165,15 +165,14 @@ class HomePageBody extends StatelessWidget {
                         ),
 
                       ),
-                      subtitle: const Text(
-                        "02:00 pm",
+                      subtitle:  Text(
+                        '${tasksList[index].timeOfTask.hour}',
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                           fontFamily: 'LexendDecaRegularStyle',
                           color: ColorApp.subtitleListTileHomeScreenColor,
                         ),
-
                       ),
                       trailing: GestureDetector(
                         child: Container(
@@ -199,7 +198,7 @@ class HomePageBody extends StatelessWidget {
                 ),
               );
             },
-          itemCount:  4,
+          itemCount:  tasksList.length,
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(
                 height: 10,

@@ -13,6 +13,7 @@ class HomePageScreen extends StatelessWidget {
   final String name;
   final File photo;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,26 +28,26 @@ class HomePageScreen extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: (context) => AddTaskScreen(),));
         },
         child: Icon(Icons.add,
-        size: 35,
+          size: 35,
         ),
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-             Color(0xffF9FEFB),
-             Color(0xffFAFAFA),
+              Color(0xffF9FEFB),
+              Color(0xffFAFAFA),
             ],
           ),
         ),
         child: HomePageBody(name: name, pictureUser: photo),
       ),
       drawer: Drawer(
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(60),
-            ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(60),
           ),
+        ),
         child: DialogBody(name: name, photo: photo,),
       ),
     );
