@@ -1,8 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/textCore.dart';
@@ -44,7 +42,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                       alignment: Alignment.bottomCenter,
                       children: [
 
-                        Image(image: AssetImage(ImageApp.regesterImage)),
+                        const Image(image: AssetImage(ImageApp.regesterImage)),
 
                         Stack(
                             alignment: Alignment.center,
@@ -89,7 +87,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                                       ).createShader(bounds);
                                     },
 
-                                    child: myPhoto==null? Icon(
+                                    child: myPhoto==null? const Icon(
                                       Icons.add_a_photo,
                                       color:  ColorApp.whiteColor,
                                       size: 40,
@@ -109,7 +107,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                       ]
                   ),
 
-                  SizedBox(height: 5,),
+                  const SizedBox(height: 5,),
 
                   TextButton(
                     onPressed: () {
@@ -122,7 +120,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                     AppText.addPhotoText:
                     "Update photo"
                       ,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                         color: ColorApp.slateGrayColor,

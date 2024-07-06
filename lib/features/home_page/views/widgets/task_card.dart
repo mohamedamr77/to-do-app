@@ -26,7 +26,7 @@ class TaskCard extends StatelessWidget {
         ),
         subtitle: Text(
           _formatTaskTime(task.timeOfTask),
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,
             fontFamily: 'LexendDecaRegularStyle',

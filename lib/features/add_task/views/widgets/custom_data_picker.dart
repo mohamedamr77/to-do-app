@@ -36,7 +36,7 @@ class _CustomDataPickerState extends State<CustomDataPicker> {
           },
         leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
         title:  Text(widget.title,
-          style: TextStyle(
+          style: const TextStyle(
             color: Color(0xff423F3F),
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -44,7 +44,7 @@ class _CustomDataPickerState extends State<CustomDataPicker> {
           ),
         ),
         subtitle:  Text(widget.subTitle,
-          style: TextStyle(
+          style: const TextStyle(
             color: Color(0xffB6B4BD),
             fontSize: 12,
             fontWeight: FontWeight.w400,

@@ -35,9 +35,9 @@ class DismissibleTask extends StatelessWidget {
       return await showDialog<bool>(
         context: context,
         builder: (context) {
-          return AlertDialog(
-            title: const Text("Delete"),
-            content: const Text("Are you sure you want to delete this item?"),
+          return const AlertDialog(
+            title: Text("Delete"),
+            content: Text("Are you sure you want to delete this item?"),
             actions: [
               DialogButton(text: "Cancel", result: false, color: ColorApp.appbarHomeScreenColor),
               DialogButton(text: "Delete", result: true, color: Colors.red),

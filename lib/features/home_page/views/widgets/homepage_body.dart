@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:todo/core/colorCore.dart';
 import 'app_bar.dart';
 import 'task_list.dart';
 
@@ -14,7 +13,7 @@ class HomePageBody extends StatelessWidget {
     return Column(
       children: [
         AppBarSection(name: name, pictureUser: pictureUser),
-        Expanded(child: TaskList()),
+        const Expanded(child: TaskList()),
       ],
     );
   }

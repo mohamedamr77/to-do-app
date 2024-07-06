@@ -30,7 +30,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
           print(widget.selectedTime);
         },
         leading: SvgPicture.asset("assets/images/svg/timeicon.svg"),
-        title: Text("Add Time",
+        title: const Text("Add Time",
           style: TextStyle(
             color: Color(0xff423F3F),
             fontSize: 14,
@@ -38,7 +38,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
             fontFamily: "LexendDecaRegularStyle",
           ),
         ),
-        subtitle: Text("Set a Time For The Task",
+        subtitle: const Text("Set a Time For The Task",
           style: TextStyle(
             color: Color(0xffB6B4BD), fontSize: 12, fontWeight: FontWeight.w400, fontFamily: "LexendDecaRegularStyle",
           ),

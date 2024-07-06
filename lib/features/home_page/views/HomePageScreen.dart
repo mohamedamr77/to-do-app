@@ -7,7 +7,7 @@ import 'package:todo/features/home_page/views/widgets/homepage_body.dart';
 import '../../add_task/views/screen.dart';
 
 class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({Key? key, required this.name, required this.photo}) : super(key: key);
+  const HomePageScreen({super.key, required this.name, required this.photo});
 
   final String name;
   final File photo;
@@ -31,7 +31,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
           // Navigate to AddTaskScreen and wait for result
           final result = await Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddTaskScreen()),
+            MaterialPageRoute(builder: (context) => const AddTaskScreen()),
           );
 
           // Check if a task was added
@@ -43,13 +43,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
             });
           }
         },
-        child: Icon(
+        child: const Icon(
           Icons.add,
           size: 35,
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Color(0xffF9FEFB),

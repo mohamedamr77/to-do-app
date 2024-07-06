@@ -10,7 +10,7 @@ class CustomTextBold extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width*0.4,
       height: MediaQuery.of(context).size.height*0.09,
-      child: Text(AppText.onboardingTitleText,
+      child: const Text(AppText.onboardingTitleText,
         textAlign: TextAlign.center,
         style: TextStyle(
           fontWeight: FontWeight.w600,

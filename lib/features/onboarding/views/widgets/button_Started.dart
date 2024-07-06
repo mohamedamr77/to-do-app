@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/colorCore.dart';
 
-import '../../../regester/views/regester_screen.dart';
 
 class CustomButtonStarted extends StatelessWidget {
    CustomButtonStarted({super.key,required this.text,required this.trailing,required this.onTap});

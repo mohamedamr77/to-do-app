@@ -21,7 +21,7 @@ class CustomAppbar extends StatelessWidget {
         Expanded(
           child: Text(title,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
                 fontWeight: FontWeight.w600,
                 fontFamily: "LexendDeca",
                 fontSize: 19,

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomButton extends StatelessWidget {
-  CustomButton({
-    Key? key,
+  const CustomButton({
+    super.key,
     required this.backGroundColor,
     required this.nameButton,
     required this.onTap,
     this.image,
-  }) : super(key: key);
+  });
 
   final void Function()? onTap;
   final Color backGroundColor;
@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         width: double.infinity,
         decoration: BoxDecoration(
           color: backGroundColor,
@@ -32,7 +32,7 @@ class CustomButton extends StatelessWidget {
             Text(
               nameButton,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -40,7 +40,7 @@ class CustomButton extends StatelessWidget {
               ),
             ),
             if (image != null) ...[
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               SvgPicture.asset(image!)
             ],
           ],

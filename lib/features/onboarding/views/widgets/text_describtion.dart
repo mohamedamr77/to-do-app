@@ -13,7 +13,7 @@ class CustomTextDescription extends StatelessWidget {
       height: MediaQuery.of(context).size.height*0.1,
       child: Text(AppText.onboardingDescriptionText.trim(),
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           color: ColorApp.greyColor,
           fontWeight: FontWeight.w400,
           fontSize: 14,

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
 import 'features/onboarding/views/onboarding_screen.dart';

@@ -15,7 +15,7 @@ class DialogBody extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(30),
+            padding: const EdgeInsets.all(30),
             width: double.infinity,
             height: 160,
             color: ColorApp.appbarHomeScreenColor,
@@ -38,9 +38,9 @@ class DialogBody extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
                     Text(name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: ColorApp.whiteColor,
                       fontFamily: "LexendDecaRegularStyle",
                       fontSize: 18,
@@ -56,10 +56,10 @@ class DialogBody extends StatelessWidget {
            child: ListView(
              children: [
                Card(
-                 color: Color(0xffE8EFF2),
+                 color: const Color(0xffE8EFF2),
                  child: ListTile(
                    leading: SvgPicture.asset("assets/images/svg/archievetaskIcon.svg"),
-                   title: Text("Archived Tasks",
+                   title: const Text("Archived Tasks",
                      style: TextStyle(
                        color: Color(0xff739CCB),
                        fontFamily: "LexendDecaRegularStyle",
@@ -69,12 +69,12 @@ class DialogBody extends StatelessWidget {
                    ),
                  ),
                ),
-               SizedBox(height: 10,),
+               const SizedBox(height: 10,),
                Card(
-                 color: Color(0xffE8EFF2),
+                 color: const Color(0xffE8EFF2),
                  child: ListTile(
                    leading: SvgPicture.asset("assets/images/svg/doneTaskIcon.svg"),
-                   title: Text("Done Task",
+                   title: const Text("Done Task",
                      style: TextStyle(
                        color: Color(0xff739CCB),
                        fontFamily: "LexendDecaRegularStyle",

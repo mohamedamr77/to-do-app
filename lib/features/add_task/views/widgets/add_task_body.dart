@@ -28,9 +28,9 @@ class AddTaskBody extends StatelessWidget {
             key: _formKey,
             child: Column(
               children: [
-                SizedBox(height: 10,),
-                CustomAppbar(title: "Add Task"),
-                SizedBox(height: 35,),
+                const SizedBox(height: 10,),
+                const CustomAppbar(title: "Add Task"),
+                const SizedBox(height: 35,),
 
                 CustomField(
                   title: 'Task Name',
@@ -46,7 +46,7 @@ class AddTaskBody extends StatelessWidget {
                   },
                 ),
 
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
 
                 CustomField(
                   title: 'Description',
@@ -62,7 +62,7 @@ class AddTaskBody extends StatelessWidget {
                   },
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
                 CustomDataPicker(
                   title: 'Start Date',
@@ -78,10 +78,10 @@ class AddTaskBody extends StatelessWidget {
 
                 CustomTimePicker(selectedTime: selectedTime,),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
                 CustomButton(
-                  backGroundColor: Color(0xff90B6E2),
+                  backGroundColor: const Color(0xff90B6E2),
                   nameButton: "Add Task",
                   onTap: () {
                     if (_formKey.currentState!.validate()) {

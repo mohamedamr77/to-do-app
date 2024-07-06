@@ -3,6 +3,8 @@ import 'package:todo/core/data/model/task_list.dart';
 import 'dismissible_task.dart';
 
 class TaskList extends StatelessWidget {
+  const TaskList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
