@@ -101,7 +101,9 @@ class TaskDetailsBody extends StatelessWidget {
               CustomButton(
                 backGroundColor: const Color(0XFF90B6E2),
                 nameButton: 'Archive',
-                onTap: () {  },
+                onTap: () {
+                  task.archivedTask=true;
+                },
                 image: "assets/images/svg/archievetaskIcon.svg",
               ),
               const SizedBox(height: 8,),
