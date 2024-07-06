@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TaskModel{
-  TextEditingController taskNameController;
+  TextEditingController tasknameControllerRegester;
   TextEditingController taskDescriptionController;
   DateTime startDateSelectedDate;
   DateTime endDateSelectedDate;
   TimeOfDay timeOfTask;
   TaskModel({
-    required this.taskNameController,
+    required this.tasknameControllerRegester,
     required this.taskDescriptionController,
     required this.startDateSelectedDate,
     required this.endDateSelectedDate,

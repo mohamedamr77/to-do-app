@@ -11,7 +11,7 @@ import 'cutsom_field.dart';
 class AddTaskBody extends StatelessWidget {
    AddTaskBody({super.key});
 
-  TextEditingController taskNameController = TextEditingController();
+  TextEditingController tasknameControllerRegester = TextEditingController();
   TextEditingController taskDescriptionController = TextEditingController();
 
   DateTime startDateSelectedDate = DateTime.now();
@@ -38,7 +38,7 @@ class AddTaskBody extends StatelessWidget {
                  hintText: 'Enter The Task Name',
                  minLine: 1,
                  maxLine: 1,
-                 controller: taskNameController,
+                 controller: tasknameControllerRegester,
                ),
 
                SizedBox(height: 10,),
@@ -74,13 +74,13 @@ class AddTaskBody extends StatelessWidget {
                  nameButton: "Add Task",
                  onTap: () {
                       tasksList.add(TaskModel(
-                              taskNameController: taskNameController,
+                              tasknameControllerRegester: tasknameControllerRegester,
                               taskDescriptionController: taskDescriptionController,
                               startDateSelectedDate: startDateSelectedDate,
                               endDateSelectedDate: endDateSelectedDate,
                               timeOfTask: selectedTime,
                           ));
-                       Navigator.pop(context);
+                       Navigator.pop(context,true);
                        print(tasksList.length);
                    },
                )

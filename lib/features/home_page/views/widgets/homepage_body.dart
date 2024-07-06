@@ -156,7 +156,7 @@ class HomePageBody extends StatelessWidget {
                   color: ColorApp.whiteColor,
                   child: ListTile(
                       leading: SvgPicture.asset(ImageApp.leadingItemDismissibleImage),
-                      title:  Text('${tasksList[index].taskNameController.text}',
+                      title:  Text('${tasksList[index].tasknameControllerRegester.text}',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,

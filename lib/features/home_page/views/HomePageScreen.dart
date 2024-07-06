@@ -1,31 +1,50 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:todo/core/colorCore.dart';
 import 'package:todo/features/home_page/views/widgets/dialog_body.dart';
 import 'package:todo/features/home_page/views/widgets/homepage_body.dart';
-import '../../../core/colorCore.dart';
+
 import '../../add_task/views/screen.dart';
 
-class HomePageScreen extends StatelessWidget {
-   HomePageScreen({super.key, required this.name,required  this.photo});
-  static const id = "homePage Screen";
-  late String name;
-   late File photo;
+class HomePageScreen extends StatefulWidget {
+  const HomePageScreen({Key? key, required this.name, required this.photo}) : super(key: key);
 
+  final String name;
+  final File photo;
 
+  @override
+  _HomePageScreenState createState() => _HomePageScreenState();
+}
+
+class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation:     FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.white,
         backgroundColor: ColorApp.appbarHomeScreenColor,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30)
+          borderRadius: BorderRadius.circular(30),
         ),
-        onPressed: ( ){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => AddTaskScreen(),));
+        onPressed: () async {
+          // Navigate to AddTaskScreen and wait for result
+          final result = await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddTaskScreen()),
+          );
+
+          // Check if a task was added
+          if (result == true) {
+            // Update UI or fetch data if needed
+            setState(() {
+              // Example: Refresh data
+              // fetchData();
+            });
+          }
         },
-        child: Icon(Icons.add,
+        child: Icon(
+          Icons.add,
           size: 35,
         ),
       ),
@@ -38,7 +57,7 @@ class HomePageScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: HomePageBody(name: name, pictureUser: photo),
+        child: HomePageBody(name: widget.name, pictureUser: widget.photo),
       ),
       drawer: Drawer(
         shape: const RoundedRectangleBorder(
@@ -46,7 +65,7 @@ class HomePageScreen extends StatelessWidget {
             topRight: Radius.circular(60),
           ),
         ),
-        child: DialogBody(name: name ,pictureUser: photo,),
+        child: DialogBody(name: widget.name, pictureUser: widget.photo),
       ),
     );
   }
