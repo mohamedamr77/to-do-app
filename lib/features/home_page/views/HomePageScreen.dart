@@ -6,10 +6,10 @@ import '../../../core/colorCore.dart';
 import '../../add_task/views/screen.dart';
 
 class HomePageScreen extends StatelessWidget {
-  const HomePageScreen({super.key, required this.name, required this.photo});
+   HomePageScreen({super.key, required this.name,required  this.photo});
   static const id = "homePage Screen";
-  final String name;
-  final File photo;
+  late String name;
+   late File photo;
 
 
   @override
@@ -46,7 +46,7 @@ class HomePageScreen extends StatelessWidget {
             topRight: Radius.circular(60),
           ),
         ),
-        child: DialogBody(name: name, photo: photo,),
+        child: DialogBody(name: name ,pictureUser: photo,),
       ),
     );
   }

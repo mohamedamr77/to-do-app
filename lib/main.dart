@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           CustomOnboarding.id: (context) => const CustomOnboarding(),
           // HomePageScreen.id: (context) =>  HomePageScreen(),
         },
-        initialRoute: CustomOnboarding.id,
+        initialRoute:   CustomOnboarding.id,
         debugShowCheckedModeBanner: false,
       ),
     );

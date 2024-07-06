@@ -5,9 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
 
 class DialogBody extends StatelessWidget {
-  const DialogBody({super.key, required this.name, required this.photo});
+  const DialogBody({super.key, required this.name, required this.pictureUser});
   final String name;
-  final File photo;
+  final File pictureUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +34,7 @@ class DialogBody extends StatelessWidget {
                         CircleAvatar(
                           radius: 26,
                           backgroundImage: FileImage(
-                            File(photo.path),),
+                            File(pictureUser.path),),
                         ),
                       ],
                     ),

@@ -7,8 +7,8 @@ import 'package:todo/core/imageCore.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key, required this.name, required this.pictureUser});
-     final String name;
-     final File pictureUser;
+    final String name;
+    final File pictureUser;
   @override
   Widget build(BuildContext context) {
     return Column(
