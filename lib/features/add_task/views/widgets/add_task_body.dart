@@ -1,21 +1,35 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
+import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import 'custom_data_picker.dart';
 import 'custom_time_picker.dart';
 import 'cutsom_field.dart';
 
 
-class AddTaskBody extends StatelessWidget {
-  AddTaskBody({super.key});
+class AddTaskBody extends StatefulWidget {
+  AddTaskBody({super.key, required this.name,required this.photo});
+  final String name;
+  final File photo;
+  @override
+  State<AddTaskBody> createState() => _AddTaskBodyState();
+}
 
+class _AddTaskBodyState extends State<AddTaskBody> {
   final TextEditingController tasknameControllerRegester = TextEditingController();
+
   final TextEditingController taskDescriptionController = TextEditingController();
+
   final DateTime startDateSelectedDate = DateTime.now();
+
   final DateTime endDateSelectedDate = DateTime.now();
+
   final TimeOfDay selectedTime = TimeOfDay.now();
+
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -85,14 +99,20 @@ class AddTaskBody extends StatelessWidget {
                   nameButton: "Add Task",
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
-                      tasksList.add(TaskModel(
+                      tasksList.add(
+                          TaskModel(
                         tasknameControllerRegester: tasknameControllerRegester,
                         taskDescriptionController: taskDescriptionController,
                         startDateSelectedDate: startDateSelectedDate,
                         endDateSelectedDate: endDateSelectedDate,
                         timeOfTask: selectedTime,
                       ));
-                      Navigator.pop(context, true);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                          HomePageScreen(name: widget.name, photo: widget.photo),
+                      )
+                      ).then((value) {
+                        setState(() {});
+                      },);
                       print(tasksList.length);
                     }
                   },

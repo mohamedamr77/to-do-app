@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/data/model/task_list.dart';
+import 'package:todo/features/task_details/views/screen.dart';
 
 class TaskCard extends StatelessWidget {
   const TaskCard({super.key, required this.index});
@@ -14,6 +15,7 @@ class TaskCard extends StatelessWidget {
     return Card(
       color: ColorApp.whiteColor,
       child: ListTile(
+        onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => TaskDetailsScreen(),)),
         leading: SvgPicture.asset(ImageApp.leadingItemDismissibleImage),
         title: Text(
           task.tasknameControllerRegester.text,
