@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
+import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import 'custom_data_picker.dart';
+import 'custom_time_picker.dart';
 import 'cutsom_field.dart';
 
 class AddTaskBody extends StatelessWidget {
@@ -14,6 +16,7 @@ class AddTaskBody extends StatelessWidget {
   DateTime startDateSelectedDate = DateTime.now();
   DateTime endDateSelectedDate = DateTime.now();
 
+   TimeOfDay selectedTime=TimeOfDay.now();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -53,32 +56,14 @@ class AddTaskBody extends StatelessWidget {
                  selectedDate: endDateSelectedDate,
                ),
 
-               Card(
-                 color: Colors.white,
-                 child: ListTile(
-                   onTap: (){},
-                   leading: SvgPicture.asset("assets/images/svg/timeicon.svg"),
-                   title: Text("Add Time",
-                     style: TextStyle(
-                       color: Color(0xff423F3F),
-                       fontSize: 14,
-                       fontWeight: FontWeight.w400,
-                       fontFamily: "LexendDecaRegularStyle",
-                     ),
-                   ),
-                   subtitle: Text("Set a Time For The Task",
-                     style: TextStyle(
-                       color: Color(0xffB6B4BD), fontSize: 12, fontWeight: FontWeight.w400, fontFamily: "LexendDecaRegularStyle",
-                     ),
-                   ),
-                   trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
-                 ),
-               ),
+               CustomTimePicker(selectedTime: selectedTime,),
+
                SizedBox(height: 20,),
                CustomButton(
                  backGroundColor: Color(0xff90B6E2),
                  nameButton: "Add Task",
-                 onTap: () {  },
+                 onTap: () {
+                 },
                )
              ],
           ),
