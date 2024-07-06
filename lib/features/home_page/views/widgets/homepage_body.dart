@@ -1,9 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/core/imageCore.dart';
+
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key, required this.name, required this.pictureUser});
@@ -152,6 +154,14 @@ class HomePageBody extends StatelessWidget {
                   ),
                 ),
                 key: GlobalKey(),
+                /*
+                TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'LexendDecaRegularStyle',
+                          color: ColorApp.subtitleListTileHomeScreenColor,
+                        ),
+                 */
                 child: Card(
                   color: ColorApp.whiteColor,
                   child: ListTile(
@@ -166,7 +176,10 @@ class HomePageBody extends StatelessWidget {
 
                       ),
                       subtitle:  Text(
-                        '${tasksList[index].timeOfTask.hour}',
+                        tasksList[index].timeOfTask.hour>=1&&  tasksList[index].timeOfTask.hour<=12?
+                        '${tasksList[index].timeOfTask.hour} : ${tasksList[index].timeOfTask.minute} AM':
+                        '${tasksList[index].timeOfTask.hour-12} : ${tasksList[index].timeOfTask.minute} PM'
+                        ,
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
@@ -192,8 +205,6 @@ class HomePageBody extends StatelessWidget {
                           ),
                         ),
                       )
-
-
                   ),
                 ),
               );

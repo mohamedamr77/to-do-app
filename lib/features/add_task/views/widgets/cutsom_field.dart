@@ -2,12 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:todo/core/colorCore.dart';
 
 class CustomField extends StatelessWidget {
-  const CustomField({super.key, required this.title, required this.hintText, required this.minLine, required this.maxLine, required this.controller});
-    final String title;
-    final String hintText;
-    final int minLine;
-    final int maxLine;
-    final TextEditingController controller;
+  const CustomField({
+    super.key,
+    required this.title,
+    required this.hintText,
+    required this.minLine,
+    required this.maxLine,
+    required this.controller,
+    required this.validator,
+  });
+
+  final String title;
+  final String hintText;
+  final int minLine;
+  final int maxLine;
+  final TextEditingController controller;
+  final String? Function(String?) validator;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,12 +32,12 @@ class CustomField extends StatelessWidget {
         children: [
           Text(
             title,
-          style: TextStyle(
-            color: Color(0xff423F3F),
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            fontFamily: "LexendDecaRegularStyle",
-          ),
+            style: TextStyle(
+              color: Color(0xff423F3F),
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              fontFamily: "LexendDecaRegularStyle",
+            ),
           ),
           TextFormField(
             controller: controller,
@@ -43,7 +54,8 @@ class CustomField extends StatelessWidget {
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
             ),
-          )
+            validator: validator,
+          ),
         ],
       ),
     );

@@ -8,83 +8,98 @@ import 'custom_data_picker.dart';
 import 'custom_time_picker.dart';
 import 'cutsom_field.dart';
 
+
 class AddTaskBody extends StatelessWidget {
-   AddTaskBody({super.key});
+  AddTaskBody({super.key});
 
-  TextEditingController tasknameControllerRegester = TextEditingController();
-  TextEditingController taskDescriptionController = TextEditingController();
+  final TextEditingController tasknameControllerRegester = TextEditingController();
+  final TextEditingController taskDescriptionController = TextEditingController();
+  final DateTime startDateSelectedDate = DateTime.now();
+  final DateTime endDateSelectedDate = DateTime.now();
+  final TimeOfDay selectedTime = TimeOfDay.now();
+  final _formKey = GlobalKey<FormState>();
 
-  DateTime startDateSelectedDate = DateTime.now();
-  DateTime endDateSelectedDate = DateTime.now();
-
-   TimeOfDay selectedTime=TimeOfDay.now();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: SafeArea(
-          child: Column(
-             children: [
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                SizedBox(height: 10,),
+                CustomAppbar(title: "Add Task"),
+                SizedBox(height: 35,),
 
-               SizedBox(height: 10,),
+                CustomField(
+                  title: 'Task Name',
+                  hintText: 'Enter The Task Name',
+                  minLine: 1,
+                  maxLine: 1,
+                  controller: tasknameControllerRegester,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a task name';
+                    }
+                    return null;
+                  },
+                ),
 
-               CustomAppbar(title: "CustomAppbar"),
+                SizedBox(height: 10,),
 
-               SizedBox(height: 35,),
+                CustomField(
+                  title: 'Description',
+                  hintText: 'Enter The Task Description',
+                  minLine: 4,
+                  maxLine: 4,
+                  controller: taskDescriptionController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a task description';
+                    }
+                    return null;
+                  },
+                ),
 
-               CustomField(
-                 title: 'Task Name',
-                 hintText: 'Enter The Task Name',
-                 minLine: 1,
-                 maxLine: 1,
-                 controller: tasknameControllerRegester,
-               ),
+                SizedBox(height: 20,),
 
-               SizedBox(height: 10,),
+                CustomDataPicker(
+                  title: 'Start Date',
+                  subTitle: 'Enter The Start Date',
+                  selectedDate: startDateSelectedDate,
+                ),
 
-               CustomField(
-                 title: 'Description',
-                 hintText: 'Enter The Task Desciption',
-                 minLine: 4,
-                 maxLine: 4,
-                 controller: taskDescriptionController,
-               ),
+                CustomDataPicker(
+                  title: 'End Date',
+                  subTitle: 'Enter The End Date',
+                  selectedDate: endDateSelectedDate,
+                ),
 
-               SizedBox(height: 20,),
+                CustomTimePicker(selectedTime: selectedTime,),
 
-               CustomDataPicker(
-                 title: 'Start Date',
-                 subTitle: 'Enter The Start Date',
-                 selectedDate: startDateSelectedDate,
-               ),
+                SizedBox(height: 20,),
 
-               CustomDataPicker(
-                 title: 'End Date',
-                 subTitle: 'Enter The End Date',
-                 selectedDate: endDateSelectedDate,
-               ),
-
-               CustomTimePicker(selectedTime: selectedTime,),
-
-               SizedBox(height: 20,),
-
-               CustomButton(
-                 backGroundColor: Color(0xff90B6E2),
-                 nameButton: "Add Task",
-                 onTap: () {
+                CustomButton(
+                  backGroundColor: Color(0xff90B6E2),
+                  nameButton: "Add Task",
+                  onTap: () {
+                    if (_formKey.currentState!.validate()) {
                       tasksList.add(TaskModel(
-                              tasknameControllerRegester: tasknameControllerRegester,
-                              taskDescriptionController: taskDescriptionController,
-                              startDateSelectedDate: startDateSelectedDate,
-                              endDateSelectedDate: endDateSelectedDate,
-                              timeOfTask: selectedTime,
-                          ));
-                       Navigator.pop(context,true);
-                       print(tasksList.length);
-                   },
-               )
-             ],
+                        tasknameControllerRegester: tasknameControllerRegester,
+                        taskDescriptionController: taskDescriptionController,
+                        startDateSelectedDate: startDateSelectedDate,
+                        endDateSelectedDate: endDateSelectedDate,
+                        timeOfTask: selectedTime,
+                      ));
+                      Navigator.pop(context, true);
+                      print(tasksList.length);
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
