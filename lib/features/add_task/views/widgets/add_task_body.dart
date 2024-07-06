@@ -20,7 +20,7 @@ class AddTaskBody extends StatefulWidget {
 }
 
 class _AddTaskBodyState extends State<AddTaskBody> {
-  final TextEditingController tasknameControllerRegester = TextEditingController();
+  final TextEditingController taskName = TextEditingController();
 
   final TextEditingController taskDescriptionController = TextEditingController();
 
@@ -51,7 +51,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                   hintText: 'Enter The Task Name',
                   minLine: 1,
                   maxLine: 1,
-                  controller: tasknameControllerRegester,
+                  controller: taskName,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter a task name';
@@ -101,7 +101,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                     if (_formKey.currentState!.validate()) {
                       tasksList.add(
                           TaskModel(
-                        tasknameControllerRegester: tasknameControllerRegester,
+                        taskName: taskName,
                         taskDescriptionController: taskDescriptionController,
                         startDateSelectedDate: startDateSelectedDate,
                         endDateSelectedDate: endDateSelectedDate,

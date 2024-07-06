@@ -15,10 +15,10 @@ class TaskCard extends StatelessWidget {
     return Card(
       color: ColorApp.whiteColor,
       child: ListTile(
-        onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => TaskDetailsScreen(),)),
+        onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => TaskDetailsScreen(task: task,),)),
         leading: SvgPicture.asset(ImageApp.leadingItemDismissibleImage),
         title: Text(
-          task.tasknameControllerRegester.text,
+          task.taskName.text,
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,

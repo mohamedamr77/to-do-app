@@ -10,9 +10,19 @@ class AddTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AddTaskBody(
-        name: name,
-        photo: photo,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xffF9FEFB),
+              Color(0xffFAFAFA),
+            ],
+          ),
+        ),
+        child: AddTaskBody(
+          name: name,
+          photo: photo,
+        ),
       ),
 
     );
