@@ -6,9 +6,9 @@ import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/features/task_details/views/screen.dart';
 
 class TaskCard extends StatelessWidget {
-  const TaskCard({super.key, required this.index});
+  const TaskCard({super.key, required this.index,required this.onTap});
   final int index;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     final task = tasksList[index];
@@ -49,6 +49,7 @@ class TaskCard extends StatelessWidget {
 
   Widget _buildDoneButton() {
     return GestureDetector(
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
         decoration: BoxDecoration(

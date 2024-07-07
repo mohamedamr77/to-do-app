@@ -1,20 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/data/model/task_list.dart';
 import 'dialog_buttons.dart';
 import 'task_card.dart';
 
-class DismissibleTask extends StatelessWidget {
+class DismissibleTask extends StatefulWidget {
   const DismissibleTask({super.key, required this.index});
   final int index;
 
+  @override
+  State<DismissibleTask> createState() => _DismissibleTaskState();
+}
+
+class _DismissibleTaskState extends State<DismissibleTask> {
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       key: UniqueKey(),
       confirmDismiss: (direction) => _confirmDismissTask(direction, context),
       background: _buildDismissBackground(),
-      child: TaskCard(index: index),
+      child: TaskCard(
+        index: widget.index,
+        onTap: () {
+          setState(()
+          {
+            tasksList[widget.index].doneTask=!tasksList[widget.index].doneTask;
+          }
+          );
+        },
+      ),
     );
   }
 

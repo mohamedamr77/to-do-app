@@ -16,7 +16,7 @@ class DoneTaskBody extends StatelessWidget {
         child: Column(
            children: [
              const CustomAppbar(title: "Done Tasks"),
-             SizedBox(height: 50,),
+             const SizedBox(height: 50,),
              Expanded(
                child: ListView.separated(
                    itemBuilder: (context, index) => CardDoneList(
