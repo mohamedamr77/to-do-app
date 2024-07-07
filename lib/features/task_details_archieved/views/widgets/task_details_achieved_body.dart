@@ -15,7 +15,7 @@ class TaskDetailsAchievedBody extends StatelessWidget {
     return SafeArea(
       child: Padding(
          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-        child: Column(
+        child: Column (
            children: [
              const CustomAppbar(title: "Task Details"),
              const SizedBox(height: 20),
