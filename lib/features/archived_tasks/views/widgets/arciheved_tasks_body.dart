@@ -29,11 +29,12 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
                    return CardList(
                      title: archiveList[index].taskName.text,
                      subtitle: archiveList[index].timeOfTask,
+                     taskModel: archiveList[index],
                      onTap: () {
                        tasksList[index].archivedTask=false;
                        setState(() {
                        });
-                     }, taskModel: archiveList[index],
+                     },
                    );
                    },
                  separatorBuilder: (BuildContext context, int index) {

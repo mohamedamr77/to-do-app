@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:todo/core/data/model/task_list.dart';
 import '../../../../core/colorCore.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../task_details_archieved/views/screen.dart';
 
 class CardList extends StatelessWidget {
-  const CardList({super.key, required this.title, required this.subtitle,required this.onTap, required this.taskModel});
+  const CardList({super.key, required this.title, required this.subtitle, required this.taskModel,required this.onTap});
    final String title;
    final TimeOfDay subtitle;
-   final void Function()? onTap;
    final TaskModel taskModel;
+   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -42,6 +41,7 @@ class CardList extends StatelessWidget {
       ),
     );
   }
+
   String _formatTaskTime(TimeOfDay time) {
     final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
     final minute = time.minute.toString().padLeft(2, '0');
