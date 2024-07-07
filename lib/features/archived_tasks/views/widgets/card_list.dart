@@ -3,35 +3,42 @@ import 'package:flutter_svg/svg.dart';
 import 'package:todo/core/data/model/task_list.dart';
 import '../../../../core/colorCore.dart';
 import '../../../../core/data/model/task_model.dart';
+import '../../../task_details_archieved/views/screen.dart';
 
 class CardList extends StatelessWidget {
-  const CardList({super.key, required this.title, required this.subtitle,required this.onTap});
+  const CardList({super.key, required this.title, required this.subtitle,required this.onTap, required this.taskModel});
    final String title;
    final TimeOfDay subtitle;
    final void Function()? onTap;
+   final TaskModel taskModel;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      child: ListTile(
-        leading: SvgPicture.asset("assets/images/svg/leadingItemDismissible.svg"),
-        title: Text(title,
-          style: TextStyle(
-            color: Color(0xff24252C),
-            fontWeight: FontWeight.w600,
-            fontSize: 14,
-            fontFamily: "LexendDecaRegularStyle",
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>  TaskDetailsAchievedScreen(taskModel: taskModel),));
+      },
+      child: Card(
+        color: Colors.white,
+        child: ListTile(
+          leading: SvgPicture.asset("assets/images/svg/leadingItemDismissible.svg"),
+          title: Text(title,
+            style: TextStyle(
+              color: Color(0xff24252C),
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+              fontFamily: "LexendDecaRegularStyle",
+            ),
           ),
-        ),
-        subtitle: Text(_formatTaskTime(subtitle),
-          style: TextStyle(
-            color: Color(0xff90B6E2),
-            fontWeight: FontWeight.w400,
-            fontSize: 12,
-            fontFamily: "LexendDecaRegularStyle",
+          subtitle: Text(_formatTaskTime(subtitle),
+            style: TextStyle(
+              color: Color(0xff90B6E2),
+              fontWeight: FontWeight.w400,
+              fontSize: 12,
+              fontFamily: "LexendDecaRegularStyle",
+            ),
           ),
+          trailing: _buildButton(),
         ),
-        trailing: _buildButton(),
       ),
     );
   }

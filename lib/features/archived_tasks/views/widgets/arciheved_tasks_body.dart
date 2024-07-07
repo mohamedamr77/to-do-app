@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/features/archived_tasks/views/widgets/card_list.dart';
+import 'package:todo/features/task_details_archieved/views/screen.dart';
 import '../../../../core/data/model/task_list.dart';
 import '../../../../core/data/model/task_model.dart';
 
@@ -30,8 +31,9 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
                      subtitle: archiveList[index].timeOfTask,
                      onTap: () {
                        tasksList[index].archivedTask=false;
-                       setState(() {});
-                     },
+                       setState(() {
+                       });
+                     }, taskModel: archiveList[index],
                    );
                    },
                  separatorBuilder: (BuildContext context, int index) {

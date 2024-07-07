@@ -6,7 +6,7 @@ import 'package:todo/core/shared_widget/custom_appbar.dart';
 import '../../../../core/colorCore.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../home_page/views/widgets/dialog_buttons.dart';
-import 'custom_container_show_data.dart';
+import '../../../../core/shared_widget/custom_container_show_data.dart';
 
 class TaskDetailsBody extends StatelessWidget {
   const TaskDetailsBody({super.key, required this.task});
