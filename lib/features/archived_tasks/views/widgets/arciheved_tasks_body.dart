@@ -32,8 +32,7 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
                      taskModel: archiveList[index],
                      onTap: () {
                        tasksList[index].archivedTask=false;
-                       setState(() {
-                       });
+                       setState(() {});
                      },
                    );
                    },

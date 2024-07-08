@@ -3,15 +3,21 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
+import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import '../../../../core/colorCore.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../home_page/views/widgets/dialog_buttons.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 
-class TaskDetailsBody extends StatelessWidget {
+class TaskDetailsBody extends StatefulWidget {
   const TaskDetailsBody({super.key, required this.task});
   final TaskModel task;
 
+  @override
+  State<TaskDetailsBody> createState() => _TaskDetailsBodyState();
+}
+
+class _TaskDetailsBodyState extends State<TaskDetailsBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -24,12 +30,12 @@ class TaskDetailsBody extends StatelessWidget {
               const SizedBox(height: 20),
               CustomContainerShowData(
                 title: 'Task Name',
-                detailsTitle: task.taskName.text,
+                detailsTitle: widget.task.taskName.text,
               ),
               const SizedBox(height: 16),
               CustomContainerShowData(
                   title: "Description",
-                  detailsTitle: task.taskDescriptionController.text),
+                  detailsTitle: widget.task.taskDescriptionController.text),
               const SizedBox(height: 16),
               Card(
                 color: Colors.white,
@@ -45,7 +51,7 @@ class TaskDetailsBody extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    DateFormat('dd MMM, y').format(task.startDateSelectedDate),
+                    DateFormat('dd MMM, y').format(widget.task.startDateSelectedDate),
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
@@ -71,7 +77,7 @@ class TaskDetailsBody extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    DateFormat('dd MMM, y').format(task.startDateSelectedDate),
+                    DateFormat('dd MMM, y').format(widget.task.startDateSelectedDate),
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
@@ -97,7 +103,7 @@ class TaskDetailsBody extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    _formatTaskTime(task.timeOfTask),
+                    _formatTaskTime(widget.task.timeOfTask),
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
@@ -113,7 +119,8 @@ class TaskDetailsBody extends StatelessWidget {
                 backGroundColor: const Color(0XFF90B6E2),
                 nameButton: 'Archive',
                 onTap: () {
-                  task.archivedTask = true;
+                  widget.task.archivedTask = true;
+                  Navigator.pop(context);
                 },
                 image: "assets/images/svg/archievetaskIcon.svg",
               ),
@@ -122,7 +129,7 @@ class TaskDetailsBody extends StatelessWidget {
                 backGroundColor: const Color(0XFFBD5461),
                 nameButton: 'Delete',
                 onTap: () {
-                  _showDeleteDialog(context, task);
+                  _showDeleteDialog(context, widget.task);
                 },
                 image: "assets/images/svg/dele_dismissible.svg",
               ),

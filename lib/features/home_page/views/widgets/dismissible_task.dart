@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/data/model/task_list.dart';
+import '../../../../core/data/model/task_model.dart';
 import 'dialog_buttons.dart';
 import 'task_card.dart';
 
 class DismissibleTask extends StatefulWidget {
-  const DismissibleTask({super.key, required this.index});
+  const DismissibleTask({super.key, required this.index, required this.title, required this.subtitle, required this.taskModel});
   final int index;
-
+  final String title;
+  final TimeOfDay subtitle;
+  final TaskModel taskModel;
   @override
   State<DismissibleTask> createState() => _DismissibleTaskState();
 }
@@ -16,19 +19,20 @@ class DismissibleTask extends StatefulWidget {
 class _DismissibleTaskState extends State<DismissibleTask> {
   @override
   Widget build(BuildContext context) {
+    List<TaskModel> notArchiveList =tasksList.where((notArchiveTask) =>notArchiveTask.archivedTask==false ).toList();
     return Dismissible(
       key: UniqueKey(),
       confirmDismiss: (direction) => _confirmDismissTask(direction, context),
       background: _buildDismissBackground(),
       child: TaskCard(
-        index: widget.index,
         onTap: () {
-          setState(()
-          {
+          setState(() {
             tasksList[widget.index].doneTask=!tasksList[widget.index].doneTask;
-          }
-          );
+          });
         },
+        title: widget.title,
+        subtitle: widget.subtitle,
+        taskModel: widget.taskModel,
       ),
     );
   }
@@ -61,6 +65,6 @@ class _DismissibleTaskState extends State<DismissibleTask> {
         },
       );
     }
-    return false;
+     return false;
   }
 }

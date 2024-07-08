@@ -11,7 +11,7 @@ class CardDoneList extends StatelessWidget {
      final TimeOfDay subtitle;
      final DateTime startDate;
      final DateTime endDate;
-   final TaskModel taskModel;
+     final TaskModel taskModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

@@ -4,21 +4,23 @@ import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/features/task_details/views/screen.dart';
+import '../../../../core/data/model/task_model.dart';
 
 class TaskCard extends StatelessWidget {
-  const TaskCard({super.key, required this.index,required this.onTap});
-  final int index;
+  const TaskCard({super.key,required this.onTap, required this.title, required this.subtitle, required this.taskModel});
+  final String title;
+  final TimeOfDay subtitle;
+  final TaskModel taskModel;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    final task = tasksList[index];
     return Card(
       color: ColorApp.whiteColor,
       child: ListTile(
-        onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => TaskDetailsScreen(task: task,),)),
+        onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => TaskDetailsScreen(task: taskModel,),)),
         leading: SvgPicture.asset(ImageApp.leadingItemDismissibleImage),
         title: Text(
-          task.taskName.text,
+          title,
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
@@ -27,7 +29,7 @@ class TaskCard extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          _formatTaskTime(task.timeOfTask),
+          _formatTaskTime(subtitle),
           style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,
@@ -54,12 +56,13 @@ class TaskCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: ColorApp.appbarHomeScreenColor,
+          color: taskModel.doneTask==true? ColorApp.appbarHomeScreenColor :ColorApp.whiteColor,
+           border:taskModel.doneTask==true?  null: Border.all(color:ColorApp.appbarHomeScreenColor ),
         ),
-        child: const Text(
+        child:  Text(
           "Done",
           style: TextStyle(
-            color: ColorApp.whiteColor,
+            color:taskModel.doneTask==true? ColorApp.whiteColor :ColorApp.appbarHomeScreenColor ,
             fontSize: 12,
             fontWeight: FontWeight.w700,
             fontFamily: "LexendDecaRegularStyle",
