@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/imageCore.dart';
-import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/features/task_details/views/screen.dart';
 import '../../../../core/data/model/task_model.dart';
 

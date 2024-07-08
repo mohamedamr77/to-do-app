@@ -131,7 +131,7 @@ class TaskDetailsAchievedBody extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          content:  Text('Are you sure you want to delete this task?',
+          content:  const Text('Are you sure you want to delete this task?',
             style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -148,12 +148,12 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 35,vertical: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 35,vertical: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
-                      color: Color(0xffBD5461),
+                      color: const Color(0xffBD5461),
                     ),
-                    child: Text("Yes",
+                    child: const Text("Yes",
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
@@ -163,18 +163,18 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 GestureDetector(
                   onTap: (){
                     Navigator.of(context).pop();
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 35,vertical: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 35,vertical: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
-                      color: Color(0xff90B6E2),
+                      color: const Color(0xff90B6E2),
                     ),
-                    child: Text("No",
+                    child: const Text("No",
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,

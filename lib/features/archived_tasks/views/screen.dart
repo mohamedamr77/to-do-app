@@ -16,7 +16,7 @@ class ArchivedTasksScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: ArcihevedTasksBody(),
+        child: const ArcihevedTasksBody(),
       ),
     );
   }

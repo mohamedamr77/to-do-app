@@ -16,7 +16,7 @@ class DoneTaskScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: DoneTaskBody(
+        child: const DoneTaskBody(
 
         ),
       ),

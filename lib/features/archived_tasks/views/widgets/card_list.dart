@@ -21,7 +21,7 @@ class CardList extends StatelessWidget {
         child: ListTile(
           leading: SvgPicture.asset("assets/images/svg/leadingItemDismissible.svg"),
           title: Text(title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xff24252C),
               fontWeight: FontWeight.w600,
               fontSize: 14,
@@ -29,7 +29,7 @@ class CardList extends StatelessWidget {
             ),
           ),
           subtitle: Text(_formatTaskTime(subtitle),
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xff90B6E2),
               fontWeight: FontWeight.w400,
               fontSize: 12,

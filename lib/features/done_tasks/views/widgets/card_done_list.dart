@@ -22,7 +22,7 @@ class CardDoneList extends StatelessWidget {
         child: ListTile(
           leading: SvgPicture.asset("assets/images/svg/leadingItemDismissible.svg"),
           title: Text(title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xff24252C),
               fontWeight: FontWeight.w600,
               fontSize: 14,
@@ -30,7 +30,7 @@ class CardDoneList extends StatelessWidget {
             ),
           ),
           subtitle: Text(_formatTaskTime(subtitle),
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xff90B6E2),
               fontWeight: FontWeight.w400,
               fontSize: 12,
@@ -41,17 +41,17 @@ class CardDoneList extends StatelessWidget {
             children: [
               Text(
                 DateFormat('dd MMM, y').format(startDate),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color(0xff919295),
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
                   fontFamily: "LexendDecaRegularStyle",
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Text(
                 DateFormat('dd MMM, y').format(endDate),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color(0xff919295),
                   fontWeight: FontWeight.w400,
                   fontSize: 12,

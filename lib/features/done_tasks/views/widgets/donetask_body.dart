@@ -26,7 +26,7 @@ class DoneTaskBody extends StatelessWidget {
                      startDate: doneTasksList[index].startDateSelectedDate,
                      endDate: doneTasksList[index].endDateSelectedDate,
                    ),
-                   separatorBuilder: (context, index) => SizedBox(height: 10,),
+                   separatorBuilder: (context, index) => const SizedBox(height: 10,),
                    itemCount: doneTasksList.length,
                ),
              )
