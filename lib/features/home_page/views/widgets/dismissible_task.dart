@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
@@ -7,11 +9,13 @@ import 'dialog_buttons.dart';
 import 'task_card.dart';
 
 class DismissibleTask extends StatefulWidget {
-  const DismissibleTask({super.key, required this.index, required this.title, required this.subtitle, required this.taskModel});
+  const DismissibleTask({super.key, required this.index, required this.title, required this.subtitle, required this.taskModel, required this.name, required this.photo});
   final int index;
   final String title;
   final TimeOfDay subtitle;
   final TaskModel taskModel;
+  final String name;
+  final File photo;
   @override
   State<DismissibleTask> createState() => _DismissibleTaskState();
 }
@@ -32,7 +36,7 @@ class _DismissibleTaskState extends State<DismissibleTask> {
         },
         title: widget.title,
         subtitle: widget.subtitle,
-        taskModel: widget.taskModel,
+        taskModel: widget.taskModel, name:widget.name, photo: widget.photo,
       ),
     );
   }

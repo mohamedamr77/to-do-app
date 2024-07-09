@@ -1,14 +1,19 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
+import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 
 class TaskDetailsBody extends StatefulWidget {
-  const TaskDetailsBody({super.key, required this.task});
+  const TaskDetailsBody({super.key, required this.task, required this.name,required this.photo});
   final TaskModel task;
+  final String name;
+  final File photo;
 
   @override
   State<TaskDetailsBody> createState() => _TaskDetailsBodyState();
@@ -117,7 +122,11 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                 nameButton: 'Archive',
                 onTap: () {
                   widget.task.archivedTask = true;
-                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomePageScreen(name: widget.name , photo: widget.photo),)).then((x){
+                    setState(() {
+
+                    });
+                  });
                 },
                 image: "assets/images/svg/archievetaskIcon.svg",
               ),

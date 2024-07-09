@@ -14,25 +14,15 @@ class EnterName extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.154,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              gradient: const LinearGradient(
-                colors: [
-                  ColorApp.skyBlueColor,
-                  ColorApp.lightPurpleColor,
-                ],
-              ),
-            ),
-          ),
-          Container(
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.all(22),
             width: MediaQuery.of(context).size.width - 50,
             decoration: BoxDecoration(
               color: ColorApp.whiteColor,
               borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: Color(0xff87B5E3)
+              )
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
