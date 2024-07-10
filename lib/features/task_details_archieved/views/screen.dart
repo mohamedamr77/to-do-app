@@ -18,7 +18,7 @@ class _TaskDetailsAchievedScreenState extends State<TaskDetailsAchievedScreen> {
     decoration: const BoxDecoration(
     gradient: LinearGradient(
       colors: [
-                Color(0xffF9FEFB),
+            Color(0xffF9FEFB),
             Color(0xffFAFAFA),
             ],
             ),

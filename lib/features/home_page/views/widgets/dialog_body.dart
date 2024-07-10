@@ -20,7 +20,7 @@ class DialogBody extends StatelessWidget {
             padding: const EdgeInsets.all(30),
             width: double.infinity,
             height: 160,
-            color: ColorApp.appbarHomeScreenColor,
+            color: ColorApp.primaryColor,
             child: Align(
               alignment: Alignment.centerLeft,
               child: SafeArea(

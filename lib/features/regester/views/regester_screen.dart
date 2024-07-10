@@ -133,7 +133,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                         });
                       },
                       child: Text(
-                        myPhoto == null ? AppText.addPhotoText : "Update photo",
+                        myPhoto == null ? TextApp.addPhotoText : "Update photo",
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -146,7 +146,8 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                 ),
                 const SizedBox(height: 5),
                 EnterName(controller: nameController),
-                CustomButtonStarted(
+                CustomButtonStarted
+                  (
                   text: 'Get Started ',
                   trailing: null,
                   onTap: _submitForm,

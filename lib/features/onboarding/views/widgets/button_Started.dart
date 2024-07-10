@@ -1,8 +1,8 @@
-
+//done
+//done
 import 'package:flutter/material.dart';
 import '../../../../core/colorCore.dart';
-
-
+// ignore: must_be_immutable
 class CustomButtonStarted extends StatelessWidget {
    CustomButtonStarted({super.key,required this.text,required this.trailing,required this.onTap});
 
@@ -38,7 +38,7 @@ class CustomButtonStarted extends StatelessWidget {
                   style:const TextStyle(
                     fontSize: 19,
                     fontFamily: "LexendDeca",
-                    color: Colors.white,
+                    color: ColorApp.whiteColor,
                   ),
                 ),
               ),

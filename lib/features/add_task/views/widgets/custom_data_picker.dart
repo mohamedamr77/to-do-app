@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/fontfamily.dart';
+import 'package:todo/core/imageCore.dart';
 
+// ignore: must_be_immutable
 class CustomDataPicker extends StatefulWidget {
    CustomDataPicker({super.key, required this.title, required this.subTitle, required this.selectedDate});
     final String title;
@@ -32,26 +36,26 @@ class _CustomDataPickerState extends State<CustomDataPicker> {
                     widget.selectedDate = picked;
                   });
                 }
-                print(widget.selectedDate);
+
           },
-        leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
+        leading: SvgPicture.asset(ImageApp.calendarImage),
         title:  Text(widget.title,
           style: const TextStyle(
-            color: Color(0xff423F3F),
+            color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
-            fontFamily: "LexendDecaRegularStyle",
+            fontFamily: FontFamilyApp.lexendDecaRegular,
           ),
         ),
         subtitle:  Text(widget.subTitle,
           style: const TextStyle(
-            color: Color(0xffB6B4BD),
+            color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
             fontSize: 12,
             fontWeight: FontWeight.w400,
-            fontFamily: "LexendDecaRegularStyle",
+            fontFamily: FontFamilyApp.lexendDecaRegular,
           ),
         ),
-        trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
+        trailing: SvgPicture.asset(ImageApp.arrowDownImage),
       ),
     );
   }

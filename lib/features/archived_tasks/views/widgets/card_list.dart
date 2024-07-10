@@ -56,7 +56,7 @@ class CardList extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: ColorApp.appbarHomeScreenColor,
+          color: ColorApp.primaryColor,
         ),
         child: const Text(
           "Unarchive",

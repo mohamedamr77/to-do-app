@@ -29,7 +29,7 @@ class EnterName extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  AppText.yourNameText,
+                  TextApp.yourNameText,
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -40,7 +40,7 @@ class EnterName extends StatelessWidget {
                 TextFormField(
                   controller: controller,
                   decoration: InputDecoration(
-                    hintText: AppText.enterNameText,
+                    hintText: TextApp.enterNameText,
                     border: InputBorder.none,
                     hintStyle: TextStyle(
                       fontSize: 15,

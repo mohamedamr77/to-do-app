@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:todo/core/colorCore.dart';
 import 'package:todo/features/add_task/views/widgets/add_task_body.dart';
 
 class AddTaskScreen extends StatelessWidget {
@@ -14,8 +15,8 @@ class AddTaskScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xffF9FEFB),
-              Color(0xffFAFAFA),
+              ColorApp.bgGroundColor1,
+              ColorApp.bgGroundColor2,
             ],
           ),
         ),

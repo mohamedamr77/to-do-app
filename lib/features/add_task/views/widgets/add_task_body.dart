@@ -1,11 +1,12 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/features/home_page/views/HomePageScreen.dart';
+import '../../../../core/colorCore.dart';
 import '../../../../core/shared_widget/custom_button.dart';
+import '../../../../core/textCore.dart';
 import 'custom_data_picker.dart';
 import 'custom_time_picker.dart';
 import 'cutsom_field.dart';
@@ -43,18 +44,18 @@ class _AddTaskBodyState extends State<AddTaskBody> {
             child: Column(
               children: [
                 const SizedBox(height: 10,),
-                const CustomAppbar(title: "Add Task"),
+                const CustomAppbar(title: TextApp.addTaskText),
                 const SizedBox(height: 35,),
 
                 CustomField(
-                  title: 'Task Name',
-                  hintText: 'Enter The Task Name',
+                  title:TextApp.taskNameText,
+                  hintText: TextApp.enterTheTaskNameText,
                   minLine: 1,
                   maxLine: 1,
                   controller: taskName,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter a task name';
+                      return TextApp.pleaseEnterTheTaskNameText;
                     }
                     return null;
                   },
@@ -63,14 +64,14 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                 const SizedBox(height: 10,),
 
                 CustomField(
-                  title: 'Description',
-                  hintText: 'Enter The Task Description',
+                  title: TextApp.descriptionText,
+                  hintText: TextApp.enterTheTaskDescText,
                   minLine: 4,
                   maxLine: 4,
                   controller: taskDescriptionController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter a task description';
+                      return TextApp.pleaseEnterTheTaskDescText;
                     }
                     return null;
                   },
@@ -79,14 +80,14 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                 const SizedBox(height: 20,),
 
                 CustomDataPicker(
-                  title: 'Start Date',
-                  subTitle: 'Enter The Start Date',
+                  title: TextApp.startText,
+                  subTitle: TextApp.enterTheStartDateText,
                   selectedDate: startDateSelectedDate,
                 ),
 
                 CustomDataPicker(
-                  title: 'End Date',
-                  subTitle: 'Enter The End Date',
+                  title: TextApp.endDateText,
+                  subTitle: TextApp.enterTheEndDateText,
                   selectedDate: endDateSelectedDate,
                 ),
 
@@ -95,8 +96,8 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                 const SizedBox(height: 20,),
 
                 CustomButton(
-                  backGroundColor: const Color(0xff90B6E2),
-                  nameButton: "Add Task",
+                  backGroundColor:  ColorApp.primaryColor,
+                  nameButton: TextApp.addTaskText,
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
                       tasksList.add(
@@ -113,7 +114,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                       ).then((value) {
                         setState(() {});
                       },);
-                      print(tasksList.length);
+
                     }
                   },
                 ),

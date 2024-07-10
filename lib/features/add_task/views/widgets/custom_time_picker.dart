@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/fontfamily.dart';
+import 'package:todo/core/imageCore.dart';
+import '../../../../core/textCore.dart';
 
 class CustomTimePicker extends StatefulWidget {
    CustomTimePicker({super.key,required this.selectedTime});
@@ -29,21 +33,24 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
           }
           print(widget.selectedTime);
         },
-        leading: SvgPicture.asset("assets/images/svg/timeicon.svg"),
-        title: const Text("Add Time",
+        leading: SvgPicture.asset(ImageApp.timeIconImage),
+        title:  const Text(TextApp.addTimeText,
           style: TextStyle(
-            color: Color(0xff423F3F),
+            color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
-            fontFamily: "LexendDecaRegularStyle",
+            fontFamily: FontFamilyApp.lexendDecaRegular,
           ),
         ),
-        subtitle: const Text("Set a Time For The Task",
+        subtitle:  const Text(TextApp.setTimeForTaskText,
           style: TextStyle(
-            color: Color(0xffB6B4BD), fontSize: 12, fontWeight: FontWeight.w400, fontFamily: "LexendDecaRegularStyle",
+            color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            fontFamily:FontFamilyApp.lexendDecaRegular,
           ),
         ),
-        trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
+        trailing: SvgPicture.asset(ImageApp.arrowDownImage),
       ),
     );
   }

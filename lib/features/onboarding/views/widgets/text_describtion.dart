@@ -1,5 +1,5 @@
+//done
 import 'package:flutter/material.dart';
-
 import '../../../../core/colorCore.dart';
 import '../../../../core/textCore.dart';
 
@@ -11,7 +11,7 @@ class CustomTextDescription extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width*0.75,
       height: MediaQuery.of(context).size.height*0.1,
-      child: Text(AppText.onboardingDescriptionText.trim(),
+      child: Text(TextApp.onboardingDescriptionText.trim(),
         textAlign: TextAlign.center,
         style: const TextStyle(
           color: ColorApp.greyColor,

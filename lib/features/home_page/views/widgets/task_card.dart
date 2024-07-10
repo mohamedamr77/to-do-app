@@ -50,7 +50,7 @@ class _TaskCardState extends State<TaskCard> {
             fontSize: 12,
             fontWeight: FontWeight.w400,
             fontFamily: 'LexendDecaRegularStyle',
-            color: ColorApp.subtitleListTileHomeScreenColor,
+            color: ColorApp.primaryColor,
           ),
         ),
         trailing: _buildDoneButton(),
@@ -72,13 +72,13 @@ class _TaskCardState extends State<TaskCard> {
         padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: widget.taskModel.doneTask==true? ColorApp.appbarHomeScreenColor :ColorApp.whiteColor,
-           border:widget.taskModel.doneTask==true?  null: Border.all(color:ColorApp.appbarHomeScreenColor ),
+          color: widget.taskModel.doneTask==true? ColorApp.primaryColor :ColorApp.whiteColor,
+           border:widget.taskModel.doneTask==true?  null: Border.all(color:ColorApp.primaryColor ),
         ),
         child:  Text(
           "Done",
           style: TextStyle(
-            color:widget.taskModel.doneTask==true? ColorApp.whiteColor :ColorApp.appbarHomeScreenColor ,
+            color:widget.taskModel.doneTask==true? ColorApp.whiteColor :ColorApp.primaryColor ,
             fontSize: 12,
             fontWeight: FontWeight.w700,
             fontFamily: "LexendDecaRegularStyle",

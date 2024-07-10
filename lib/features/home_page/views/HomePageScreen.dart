@@ -22,7 +22,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.white,
-        backgroundColor: ColorApp.appbarHomeScreenColor,
+        backgroundColor: ColorApp.primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),

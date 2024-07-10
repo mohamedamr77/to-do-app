@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
-
-
-
 import '../../regester/views/regester_screen.dart';
 import 'widgets/baner.dart';
 import 'widgets/button_Started.dart';
@@ -25,7 +22,7 @@ class CustomOnboarding extends StatelessWidget {
                 SizedBox(height: MediaQuery.of(context).size.height*0.02,),
                 const CustomTextDescription(),
                 SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-                CustomButtonStarted(text: AppText.startText, trailing: Image.asset(ImageApp.arrowStartImage), onTap: () {
+                CustomButtonStarted(text: TextApp.startText, trailing: Image.asset(ImageApp.arrowStartImage), onTap: () {
                   Navigator.pushNamed(context, CustomRegesterScreen.id
                   );
                 },),

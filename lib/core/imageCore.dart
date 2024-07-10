@@ -3,5 +3,8 @@ class  ImageApp{
     static const String arrowStartImage="assets/images/ArrowStart.png";
     static const String regesterImage="assets/images/regester.png";
     static const String menuImage="assets/images/svg/menu.svg";
+    static const String calendarImage="assets/images/svg/calendar.svg";
+    static const String arrowDownImage="assets/images/svg/Arrow - Down .svg";
+    static const String timeIconImage="assets/images/svg/timeicon.svg";
     static const String leadingItemDismissibleImage="assets/images/svg/leadingItemDismissible.svg";
 }

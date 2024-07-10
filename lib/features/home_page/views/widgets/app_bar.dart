@@ -15,7 +15,7 @@ class AppBarSection extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 23, horizontal: 12),
-      color: ColorApp.appbarHomeScreenColor,
+      color: ColorApp.primaryColor,
       child: Row(
         children: [
           GestureDetector(
@@ -33,7 +33,7 @@ class AppBarSection extends StatelessWidget {
                 const Text(
                   "Hello!",
                   style: TextStyle(
-                    color: ColorApp.textAppbarHomeScreenColor,
+                    color: ColorApp.textprimaryColor,
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                     fontFamily: 'LexendDeca',
@@ -42,7 +42,7 @@ class AppBarSection extends StatelessWidget {
                 Text(
                   name,
                   style: const TextStyle(
-                    color: ColorApp.textAppbarHomeScreenColor,
+                    color: ColorApp.textprimaryColor,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'LexendDeca',

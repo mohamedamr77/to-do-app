@@ -62,7 +62,7 @@ class _DismissibleTaskState extends State<DismissibleTask> {
             title: Text("Delete"),
             content: Text("Are you sure you want to delete this item?"),
             actions: [
-              DialogButton(text: "Cancel", result: false, color: ColorApp.appbarHomeScreenColor),
+              DialogButton(text: "Cancel", result: false, color: ColorApp.primaryColor),
               DialogButton(text: "Delete", result: true, color: Colors.red),
             ],
           );

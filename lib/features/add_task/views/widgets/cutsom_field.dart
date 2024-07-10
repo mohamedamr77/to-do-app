@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/fontfamily.dart';
 
 class CustomField extends StatelessWidget {
   const CustomField({
@@ -33,10 +34,10 @@ class CustomField extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              color: Color(0xff423F3F),
+              color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              fontFamily: "LexendDecaRegularStyle",
+              fontFamily:FontFamilyApp.lexendDecaRegular,
             ),
           ),
           TextFormField(
@@ -49,7 +50,7 @@ class CustomField extends StatelessWidget {
                 color: const Color(0xff6e6a7c80).withOpacity(0.5),
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
-                fontFamily: "LexendDecaRegularStyle",
+                fontFamily: FontFamilyApp.lexendDecaRegular,
               ),
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
