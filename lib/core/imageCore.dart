@@ -6,5 +6,5 @@ class  ImageApp{
     static const String calendarImage="assets/images/svg/calendar.svg";
     static const String arrowDownImage="assets/images/svg/Arrow - Down .svg";
     static const String timeIconImage="assets/images/svg/timeicon.svg";
-    static const String leadingItemDismissibleImage="assets/images/svg/leadingItemDismissible.svg";
+    static const String bagIcon="assets/images/svg/leadingItemDismissible.svg";
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:todo/core/fontfamily.dart';
+import 'package:todo/core/imageCore.dart';
+import 'package:todo/core/textCore.dart';
 import '../../../../core/colorCore.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../task_details_archieved/views/screen.dart';
@@ -17,23 +20,23 @@ class CardList extends StatelessWidget {
         Navigator.push(context, MaterialPageRoute(builder: (context) =>  TaskDetailsAchievedScreen(taskModel: taskModel),));
       },
       child: Card(
-        color: Colors.white,
+        color: ColorApp.whiteColor,
         child: ListTile(
-          leading: SvgPicture.asset("assets/images/svg/leadingItemDismissible.svg"),
+          leading: SvgPicture.asset(ImageApp.bagIcon),
           title: Text(title,
             style: const TextStyle(
               color: Color(0xff24252C),
               fontWeight: FontWeight.w600,
               fontSize: 14,
-              fontFamily: "LexendDecaRegularStyle",
+              fontFamily: FontFamilyApp.lexendDecaRegular,
             ),
           ),
           subtitle: Text(_formatTaskTime(subtitle),
             style: const TextStyle(
-              color: Color(0xff90B6E2),
+              color: ColorApp.primaryColor,
               fontWeight: FontWeight.w400,
               fontSize: 12,
-              fontFamily: "LexendDecaRegularStyle",
+              fontFamily: FontFamilyApp.lexendDecaRegular,
             ),
           ),
           trailing: _buildButton(),
@@ -45,7 +48,7 @@ class CardList extends StatelessWidget {
   String _formatTaskTime(TimeOfDay time) {
     final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
     final minute = time.minute.toString().padLeft(2, '0');
-    final period = time.hour < 12 ? 'AM' : 'PM';
+    final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
     return '$hour:$minute $period';
   }
 
@@ -59,12 +62,12 @@ class CardList extends StatelessWidget {
           color: ColorApp.primaryColor,
         ),
         child: const Text(
-          "Unarchive",
+          TextApp.unarchiveText,
           style: TextStyle(
             color: ColorApp.whiteColor,
             fontSize: 11,
             fontWeight: FontWeight.w600,
-            fontFamily: "LexendDecaRegularStyle",
+            fontFamily: FontFamilyApp.lexendDecaRegular,
           ),
         ),
       ),

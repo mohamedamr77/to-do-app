@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo/features/archived_tasks/views/widgets/arciheved_tasks_body.dart';
 
+import '../../../core/colorCore.dart';
+
 class ArchivedTasksScreen extends StatelessWidget {
   const ArchivedTasksScreen({super.key});
 
@@ -11,8 +13,8 @@ class ArchivedTasksScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xffF9FEFB),
-              Color(0xffFAFAFA),
+              ColorApp.bgGroundColor1,
+              ColorApp.bgGroundColor2,
             ],
           ),
         ),

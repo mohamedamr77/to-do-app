@@ -34,7 +34,7 @@ class _TaskCardState extends State<TaskCard> {
 
         });
         }),
-        leading: SvgPicture.asset(ImageApp.leadingItemDismissibleImage),
+        leading: SvgPicture.asset(ImageApp.bagIcon),
         title: Text(
           widget.title,
           style: const TextStyle(
@@ -44,6 +44,7 @@ class _TaskCardState extends State<TaskCard> {
             color: Color(0xff24252C),
           ),
         ),
+
         subtitle: Text(
           _formatTaskTime(widget.subtitle),
           style: const TextStyle(
