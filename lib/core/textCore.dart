@@ -9,6 +9,7 @@ class TextApp {
   static const String addTaskText = "Add Task";
   static const String addTimeText = "Add Time";
   static const String taskNameText = "Task Name";
+  static const String doneTasksText = "Done Tasks";
   static const String taskDetailsText = "Task Details";
   static const String archivedTasksText = "Archived Tasks";
   static const String unarchiveText = "Unarchive";

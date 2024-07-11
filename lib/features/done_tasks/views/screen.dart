@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/core/colorCore.dart';
 import 'package:todo/features/done_tasks/views/widgets/donetask_body.dart';
 
 class DoneTaskScreen extends StatelessWidget {
@@ -11,8 +12,8 @@ class DoneTaskScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xffF9FEFB),
-              Color(0xffFAFAFA),
+              ColorApp.bgGroundColor1,
+              ColorApp.bgGroundColor2,
             ],
           ),
         ),

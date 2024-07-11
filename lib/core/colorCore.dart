@@ -18,4 +18,5 @@ class ColorApp{
   static const Color  titleListTileHomeScreenColor=  Color(0xff24252C);
   static const Color  titleListTileDateOrTimeOrTextFieldColor=  Color(0xff423F3F);
   static const Color  subTitleListTileDateOrTimeOrTextFiledColor=  Color(0xffB6B4BD);
+  static const Color  dateDoneScreenColor=  Color(0xff919295);
 }

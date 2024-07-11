@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/core/textCore.dart';
 import '../../../../core/data/model/task_list.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
@@ -15,7 +16,7 @@ class DoneTaskBody extends StatelessWidget {
         padding: const  EdgeInsets.symmetric(horizontal: 22, vertical:10),
         child: Column(
            children: [
-             const CustomAppbar(title: "Done Tasks"),
+             const CustomAppbar(title: TextApp.doneTasksText),
              const SizedBox(height: 50,),
              Expanded(
                child: ListView.separated(

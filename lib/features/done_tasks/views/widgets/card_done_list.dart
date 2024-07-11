@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/fontfamily.dart';
+import 'package:todo/core/imageCore.dart';
+import 'package:todo/core/textCore.dart';
 
 import '../../../../core/data/model/task_model.dart';
 import '../../../done_details/views/screen.dart';
@@ -20,21 +24,21 @@ class CardDoneList extends StatelessWidget {
       child: Card(
         color: Colors.white,
         child: ListTile(
-          leading: SvgPicture.asset("assets/images/svg/leadingItemDismissible.svg"),
+          leading: SvgPicture.asset(ImageApp.bagIcon),
           title: Text(title,
-            style: const TextStyle(
+            style:  const TextStyle(
               color: Color(0xff24252C),
               fontWeight: FontWeight.w600,
               fontSize: 14,
-              fontFamily: "LexendDecaRegularStyle",
+              fontFamily:FontFamilyApp.lexendDecaRegular ,
             ),
           ),
           subtitle: Text(_formatTaskTime(subtitle),
             style: const TextStyle(
-              color: Color(0xff90B6E2),
+              color: ColorApp.primaryColor,
               fontWeight: FontWeight.w400,
               fontSize: 12,
-              fontFamily: "LexendDecaRegularStyle",
+              fontFamily: FontFamilyApp.lexendDecaRegular,
             ),
           ),
           trailing: Column(
@@ -42,20 +46,20 @@ class CardDoneList extends StatelessWidget {
               Text(
                 DateFormat('dd MMM, y').format(startDate),
                 style: const TextStyle(
-                  color: Color(0xff919295),
+                  color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
-                  fontFamily: "LexendDecaRegularStyle",
+                  fontFamily:FontFamilyApp.lexendDecaRegular,
                 ),
               ),
               const SizedBox(height: 10,),
               Text(
                 DateFormat('dd MMM, y').format(endDate),
                 style: const TextStyle(
-                  color: Color(0xff919295),
+                  color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
-                  fontFamily: "LexendDecaRegularStyle",
+                  fontFamily: FontFamilyApp.lexendDecaRegular,
                 ),
               ),
             ],
@@ -67,7 +71,7 @@ class CardDoneList extends StatelessWidget {
    String _formatTaskTime(TimeOfDay time) {
      final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
      final minute = time.minute.toString().padLeft(2, '0');
-     final period = time.hour < 12 ? 'AM' : 'PM';
+     final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
      return '$hour:$minute $period';
    }
 }
