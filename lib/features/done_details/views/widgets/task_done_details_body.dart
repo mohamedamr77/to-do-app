@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
-
+import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/fontfamily.dart';
+import 'package:todo/core/imageCore.dart';
+import 'package:todo/core/textCore.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
@@ -19,92 +22,92 @@ class TaskDoneDetailsBody extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              const CustomAppbar(title: "Task Details"),
+               const CustomAppbar(title: TextApp.taskNameText),
               const SizedBox(height: 20),
               CustomContainerShowData(
-                title: 'Task Name',
+                title: TextApp.taskNameText,
                 detailsTitle: task.taskName.text,
               ),
               const SizedBox(height: 16),
               CustomContainerShowData(
-                  title: "Description",
+                  title: TextApp.descriptionText,
                   detailsTitle: task.taskDescriptionController.text),
               const SizedBox(height: 16),
               Card(
-                color: Colors.white,
+                color: ColorApp.whiteColor,
                 child: ListTile(
-                  leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
-                  title: const Text(
-                    "Start Date",
+                  leading: SvgPicture.asset(ImageApp.calendarImage),
+                  title:  const Text(
+                    TextApp.startDateText,
                     style: TextStyle(
-                      color: Color(0xff423F3F),
+                      color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily: FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
                   subtitle: Text(
                     DateFormat('dd MMM, y').format(task.startDateSelectedDate),
                     style: const TextStyle(
-                      color: Color(0xffB6B4BD),
+                      color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily: FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
-                  trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
+                  // trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
                 ),
               ),
               const SizedBox(height: 8),
               Card(
-                color: Colors.white,
+                color:  ColorApp.whiteColor,
                 child: ListTile(
-                  leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
+                  leading: SvgPicture.asset(ImageApp.calendarImage),
                   title: const Text(
-                    "End Date",
+                    TextApp.endDateText,
                     style: TextStyle(
-                      color: Color(0xff423F3F),
+                      color:ColorApp.titleListTileDateOrTimeOrTextFieldColor,
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily: FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
                   subtitle: Text(
                     DateFormat('dd MMM, y').format(task.startDateSelectedDate),
                     style: const TextStyle(
-                      color: Color(0xffB6B4BD),
+                      color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily: FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
-                  trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
+                  //trailing: SvgPicture.asset(ImageApp.arrowDownImage),
                 ),
               ),
               const SizedBox(height: 8),
               Card(
-                color: Colors.white,
+                color: ColorApp.whiteColor,
                 child: ListTile(
-                  leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
+                  leading: SvgPicture.asset(ImageApp.calendarImage),
                   title: const Text(
-                    "Add Time",
+                    TextApp.addTimeText,
                     style: TextStyle(
-                      color: Color(0xff423F3F),
+                      color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily:FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
                   subtitle: Text(
                     _formatTaskTime(task.timeOfTask),
                     style: const TextStyle(
-                      color: Color(0xffB6B4BD),
+                      color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily:FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
-                  trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
+                  //trailing: SvgPicture.asset(ImageApp.arrowDownImage),
                 ),
               ),
               const SizedBox(height: 15),
@@ -120,6 +123,6 @@ class TaskDoneDetailsBody extends StatelessWidget {
 String _formatTaskTime(TimeOfDay time) {
   final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
   final minute = time.minute.toString().padLeft(2, '0');
-  final period = time.hour < 12 ? 'AM' : 'PM';
+  final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
   return '$hour:$minute $period';
 }
