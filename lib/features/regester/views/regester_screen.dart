@@ -1,8 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/textCore.dart';
+import 'package:todo/cubit/get_cubit.dart';
 import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import 'package:todo/features/regester/views/widgets/enter_name.dart';
 import '../../../core/imageCore.dart';
@@ -29,13 +31,12 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
 
   void _submitForm() {
     if (_formKey.currentState!.validate() && myPhoto != null) {
+      BlocProvider.of<GetUserCubit>(context).setName(name: nameController.text);
+      BlocProvider.of<GetUserCubit>(context).setPhoto(File(myPhoto!.path));
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePageScreen(
-            name: nameController.text,
-            photo: File(myPhoto!.path),
-          ),
+          builder: (context) => HomePageScreen(),
         ),
       );
     } else {

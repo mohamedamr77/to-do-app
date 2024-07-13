@@ -5,9 +5,8 @@ import 'package:todo/core/colorCore.dart';
 import 'package:todo/features/add_task/views/widgets/add_task_body.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  const AddTaskScreen({super.key, required this.name,required this.photo});
-  final String name;
-  final File photo;
+  const AddTaskScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +19,7 @@ class AddTaskScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: AddTaskBody(
-          name: name,
-          photo: photo,
-        ),
+        child: AddTaskBody(),
       ),
 
     );

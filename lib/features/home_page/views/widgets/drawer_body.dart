@@ -11,8 +11,8 @@ import '../../../archived_tasks/views/screen.dart';
 
 class DrawerBody extends StatelessWidget {
   const DrawerBody({super.key, required this.name, required this.pictureUser});
-  final String name;
-  final File pictureUser;
+  final String? name;
+  final File? pictureUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,12 +39,12 @@ class DrawerBody extends StatelessWidget {
                         CircleAvatar(
                           radius: 26,
                           backgroundImage: FileImage(
-                            File(pictureUser.path),),
+                            File(pictureUser!.path),),
                         ),
                       ],
                     ),
                     const SizedBox(width: 10,),
-                    Text(name,
+                    Text(name!,
                     style: const TextStyle(
                       color: ColorApp.whiteColor,
                       fontFamily: FontFamilyApp.lexendDecaRegular,

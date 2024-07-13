@@ -9,8 +9,8 @@ import 'profile_picture.dart';
 
 class AppBarSection extends StatelessWidget {
   const AppBarSection({super.key, required this.name, required this.pictureUser});
-  final String name;
-  final File pictureUser;
+  final String? name;
+  final File? pictureUser;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class AppBarSection extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  name,
+                  name!,
                   style: const TextStyle(
                     color: ColorApp.textprimaryColor,
                     fontSize: 16,
@@ -64,7 +64,7 @@ class AppBarSection extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          ProfilePicture(pictureUser: pictureUser),
+          ProfilePicture(pictureUser: pictureUser!),
           const SizedBox(width: 10),
         ],
       ),

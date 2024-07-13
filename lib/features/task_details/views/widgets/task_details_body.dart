@@ -10,10 +10,9 @@ import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 
 class TaskDetailsBody extends StatefulWidget {
-  const TaskDetailsBody({super.key, required this.task, required this.name,required this.photo});
+  const TaskDetailsBody({super.key, required this.task});
   final TaskModel task;
-  final String name;
-  final File photo;
+
 
   @override
   State<TaskDetailsBody> createState() => _TaskDetailsBodyState();
@@ -122,11 +121,7 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                 nameButton: 'Archive',
                 onTap: () {
                   widget.task.archivedTask = true;
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomePageScreen(name: widget.name , photo: widget.photo),)).then((x){
-                    setState(() {
-
-                    });
-                  });
+                  Navigator.pop(context);
                 },
                 image: "assets/images/svg/archievetaskIcon.svg",
               ),

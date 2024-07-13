@@ -13,9 +13,8 @@ import 'cutsom_field.dart';
 
 
 class AddTaskBody extends StatefulWidget {
-  const AddTaskBody({super.key, required this.name,required this.photo});
-  final String name;
-  final File photo;
+  const AddTaskBody({super.key});
+
   @override
   State<AddTaskBody> createState() => _AddTaskBodyState();
 }
@@ -109,7 +108,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                         timeOfTask: selectedTime,
                       ));
                       Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                          HomePageScreen(name: widget.name, photo: widget.photo),
+                          const HomePageScreen(),
                       )
                       ).then((value) {
                         setState(() {});
