@@ -3,8 +3,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/data/model/task_model.dart';
+import 'package:todo/core/fontfamily.dart';
+import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
+import 'package:todo/core/textCore.dart';
 import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
@@ -27,28 +31,28 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
           child: Column(
             children: [
-              const CustomAppbar(title: "Task Details"),
+              const CustomAppbar(title: TextApp.taskDetailsText),
               const SizedBox(height: 20),
               CustomContainerShowData(
-                title: 'Task Name',
+                title: TextApp.taskNameText,
                 detailsTitle: widget.task.taskName.text,
               ),
               const SizedBox(height: 16),
               CustomContainerShowData(
-                  title: "Description",
+                  title: TextApp.descriptionText,
                   detailsTitle: widget.task.taskDescriptionController.text),
               const SizedBox(height: 16),
               Card(
                 color: Colors.white,
                 child: ListTile(
-                  leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
-                  title: const Text(
-                    "Start Date",
+                  leading: SvgPicture.asset(ImageApp.calendarImage),
+                  title:  const Text(
+                    TextApp.startDateText,
                     style: TextStyle(
                       color: Color(0xff423F3F),
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily: FontFamilyApp.lexendDecaRegular
                     ),
                   ),
                   subtitle: Text(
@@ -57,24 +61,24 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily: FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
-                  trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
+
                 ),
               ),
               const SizedBox(height: 8),
               Card(
                 color: Colors.white,
                 child: ListTile(
-                  leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
+                  leading: SvgPicture.asset(ImageApp.calendarImage),
                   title: const Text(
-                    "End Date",
+                    TextApp.endDateText,
                     style: TextStyle(
                       color: Color(0xff423F3F),
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily:  FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
                   subtitle: Text(
@@ -83,24 +87,24 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily:  FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
-                  trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
+
                 ),
               ),
               const SizedBox(height: 8),
               Card(
                 color: Colors.white,
                 child: ListTile(
-                  leading: SvgPicture.asset("assets/images/svg/calendar.svg"),
+                  leading: SvgPicture.asset(ImageApp.calendarImage),
                   title: const Text(
-                    "Add Time",
+                    TextApp.addTimeText,
                     style: TextStyle(
                       color: Color(0xff423F3F),
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily:  FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
                   subtitle: Text(
@@ -109,30 +113,30 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily:  FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
-                  trailing: SvgPicture.asset("assets/images/svg/Arrow - Down .svg"),
+
                 ),
               ),
               const SizedBox(height: 15),
               CustomButton(
                 backGroundColor: const Color(0XFF90B6E2),
-                nameButton: 'Archive',
+                nameButton: TextApp.archiveText,
                 onTap: () {
                   widget.task.archivedTask = true;
                   Navigator.pop(context);
                 },
-                image: "assets/images/svg/archievetaskIcon.svg",
+                image: ImageApp.archieveIcon,
               ),
               const SizedBox(height: 8),
               CustomButton(
                 backGroundColor: const Color(0XFFBD5461),
-                nameButton: 'Delete',
+                nameButton: TextApp.deleteText,
                 onTap: () {
                   _showDeleteDialog(context, widget.task);
                 },
-                image: "assets/images/svg/delete_dismissible.svg",
+                image: ImageApp.deleteIcon,
               ),
             ],
           ),
@@ -146,11 +150,11 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          content:  const Text('Are you sure you want to delete this task?',
+          content:   const Text(TextApp.areYouSureDeleteText,
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.w500,
-            fontFamily: "LexendDeca",
+            fontFamily: FontFamilyApp.lexendDecaRegular,
             fontSize: 16
           ),
           ),
@@ -168,7 +172,7 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                        borderRadius: BorderRadius.circular(6),
                        color: const Color(0xffBD5461),
                      ),
-                     child: const Text("Yes",
+                     child: const Text(TextApp.yesText,
                        style: TextStyle(
                            fontSize: 16,
                            fontWeight: FontWeight.w600,
@@ -187,14 +191,14 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                      padding: const EdgeInsets.symmetric(horizontal: 35,vertical: 10),
                      decoration: BoxDecoration(
                        borderRadius: BorderRadius.circular(6),
-                       color: const Color(0xff90B6E2),
+                       color:  ColorApp.primaryColor,
                      ),
-                     child: const Text("No",
+                     child:  const Text(TextApp.noText,
                        style: TextStyle(
                            fontSize: 16,
                            fontWeight: FontWeight.w600,
-                           fontFamily: "LexendDeca",
-                           color: Colors.white
+                           fontFamily: FontFamilyApp.lexendDecaSemiBold,
+                           color:ColorApp.whiteColor,
                        ),
                      ),
                    ),
@@ -211,6 +215,6 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
 String _formatTaskTime(TimeOfDay time) {
   final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
   final minute = time.minute.toString().padLeft(2, '0');
-  final period = time.hour < 12 ? 'AM' : 'PM';
+  final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
   return '$hour:$minute $period';
 }
