@@ -19,4 +19,8 @@ class ColorApp{
   static const Color  titleListTileDateOrTimeOrTextFieldColor=  Color(0xff423F3F);
   static const Color  subTitleListTileDateOrTimeOrTextFiledColor=  Color(0xffB6B4BD);
   static const Color  dateDoneScreenColor=  Color(0xff919295);
+  static const Color  drawerTextCardColor=  Color(0xff739CCB);
+  static const Color  bgCardDrawerColor=  Color(0xffE8EFF2);
+  static const Color  redColor=  Colors.red;
+  static const Color  bgDismissibleColor=  Color(0xffBD5461);
 }

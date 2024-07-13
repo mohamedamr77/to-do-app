@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/fontfamily.dart';
 
 class DialogButton extends StatelessWidget {
   const DialogButton({super.key, required this.text, required this.result, required this.color});
@@ -23,7 +24,7 @@ class DialogButton extends StatelessWidget {
             color: ColorApp.whiteColor,
             fontSize: 12,
             fontWeight: FontWeight.w700,
-            fontFamily: "LexendDecaRegularStyle",
+            fontFamily: FontFamilyApp.lexendDecaRegular,
           ),
         ),
       ),

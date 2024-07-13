@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/data/model/task_list.dart';
+import 'package:todo/core/imageCore.dart';
+import 'package:todo/core/textCore.dart';
 import '../../../../core/data/model/task_model.dart';
 import 'dialog_buttons.dart';
 import 'task_card.dart';
@@ -43,11 +45,11 @@ class _DismissibleTaskState extends State<DismissibleTask> {
 
   Widget _buildDismissBackground() {
     return Card(
-      color: const Color(0xffBD5461),
+      color:  ColorApp.bgDismissibleColor,
       child: Align(
         alignment: Alignment.centerLeft,
         child: ListTile(
-          leading: SvgPicture.asset("assets/images/svg/dele_dismissible.svg"),
+          leading: SvgPicture.asset(ImageApp.deleteIcon),
         ),
       ),
     );
@@ -59,11 +61,11 @@ class _DismissibleTaskState extends State<DismissibleTask> {
         context: context,
         builder: (context) {
           return const AlertDialog(
-            title: Text("Delete"),
-            content: Text("Are you sure you want to delete this item?"),
+            title: Text(TextApp.cancelText),
+            content: Text(TextApp.areYouSureDeleteText),
             actions: [
-              DialogButton(text: "Cancel", result: false, color: ColorApp.primaryColor),
-              DialogButton(text: "Delete", result: true, color: Colors.red),
+              DialogButton(text: TextApp.cancelText, result: false, color: ColorApp.primaryColor),
+              DialogButton(text: TextApp.deleteText, result: true, color: ColorApp.redColor),
             ],
           );
         },

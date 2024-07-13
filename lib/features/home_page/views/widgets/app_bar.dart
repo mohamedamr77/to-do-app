@@ -2,7 +2,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
+import '../../../../core/textCore.dart';
 import 'profile_picture.dart';
 
 class AppBarSection extends StatelessWidget {
@@ -30,13 +32,13 @@ class AppBarSection extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Hello!",
+                 const Text(
+                  TextApp.helloText,
                   style: TextStyle(
                     color: ColorApp.textprimaryColor,
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
-                    fontFamily: 'LexendDeca',
+                    fontFamily: FontFamilyApp.lexendDecaSemiBold,
                   ),
                 ),
                 Text(
@@ -45,7 +47,7 @@ class AppBarSection extends StatelessWidget {
                     color: ColorApp.textprimaryColor,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
-                    fontFamily: 'LexendDeca',
+                    fontFamily: FontFamilyApp.lexendDecaSemiBold,
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -55,7 +57,7 @@ class AppBarSection extends StatelessWidget {
                     color: ColorApp.whiteColor,
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    fontFamily: 'LexendDeca',
+                    fontFamily: FontFamilyApp.lexendDecaSemiBold,
                   ),
                 ),
               ],

@@ -137,7 +137,7 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                 onTap: () {
                   _showDeleteDialog(context, widget.task);
                 },
-                image: "assets/images/svg/dele_dismissible.svg",
+                image: "assets/images/svg/delete_dismissible.svg",
               ),
             ],
           ),

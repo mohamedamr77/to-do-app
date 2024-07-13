@@ -119,7 +119,7 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                onTap: () {
                  _showDeleteDialog(context, taskAchieved);
                },
-               image: "assets/images/svg/dele_dismissible.svg",
+               image: "assets/images/svg/delete_dismissible.svg",
              ),
            ],
         ),

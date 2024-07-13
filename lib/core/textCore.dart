@@ -4,8 +4,13 @@ class TextApp {
   static const String startText = "Let’s Start";
   static const String addPhotoText = "Add Photo";
   static const String yourNameText = "Your Name";
+  static const String helloText = "Hello!";
+  static const String doneText = "Done";
+  static const String deleteText = "Delete";
+  static const String cancelText = "Cancel";
   static const String enterNameText = "Enter Your Name";
   static const String updatePhotoText = "Update photo";
+  static const String areYouSureDeleteText = "Are you sure you want to delete this item?";
   static const String addTaskText = "Add Task";
   static const String addTimeText = "Add Time";
   static const String taskNameText = "Task Name";

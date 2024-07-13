@@ -1,11 +1,12 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/features/task_details/views/screen.dart';
 import '../../../../core/data/model/task_model.dart';
+import '../../../../core/textCore.dart';
 
 class TaskCard extends StatefulWidget {
   const TaskCard({super.key,required this.onTap, required this.title, required this.subtitle, required this.taskModel, required this.name, required this.photo});
@@ -40,7 +41,7 @@ class _TaskCardState extends State<TaskCard> {
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            fontFamily: 'LexendDecaRegularStyle',
+            fontFamily: FontFamilyApp.lexendDecaRegular,
             color: Color(0xff24252C),
           ),
         ),
@@ -50,7 +51,7 @@ class _TaskCardState extends State<TaskCard> {
           style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,
-            fontFamily: 'LexendDecaRegularStyle',
+            fontFamily: FontFamilyApp.lexendDecaRegular,
             color: ColorApp.primaryColor,
           ),
         ),
@@ -62,7 +63,7 @@ class _TaskCardState extends State<TaskCard> {
   String _formatTaskTime(TimeOfDay time) {
     final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
     final minute = time.minute.toString().padLeft(2, '0');
-    final period = time.hour < 12 ? 'AM' : 'PM';
+    final period = time.hour < 12 ?  TextApp.amText : TextApp.pmText;
     return '$hour:$minute $period';
   }
 
@@ -77,12 +78,12 @@ class _TaskCardState extends State<TaskCard> {
            border:widget.taskModel.doneTask==true?  null: Border.all(color:ColorApp.primaryColor ),
         ),
         child:  Text(
-          "Done",
+          TextApp.doneText,
           style: TextStyle(
             color:widget.taskModel.doneTask==true? ColorApp.whiteColor :ColorApp.primaryColor ,
             fontSize: 12,
             fontWeight: FontWeight.w700,
-            fontFamily: "LexendDecaRegularStyle",
+            fontFamily: FontFamilyApp.lexendDecaRegular,
           ),
         ),
       ),

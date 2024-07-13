@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:todo/core/colorCore.dart';
-import 'package:todo/features/home_page/views/widgets/dialog_body.dart';
+import 'package:todo/features/home_page/views/widgets/drawer_body.dart';
 import 'package:todo/features/home_page/views/widgets/homepage_body.dart';
 import '../../add_task/views/screen.dart';
 
@@ -51,8 +51,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xffF9FEFB),
-              Color(0xffFAFAFA),
+              ColorApp.bgGroundColor1,
+              ColorApp.bgGroundColor2,
             ],
           ),
         ),
@@ -64,7 +64,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
             topRight: Radius.circular(60),
           ),
         ),
-        child: DialogBody(name: widget.name, pictureUser: widget.photo),
+        child: DrawerBody(name: widget.name, pictureUser: widget.photo),
       ),
     );
   }

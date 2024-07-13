@@ -2,12 +2,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
+import 'package:todo/core/fontfamily.dart';
+import 'package:todo/core/imageCore.dart';
+import 'package:todo/core/textCore.dart';
 import 'package:todo/features/done_tasks/views/screen.dart';
 
 import '../../../archived_tasks/views/screen.dart';
 
-class DialogBody extends StatelessWidget {
-  const DialogBody({super.key, required this.name, required this.pictureUser});
+class DrawerBody extends StatelessWidget {
+  const DrawerBody({super.key, required this.name, required this.pictureUser});
   final String name;
   final File pictureUser;
   @override
@@ -44,7 +47,7 @@ class DialogBody extends StatelessWidget {
                     Text(name,
                     style: const TextStyle(
                       color: ColorApp.whiteColor,
-                      fontFamily: "LexendDecaRegularStyle",
+                      fontFamily: FontFamilyApp.lexendDecaRegular,
                       fontSize: 18,
                       fontWeight: FontWeight.w600
                     ),
@@ -58,34 +61,34 @@ class DialogBody extends StatelessWidget {
            child: ListView(
              children: [
                Card(
-                 color: const Color(0xffE8EFF2),
+                 color:ColorApp.bgCardDrawerColor,
                  child: ListTile(
                    onTap:(){
                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ArchivedTasksScreen(),));
                    },
-                   leading: SvgPicture.asset("assets/images/svg/archievetaskIcon.svg"),
-                   title: const Text("Archived Tasks",
+                   leading: SvgPicture.asset(ImageApp.archieveIcon),
+                   title:  const Text(TextApp.archivedTasksText,
                      style: TextStyle(
-                       color: Color(0xff739CCB),
-                       fontFamily: "LexendDecaRegularStyle",
-                       fontSize: 16,
-                       fontWeight: FontWeight.w500
+                         color: ColorApp.drawerTextCardColor,
+                         fontFamily: FontFamilyApp.lexendDecaRegular,
+                         fontSize: 16,
+                         fontWeight: FontWeight.w500
                      ),
                    ),
                  ),
                ),
                const SizedBox(height: 10,),
                Card(
-                 color: const Color(0xffE8EFF2),
+                 color:  ColorApp.bgCardDrawerColor,
                  child: ListTile(
                    onTap: (){
                      Navigator.push(context, MaterialPageRoute(builder: (context) => const DoneTaskScreen(),));
                    },
-                   leading: SvgPicture.asset("assets/images/svg/doneTaskIcon.svg"),
-                   title: const Text("Done Task",
+                   leading: SvgPicture.asset(ImageApp.doneIcon),
+                   title:  const Text(TextApp.doneTasksText,
                      style: TextStyle(
-                       color: Color(0xff739CCB),
-                       fontFamily: "LexendDecaRegularStyle",
+                       color: ColorApp.drawerTextCardColor,
+                       fontFamily: FontFamilyApp.lexendDecaRegular,
                        fontSize: 16,
                        fontWeight: FontWeight.w500
                      ),
