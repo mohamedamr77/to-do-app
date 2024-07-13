@@ -29,9 +29,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
         ),
         onPressed: () async {
           // Navigate to AddTaskScreen and wait for result
-          final result = await Navigator.push(
+          final result = await Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) =>  AddTaskScreen()),
+            MaterialPageRoute(builder: (context) =>  const AddTaskScreen()),
           );
 
           // Check if a task was added

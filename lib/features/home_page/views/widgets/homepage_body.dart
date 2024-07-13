@@ -13,7 +13,7 @@ class HomePageBody extends StatelessWidget {
     return Column(
       children: [
          AppBarSection(name: name, pictureUser: pictureUser),
-         Expanded(child: TaskList()),
+         const Expanded(child: TaskList()),
       ],
     );
   }
