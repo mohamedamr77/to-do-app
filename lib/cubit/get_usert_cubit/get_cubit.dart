@@ -1,8 +1,6 @@
 import 'dart:io';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/cubit/get_state.dart';
-
+import 'package:todo/cubit/get_usert_cubit/get_state.dart';
 class GetUserCubit extends Cubit <GetUserState>{
 
   GetUserCubit() : super(GetInitalUserState());

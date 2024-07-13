@@ -41,6 +41,9 @@ class CustomField extends StatelessWidget {
             ),
           ),
           TextFormField(
+            onTapOutside: (e){
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
             controller: controller,
             maxLines: maxLine,
             minLines: minLine,

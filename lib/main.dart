@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/cubit/get_cubit.dart';
+import 'package:todo/cubit/get_usert_cubit/get_cubit.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
 void main() {

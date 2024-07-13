@@ -107,13 +107,9 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                         endDateSelectedDate: endDateSelectedDate,
                         timeOfTask: selectedTime,
                       ));
-                      Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                          const HomePageScreen(),
-                      )
-                      ).then((value) {
-                        setState(() {});
-                      },);
-
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                      //     const HomePageScreen(),)).then((value) {setState(() {});},);
+                      Navigator.pop(context);
                     }
                   },
                 ),
