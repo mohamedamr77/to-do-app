@@ -36,7 +36,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePageScreen(),
+          builder: (context) => const HomePageScreen(),
         ),
       );
     } else {

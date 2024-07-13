@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/core/colorCore.dart';
@@ -13,6 +12,7 @@ class HomePageScreen extends StatefulWidget {
 
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageScreenState createState() => _HomePageScreenState();
 }
 
@@ -29,7 +29,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
         ),
         onPressed: () async {
           // Navigate to AddTaskScreen and wait for result
-          final result = await Navigator.push(context, MaterialPageRoute(builder: (context) =>  AddTaskScreen()),
+          final result = await Navigator.push(context, MaterialPageRoute(builder: (context) =>  const AddTaskScreen()),
           ).then((e){setState(() {
 
           });});

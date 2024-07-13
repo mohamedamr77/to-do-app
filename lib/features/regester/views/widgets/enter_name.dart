@@ -21,7 +21,7 @@ class EnterName extends StatelessWidget {
               color: ColorApp.whiteColor,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: Color(0xff87B5E3)
+                color: const Color(0xff87B5E3)
               )
             ),
             child: Column(

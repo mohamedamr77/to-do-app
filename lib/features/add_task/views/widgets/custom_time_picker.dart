@@ -31,7 +31,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
               widget.selectedTime=timeOfDay;
             });
           }
-          print(widget.selectedTime);
+
         },
         leading: SvgPicture.asset(ImageApp.timeIconImage),
         title:  const Text(TextApp.addTimeText,
