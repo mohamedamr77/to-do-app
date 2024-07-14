@@ -5,6 +5,7 @@ import 'package:todo/core/shared_widget/custom_appbar.dart';
 import '../../../../core/colorCore.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/textCore.dart';
+import '../../../home_page/views/HomePageScreen.dart';
 import 'custom_data_picker.dart';
 import 'custom_time_picker.dart';
 import 'cutsom_field.dart';
@@ -105,9 +106,9 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                         endDateSelectedDate: endDateSelectedDate,
                         timeOfTask: selectedTime,
                       ));
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                      //     const HomePageScreen(),)).then((value) {setState(() {});},);
-                      Navigator.pop(context);
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>
+                          const HomePageScreen(),)).then((value) {setState(() {});},);
+                      // Navigator.pop(context);
                     }
                   },
                 ),
