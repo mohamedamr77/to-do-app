@@ -26,7 +26,7 @@ class TextApp {
   static const String enterTheTaskDescText = 'Enter The Task Description';
   static const String startDateText = 'Start Date';
   static const String enterTheStartDateText = 'Enter The Start Date';
-  static const String endDateText = 'Start Date';
+  static const String endDateText = 'End Date';
   static const String enterTheEndDateText = 'Enter The end Date';
   static const String pleaseEnterTheTaskNameText = 'Please enter a task name';
   static const String pleaseEnterTheTaskDescText = "Please enter a task description";

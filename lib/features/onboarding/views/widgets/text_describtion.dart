@@ -1,6 +1,5 @@
 //done
 import 'package:flutter/material.dart';
-import '../../../../core/colorCore.dart';
 import '../../../../core/textCore.dart';
 
 class CustomTextDescription extends StatelessWidget {
@@ -13,12 +12,7 @@ class CustomTextDescription extends StatelessWidget {
       height: MediaQuery.of(context).size.height*0.1,
       child: Text(TextApp.onboardingDescriptionText.trim(),
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          color: ColorApp.greyColor,
-          fontWeight: FontWeight.w400,
-          fontSize: 14,
-          fontFamily: "LexendDecaRegularStyle",
-        ),
+        style: Theme.of(context).textTheme.bodyMedium
       ),
     );
   }

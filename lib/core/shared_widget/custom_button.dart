@@ -32,12 +32,7 @@ class CustomButton extends StatelessWidget {
             Text(
               nameButton,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                fontFamily: "LexendDeca",
-              ),
+              style: Theme.of(context).textTheme.labelLarge
             ),
             if (image != null) ...[
               const SizedBox(width: 10),

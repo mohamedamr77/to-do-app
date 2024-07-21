@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:todo/core/colorCore.dart';
-import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 
 // ignore: must_be_immutable
@@ -22,7 +20,8 @@ class _CustomDataPickerState extends State<CustomDataPicker> {
   @override
   Widget build(BuildContext context) {
     return   Card(
-      color: Colors.white,
+      //Colors.white,
+      color: Theme.of(context).cardColor,
       child: ListTile(
         onTap: () async{
                 final DateTime? picked = await showDatePicker(
@@ -40,22 +39,14 @@ class _CustomDataPickerState extends State<CustomDataPicker> {
           },
         leading: SvgPicture.asset(ImageApp.calendarImage),
         title:  Text(widget.title,
-          style: const TextStyle(
-            color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            fontFamily: FontFamilyApp.lexendDecaRegular,
-          ),
+          style: Theme.of(context).textTheme.bodySmall
         ),
         subtitle:  Text(widget.subTitle,
-          style: const TextStyle(
-            color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            fontFamily: FontFamilyApp.lexendDecaRegular,
-          ),
+          style: Theme.of(context).textTheme.titleSmall,
         ),
-        trailing: SvgPicture.asset(ImageApp.arrowDownImage),
+        trailing: SvgPicture.asset(ImageApp.arrowDownImage,
+        color:  Theme.of(context).canvasColor,
+        ),
       ),
     );
   }

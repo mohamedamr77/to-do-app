@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todo/core/colorCore.dart';
-import 'package:todo/core/fontfamily.dart';
 
 class CustomField extends StatelessWidget {
   const CustomField({
@@ -25,7 +23,7 @@ class CustomField extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: ColorApp.whiteColor,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
@@ -33,12 +31,7 @@ class CustomField extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
-              color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              fontFamily:FontFamilyApp.lexendDecaRegular,
-            ),
+            style: Theme.of(context).textTheme.bodySmall
           ),
           TextFormField(
             controller: controller,
@@ -46,12 +39,7 @@ class CustomField extends StatelessWidget {
             minLines: minLine,
             decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: TextStyle(
-                color: const Color(0xff6e6a7c80).withOpacity(0.5),
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                fontFamily: FontFamilyApp.lexendDecaRegular,
-              ),
+              hintStyle: Theme.of(context).textTheme.titleSmall,
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
             ),

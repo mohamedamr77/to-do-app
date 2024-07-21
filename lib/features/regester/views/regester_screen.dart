@@ -36,7 +36,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePageScreen(),
+          builder: (context) => const HomePageScreen(),
         ),
       );
     } else {
@@ -93,7 +93,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                                 width: MediaQuery.of(context).size.width * 0.325,
                                 height: MediaQuery.of(context).size.height * 0.156,
                                 decoration: BoxDecoration(
-                                  color: ColorApp.whiteColor,
+                                  color: Theme.of(context).cardColor,
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: ShaderMask(
@@ -135,12 +135,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                       },
                       child: Text(
                         myPhoto == null ? TextApp.addPhotoText : "Update photo",
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: ColorApp.slateGrayColor,
-                          fontFamily: "LexendDecaRegularStyle",
-                        ),
+                        style: Theme.of(context).textTheme.bodySmall
                       ),
                     ),
                   ],

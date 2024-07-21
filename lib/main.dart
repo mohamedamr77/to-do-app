@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo/core/apptheme.dart';
 import 'package:todo/cubit/get_cubit.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
@@ -15,6 +16,9 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) =>GetUserCubit(),
       child: MaterialApp(
+        theme: AppTheme.lightThemeData,
+        themeMode: ThemeMode.light,
+        darkTheme: AppTheme.darkThemeData,
         routes: {
           CustomRegesterScreen.id: (context) => const CustomRegesterScreen(),
           CustomOnboarding.id: (context) => const CustomOnboarding(),

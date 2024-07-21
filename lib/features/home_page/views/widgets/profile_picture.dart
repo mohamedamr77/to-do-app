@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:todo/core/colorCore.dart';
 
 class ProfilePicture extends StatelessWidget {
   const ProfilePicture({super.key, required this.pictureUser});
@@ -11,9 +10,9 @@ class ProfilePicture extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        const CircleAvatar(
+         CircleAvatar(
           radius: 30,
-          backgroundColor: ColorApp.whiteColor,
+          backgroundColor: Theme.of(context).canvasColor==Colors.white? const Color(0xff335072) :Colors.white
         ),
         CircleAvatar(
           radius: 26,

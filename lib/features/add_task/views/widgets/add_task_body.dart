@@ -1,10 +1,8 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/features/home_page/views/HomePageScreen.dart';
-import '../../../../core/colorCore.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/textCore.dart';
 import 'custom_data_picker.dart';
@@ -44,7 +42,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
               children: [
                 const SizedBox(height: 10,),
                 const CustomAppbar(title: TextApp.addTaskText),
-                const SizedBox(height: 35,),
+                const SizedBox(height: 15,),
 
                 CustomField(
                   title:TextApp.taskNameText,
@@ -95,7 +93,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                 const SizedBox(height: 20,),
 
                 CustomButton(
-                  backGroundColor:  ColorApp.primaryColor,
+                  backGroundColor:  Theme.of(context).canvasColor==Colors.black? const Color(0xff90B6E2) :const Color(0xff3F6188),
                   nameButton: TextApp.addTaskText,
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
@@ -107,7 +105,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                         endDateSelectedDate: endDateSelectedDate,
                         timeOfTask: selectedTime,
                       ));
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePageScreen(),)).then((x){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),)).then((x){
                         setState(() {
 
                         });

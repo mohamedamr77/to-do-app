@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todo/core/colorCore.dart';
 import 'package:todo/features/done_tasks/views/widgets/donetask_body.dart';
 
 class DoneTaskScreen extends StatelessWidget {
@@ -7,8 +6,15 @@ class DoneTaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Container(
+    return  const Scaffold(
+      body: DoneTaskBody(
+
+      ),
+    );
+  }
+}
+/*
+Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -21,6 +27,4 @@ class DoneTaskScreen extends StatelessWidget {
 
         ),
       ),
-    );
-  }
-}
+ */

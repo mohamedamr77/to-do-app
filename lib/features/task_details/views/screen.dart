@@ -9,7 +9,12 @@ class TaskDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: TaskDetailsBody(task: task,),
+    );
+  }
+}
+/*
+Container(
         width: double.infinity,
         height: double.infinity,
           decoration: const BoxDecoration(
@@ -21,6 +26,4 @@ class TaskDetailsScreen extends StatelessWidget {
             ),
           ),
           child:  TaskDetailsBody(task: task,)),
-    );
-  }
-}
+ */

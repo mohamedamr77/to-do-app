@@ -11,27 +11,17 @@ class CustomContainerShowData extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: Colors.white,
+        color: Theme.of(context).cardColor
       ),
       child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title,
-            style: const TextStyle(
-              color: Color(0xff423F3F),
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              fontFamily: "LexendDecaRegularStyle",
-            ),
+            style: Theme.of(context).textTheme.bodySmall
           ),
           const SizedBox(height: 7,),
           Text(detailsTitle,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              fontFamily: "LexendDecaRegularStyle",
-              color: Color(0xff8E8E8E),
-            ),
+            style: Theme.of(context).textTheme.titleSmall
           ),
         ],
       )

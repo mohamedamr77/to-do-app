@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -59,10 +58,19 @@ class _DismissibleTaskState extends State<DismissibleTask> {
       return await showDialog<bool>(
         context: context,
         builder: (context) {
-          return const AlertDialog(
-            title: Text(TextApp.cancelText),
-            content: Text(TextApp.areYouSureDeleteText),
-            actions: [
+          return  AlertDialog(
+            backgroundColor: Theme.of(context).canvasColor==Colors.white?const Color(0xff283F5A):Colors.white,
+            title: Text(TextApp.cancelText,
+            style: TextStyle(
+              color: Theme.of(context).canvasColor==Colors.white?Colors.white:Colors.black,
+            ),
+            ),
+            content: Text(TextApp.areYouSureDeleteText,
+              style: TextStyle(
+                color: Theme.of(context).canvasColor==Colors.white?Colors.white:Colors.black,
+              ),
+            ),
+            actions: const [
               DialogButton(text: TextApp.cancelText, result: false, color: ColorApp.primaryColor),
               DialogButton(text: TextApp.deleteText, result: true, color: ColorApp.redColor),
             ],

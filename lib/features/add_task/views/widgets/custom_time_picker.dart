@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:todo/core/colorCore.dart';
-import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 import '../../../../core/textCore.dart';
 
@@ -18,7 +16,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
   @override
   Widget build(BuildContext context) {
     return  Card(
-      color: Colors.white,
+      color: Theme.of(context).cardColor,
       child: ListTile(
         onTap: () async{
           final TimeOfDay? timeOfDay= await showTimePicker(
@@ -33,24 +31,17 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
           }
           print(widget.selectedTime);
         },
-        leading: SvgPicture.asset(ImageApp.timeIconImage),
-        title:  const Text(TextApp.addTimeText,
-          style: TextStyle(
-            color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            fontFamily: FontFamilyApp.lexendDecaRegular,
-          ),
+        leading: Theme.of(context).canvasColor==Colors.black?
+        SvgPicture.asset("assets/images/svg/timeicon.svg") : SvgPicture.asset("assets/images/svg/fluent-emoji-flat_watch_blackmode.svg"),
+        title:  Text(TextApp.addTimeText,
+          style: Theme.of(context).textTheme.bodySmall,
         ),
-        subtitle:  const Text(TextApp.setTimeForTaskText,
-          style: TextStyle(
-            color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            fontFamily:FontFamilyApp.lexendDecaRegular,
-          ),
+        subtitle:   Text(TextApp.setTimeForTaskText,
+          style: Theme.of(context).textTheme.titleSmall,
         ),
-        trailing: SvgPicture.asset(ImageApp.arrowDownImage),
+        trailing: SvgPicture.asset(ImageApp.arrowDownImage,
+        color: Theme.of(context).canvasColor,
+        ),
       ),
     );
   }

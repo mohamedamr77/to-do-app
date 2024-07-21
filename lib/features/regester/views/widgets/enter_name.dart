@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../core/colorCore.dart';
 import '../../../../core/textCore.dart';
 
 class EnterName extends StatelessWidget {
@@ -18,35 +17,27 @@ class EnterName extends StatelessWidget {
             padding: const EdgeInsets.all(22),
             width: MediaQuery.of(context).size.width - 50,
             decoration: BoxDecoration(
-              color: ColorApp.whiteColor,
+              color: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: Color(0xff87B5E3)
+                  color: const Color(0xff87B5E3)
               )
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                 Text(
                   TextApp.yourNameText,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: ColorApp.slateGrayColor,
-                    fontFamily: "LexendDecaRegularStyle",
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.name,
                   controller: controller,
                   decoration: InputDecoration(
                     hintText: TextApp.enterNameText,
                     border: InputBorder.none,
-                    hintStyle: TextStyle(
-                      fontSize: 15,
-                      fontFamily: "LexendDecaRegularStyle",
-                      color: const Color(0xff6E6A7C).withOpacity(0.5),
-                    ),
+                    hintStyle: Theme.of(context).textTheme.titleSmall
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {

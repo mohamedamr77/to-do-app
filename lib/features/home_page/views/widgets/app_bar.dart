@@ -17,7 +17,7 @@ class AppBarSection extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 23, horizontal: 12),
-      color: ColorApp.primaryColor,
+      color: Theme.of(context).indicatorColor,
       child: Row(
         children: [
           GestureDetector(
@@ -32,23 +32,13 @@ class AppBarSection extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 const Text(
+                  Text(
                   TextApp.helloText,
-                  style: TextStyle(
-                    color: ColorApp.textprimaryColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: FontFamilyApp.lexendDecaSemiBold,
-                  ),
+                  style: Theme.of(context).textTheme.labelMedium
                 ),
                 Text(
                   name!,
-                  style: const TextStyle(
-                    color: ColorApp.textprimaryColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: FontFamilyApp.lexendDecaSemiBold,
-                  ),
+                  style: Theme.of(context).textTheme.displayMedium
                 ),
                 const SizedBox(height: 12),
                 const Text(

@@ -16,16 +16,17 @@ class CustomAppbar extends StatelessWidget {
             "assets/images/svg/Arrow - Left.svg",
             height: 30,
             width: 30,
+          color:  Theme.of(context).canvasColor,
           ),
         ),
         Expanded(
           child: Text(title,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style:  TextStyle(
                 fontWeight: FontWeight.w600,
                 fontFamily: "LexendDeca",
                 fontSize: 19,
-                color: Color(0xff24252C)
+              color:  Theme.of(context).canvasColor,
             ),
           ),
         ),

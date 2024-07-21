@@ -14,7 +14,17 @@ class _TaskDetailsAchievedScreenState extends State<TaskDetailsAchievedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:  Container(
+      body:  TaskDetailsAchievedBody(
+        taskAchieved: widget.taskModel,
+        onTap: () {
+        widget.taskModel.archivedTask=false;
+        setState(() {});
+      },)
+    );
+  }
+}
+/*
+Container(
     decoration: const BoxDecoration(
     gradient: LinearGradient(
       colors: [
@@ -30,6 +40,4 @@ class _TaskDetailsAchievedScreenState extends State<TaskDetailsAchievedScreen> {
       setState(() {});
     },),
       )
-    );
-  }
-}
+ */

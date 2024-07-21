@@ -1,7 +1,6 @@
 //done
 //done
 import 'package:flutter/material.dart';
-import '../../../../core/colorCore.dart';
 // ignore: must_be_immutable
 class CustomButtonStarted extends StatelessWidget {
    CustomButtonStarted({super.key,required this.text,required this.trailing,required this.onTap});
@@ -25,21 +24,10 @@ class CustomButtonStarted extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    gradient: LinearGradient(
-                      colors: [
-                        ColorApp.lightBlueColor,
-                        ColorApp.shadeOfPinkColor.withOpacity(0.5),
-                      ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                    )
+                    color: Theme.of(context).canvasColor==Colors.black? const Color(0xff90B6E2) :const Color(0xff3F6188),
                 ),
                 child:  Text(text,
-                  style:const TextStyle(
-                    fontSize: 19,
-                    fontFamily: "LexendDeca",
-                    color: ColorApp.whiteColor,
-                  ),
+                  style: Theme.of(context).textTheme.labelLarge,
                 ),
               ),
             ),

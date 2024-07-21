@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,7 +8,6 @@ import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/core/textCore.dart';
-import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 
@@ -43,17 +41,12 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                   detailsTitle: widget.task.taskDescriptionController.text),
               const SizedBox(height: 16),
               Card(
-                color: Colors.white,
+                color:  Theme.of(context).cardColor,
                 child: ListTile(
                   leading: SvgPicture.asset(ImageApp.calendarImage),
-                  title:  const Text(
+                  title:   Text(
                     TextApp.startDateText,
-                    style: TextStyle(
-                      color: Color(0xff423F3F),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: FontFamilyApp.lexendDecaRegular
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall
                   ),
                   subtitle: Text(
                     DateFormat('dd MMM, y').format(widget.task.startDateSelectedDate),
@@ -69,17 +62,12 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
               ),
               const SizedBox(height: 8),
               Card(
-                color: Colors.white,
+                color:  Theme.of(context).cardColor,
                 child: ListTile(
                   leading: SvgPicture.asset(ImageApp.calendarImage),
-                  title: const Text(
+                  title:  Text(
                     TextApp.endDateText,
-                    style: TextStyle(
-                      color: Color(0xff423F3F),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      fontFamily:  FontFamilyApp.lexendDecaRegular,
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall
                   ),
                   subtitle: Text(
                     DateFormat('dd MMM, y').format(widget.task.startDateSelectedDate),
@@ -95,17 +83,13 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
               ),
               const SizedBox(height: 8),
               Card(
-                color: Colors.white,
+                color:  Theme.of(context).cardColor,
                 child: ListTile(
-                  leading: SvgPicture.asset(ImageApp.calendarImage),
-                  title: const Text(
+                  leading: Theme.of(context).canvasColor==Colors.black?
+                  SvgPicture.asset("assets/images/svg/timeicon.svg") : SvgPicture.asset("assets/images/svg/fluent-emoji-flat_watch_blackmode.svg"),
+                  title:  Text(
                     TextApp.addTimeText,
-                    style: TextStyle(
-                      color: Color(0xff423F3F),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      fontFamily:  FontFamilyApp.lexendDecaRegular,
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall
                   ),
                   subtitle: Text(
                     _formatTaskTime(widget.task.timeOfTask),
@@ -121,7 +105,7 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
               ),
               const SizedBox(height: 15),
               CustomButton(
-                backGroundColor: const Color(0XFF90B6E2),
+                backGroundColor: Theme.of(context).canvasColor==Colors.black? const Color(0xff90B6E2) :const Color(0xff3F6188),
                 nameButton: TextApp.archiveText,
                 onTap: () {
                   widget.task.archivedTask = true;
@@ -150,9 +134,10 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          content:   const Text(TextApp.areYouSureDeleteText,
+          backgroundColor: Theme.of(context).canvasColor==Colors.white?const Color(0xff283F5A):Colors.white,
+          content:    Text(TextApp.areYouSureDeleteText,
           style: TextStyle(
-            color: Colors.black,
+            color: Theme.of(context).canvasColor==Colors.white? const Color(0xffF0F0F0):Colors.black,
             fontWeight: FontWeight.w500,
             fontFamily: FontFamilyApp.lexendDecaRegular,
             fontSize: 16

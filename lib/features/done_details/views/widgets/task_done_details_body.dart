@@ -34,17 +34,12 @@ class TaskDoneDetailsBody extends StatelessWidget {
                   detailsTitle: task.taskDescriptionController.text),
               const SizedBox(height: 16),
               Card(
-                color: ColorApp.whiteColor,
+                color: Theme.of(context).cardColor,
                 child: ListTile(
                   leading: SvgPicture.asset(ImageApp.calendarImage),
-                  title:  const Text(
+                  title:   Text(
                     TextApp.startDateText,
-                    style: TextStyle(
-                      color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: FontFamilyApp.lexendDecaRegular,
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
                     DateFormat('dd MMM, y').format(task.startDateSelectedDate),
@@ -60,17 +55,12 @@ class TaskDoneDetailsBody extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Card(
-                color:  ColorApp.whiteColor,
+                color: Theme.of(context).cardColor,
                 child: ListTile(
                   leading: SvgPicture.asset(ImageApp.calendarImage),
-                  title: const Text(
+                  title:  Text(
                     TextApp.endDateText,
-                    style: TextStyle(
-                      color:ColorApp.titleListTileDateOrTimeOrTextFieldColor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: FontFamilyApp.lexendDecaRegular,
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
                     DateFormat('dd MMM, y').format(task.startDateSelectedDate),
@@ -86,17 +76,13 @@ class TaskDoneDetailsBody extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Card(
-                color: ColorApp.whiteColor,
+                color: Theme.of(context).cardColor,
                 child: ListTile(
-                  leading: SvgPicture.asset(ImageApp.calendarImage),
-                  title: const Text(
+                  leading: Theme.of(context).canvasColor==Colors.black?
+                  SvgPicture.asset("assets/images/svg/timeicon.svg") : SvgPicture.asset("assets/images/svg/fluent-emoji-flat_watch_blackmode.svg"),
+                  title:  Text(
                     TextApp.addTimeText,
-                    style: TextStyle(
-                      color: ColorApp.titleListTileDateOrTimeOrTextFieldColor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      fontFamily:FontFamilyApp.lexendDecaRegular,
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
                     _formatTaskTime(task.timeOfTask),

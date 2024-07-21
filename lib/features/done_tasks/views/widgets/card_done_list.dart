@@ -22,16 +22,11 @@ class CardDoneList extends StatelessWidget {
       onTap: () =>Navigator.push(context,MaterialPageRoute(builder: (context) => DoneDetailsScreen(
         task: taskModel,),)),
       child: Card(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         child: ListTile(
           leading: SvgPicture.asset(ImageApp.bagIcon),
           title: Text(title,
-            style:  const TextStyle(
-              color: Color(0xff24252C),
-              fontWeight: FontWeight.w600,
-              fontSize: 14,
-              fontFamily:FontFamilyApp.lexendDecaRegular ,
-            ),
+            style:  Theme.of(context).textTheme.headlineLarge
           ),
           subtitle: Text(_formatTaskTime(subtitle),
             style: const TextStyle(
@@ -45,7 +40,7 @@ class CardDoneList extends StatelessWidget {
             children: [
               Text(
                 DateFormat('dd MMM, y').format(startDate),
-                style: const TextStyle(
+                style:  const TextStyle(
                   color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 12,

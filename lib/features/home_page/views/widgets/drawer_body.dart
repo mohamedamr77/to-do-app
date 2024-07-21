@@ -16,14 +16,13 @@ class DrawerBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorApp.whiteColor,
       body: Column(
         children: [
           Container(
             padding: const EdgeInsets.all(30),
             width: double.infinity,
             height: 160,
-            color: ColorApp.primaryColor,
+            color: Theme.of(context).indicatorColor,
             child: Align(
               alignment: Alignment.centerLeft,
               child: SafeArea(
@@ -32,9 +31,9 @@ class DrawerBody extends StatelessWidget {
                     Stack(
                       alignment: Alignment.center,
                       children: [
-                        const CircleAvatar(
+                         CircleAvatar(
                           radius: 30,
-                          backgroundColor: ColorApp.whiteColor,
+                          backgroundColor:  Theme.of(context).canvasColor==Colors.white? const Color(0xff335072) :Colors.white
                         ),
                         CircleAvatar(
                           radius: 26,
@@ -57,47 +56,62 @@ class DrawerBody extends StatelessWidget {
               ),
             ),
           ),
-         Expanded(
-           child: ListView(
-             children: [
-               Card(
-                 color:ColorApp.bgCardDrawerColor,
-                 child: ListTile(
-                   onTap:(){
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ArchivedTasksScreen(),));
-                   },
-                   leading: SvgPicture.asset(ImageApp.archieveIcon),
-                   title:  const Text(TextApp.archivedTasksText,
-                     style: TextStyle(
-                         color: ColorApp.drawerTextCardColor,
+          Expanded(
+           child: Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 8),
+             child: ListView(
+               children: [
+                 Card(
+                   color :Theme.of(context).cardColor,
+                   child: ListTile(
+                     onTap:(){
+                       Navigator.push(context, MaterialPageRoute(builder: (context) => const ArchivedTasksScreen(),));
+                     },
+                     leading: SvgPicture.asset(ImageApp.archieveIcon,
+                     color: Theme.of(context).canvasColor== Colors.white?Colors.white:const Color(0xff739CCB),
+                     ),
+                     title:   Text(TextApp.archivedTasksText,
+                       style: Theme.of(context).canvasColor== Colors.white?  const TextStyle(
+                           color: Color(0xffF0F0F0),
+                           fontFamily: FontFamilyApp.lexendDecaRegular,
+                           fontSize: 16,
+                           fontWeight: FontWeight.w500
+                       ) : const TextStyle(
+                           color: ColorApp.drawerTextCardColor,
+                           fontFamily: FontFamilyApp.lexendDecaRegular,
+                           fontSize: 16,
+                           fontWeight: FontWeight.w500
+                       ),),
+                   ),
+                 ),
+                 const SizedBox(height: 10,),
+                 Card(
+                   color:  Theme.of(context).cardColor,
+                   child: ListTile(
+                     onTap: (){
+                       Navigator.push(context, MaterialPageRoute(builder: (context) => const DoneTaskScreen(),));
+                     },
+                     leading: SvgPicture.asset(ImageApp.doneIcon,
+                       color: Theme.of(context).canvasColor== Colors.white?Colors.white:const Color(0xff739CCB),
+                     ),
+                     title:   Text(TextApp.doneTasksText,
+                       style: Theme.of(context).canvasColor== Colors.white?  const TextStyle(
+                         color: Color(0xffF0F0F0),
                          fontFamily: FontFamilyApp.lexendDecaRegular,
                          fontSize: 16,
                          fontWeight: FontWeight.w500
-                     ),
+                       ) : const TextStyle(
+                           color: ColorApp.drawerTextCardColor,
+                           fontFamily: FontFamilyApp.lexendDecaRegular,
+                           fontSize: 16,
+                           fontWeight: FontWeight.w500
+                       ),),
                    ),
                  ),
-               ),
-               const SizedBox(height: 10,),
-               Card(
-                 color:  ColorApp.bgCardDrawerColor,
-                 child: ListTile(
-                   onTap: (){
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => const DoneTaskScreen(),));
-                   },
-                   leading: SvgPicture.asset(ImageApp.doneIcon),
-                   title:  const Text(TextApp.doneTasksText,
-                     style: TextStyle(
-                       color: ColorApp.drawerTextCardColor,
-                       fontFamily: FontFamilyApp.lexendDecaRegular,
-                       fontSize: 16,
-                       fontWeight: FontWeight.w500
-                     ),
-                   ),
-                 ),
-               ),
-             ],
+               ],
+             ),
            ),
-         )
+         ),
         ],
       ),
     );
