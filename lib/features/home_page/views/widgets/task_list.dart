@@ -26,7 +26,7 @@ class TaskList extends StatelessWidget {
           width: 300,
           height: 300,
         ),
-        SizedBox(height: 60,)
+        const SizedBox(height: 60,)
       ],
     )
         :
