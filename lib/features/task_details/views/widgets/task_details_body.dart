@@ -106,9 +106,9 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
               const SizedBox(height: 15),
               CustomButton(
                 backGroundColor: Theme.of(context).canvasColor==Colors.black? const Color(0xff90B6E2) :const Color(0xff3F6188),
-                nameButton: TextApp.archiveText,
+                nameButton: widget.task.archivedTask==true? "Unarchive" : "Archive",
                 onTap: () {
-                  widget.task.archivedTask = true;
+                  widget.task.archivedTask = !widget.task.archivedTask;
                   Navigator.pop(context);
                 },
                 image: ImageApp.archieveIcon,

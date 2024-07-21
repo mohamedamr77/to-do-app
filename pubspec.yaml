@@ -40,6 +40,7 @@ dependencies:
   intl: ^0.19.0
   flutter_bloc: ^8.1.6
   flutter_hooks: ^0.20.5
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/svg/
+    - assets/images/lottie/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -87,6 +89,10 @@ flutter:
      - family: LexendDecaRegularStyle
        fonts:
          - asset: assets/fonts/LexendDeca-Regular.ttf
+
+     - family: jejuhallasan
+       fonts:
+         - asset: assets/fonts/JejuHallasan-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

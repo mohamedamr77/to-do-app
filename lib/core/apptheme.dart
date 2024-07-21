@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'colorCore.dart';
 
 class AppTheme{
+  //Theme.of(context).textTheme.bodyLarge
   static final ThemeData lightThemeData = ThemeData(
       scaffoldBackgroundColor: Colors.white.withOpacity(0.98),
       textTheme: const TextTheme(

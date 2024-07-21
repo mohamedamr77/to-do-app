@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       create: (BuildContext context) =>GetUserCubit(),
       child: MaterialApp(
         theme: AppTheme.lightThemeData,
-        themeMode: ThemeMode.light,
+        themeMode: ThemeMode.dark,
         darkTheme: AppTheme.darkThemeData,
         routes: {
           CustomRegesterScreen.id: (context) => const CustomRegesterScreen(),
