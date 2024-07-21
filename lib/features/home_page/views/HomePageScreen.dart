@@ -21,7 +21,7 @@ class HomePageScreen extends StatelessWidget {
         ),
         onPressed: () async {
           // Navigate to AddTaskScreen and wait for result
-          final result = await Navigator.pushReplacement(
+          final result = await Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const AddTaskScreen()),
           );
@@ -53,20 +53,3 @@ class HomePageScreen extends StatelessWidget {
   }
 }
 
-/*
-Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                ColorApp.bgGroundColor1,
-                ColorApp.bgGroundColor2,
-              ],
-            ),
-          ),
-          child: BlocBuilder<GetUserCubit, GetUserState>(
-            builder: (BuildContext context, state) {
-              return HomePageBody(name: BlocProvider.of<GetUserCubit>(context).name, pictureUser: BlocProvider.of<GetUserCubit>(context).image);
-            },
-          )
-      ),
- */

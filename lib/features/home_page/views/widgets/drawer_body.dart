@@ -33,7 +33,8 @@ class DrawerBody extends StatelessWidget {
                     Stack(
                       alignment: Alignment.center,
                       children: [
-                        CircleAvatar(
+                        CircleAvatar
+                          (
                             radius: 30,
                             backgroundColor: Theme.of(context).canvasColor == Colors.white ? const Color(0xff335072) : Colors.white
                         ),

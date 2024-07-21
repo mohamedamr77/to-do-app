@@ -106,9 +106,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                         timeOfTask: selectedTime,
                       ));
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),)).then((x){
-                        setState(() {
-
-                        });
+                        setState(() {});
                       });
                     }
                   },

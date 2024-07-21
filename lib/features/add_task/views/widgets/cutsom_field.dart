@@ -34,9 +34,16 @@ class CustomField extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall
           ),
           TextFormField(
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 14
+            ),
             controller: controller,
             maxLines: maxLine,
             minLines: minLine,
+            onTapOutside: (e){
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: Theme.of(context).textTheme.titleSmall,
