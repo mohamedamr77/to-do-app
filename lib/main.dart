@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/core/apptheme.dart';
 import 'package:todo/cubit/get_cubit.dart';
+import 'package:todo/cubit/theme/get_cubit.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
+import 'cubit/theme/get_State.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,19 +16,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) =>GetUserCubit(),
-      child: MaterialApp(
-        theme: AppTheme.lightThemeData,
-        themeMode: ThemeMode.dark,
-        darkTheme: AppTheme.darkThemeData,
-        routes: {
-          CustomRegesterScreen.id: (context) => const CustomRegesterScreen(),
-          CustomOnboarding.id: (context) => const CustomOnboarding(),
-          // HomePageScreen.id: (context) =>  HomePageScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => GetUserCubit()),
+        BlocProvider(create: (context) => GetThemeCubit()),
+      ],
+      child: BlocBuilder<GetThemeCubit, GetThemeState>(
+        builder: (context, state) {
+          return MaterialApp(
+            theme: AppTheme.lightThemeData,
+            themeMode: context.read<GetThemeCubit>().isDark ? ThemeMode.dark : ThemeMode.light,
+            darkTheme: AppTheme.darkThemeData,
+            routes: {
+              CustomRegesterScreen.id: (context) => const CustomRegesterScreen(),
+              CustomOnboarding.id: (context) => const CustomOnboarding(),
+              // HomePageScreen.id: (context) =>  HomePageScreen(),
+            },
+            initialRoute: CustomOnboarding.id,
+            debugShowCheckedModeBanner: false,
+          );
         },
-        initialRoute:   CustomOnboarding.id,
-        debugShowCheckedModeBanner: false,
       ),
     );
   }
