@@ -70,7 +70,7 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                     style: Theme.of(context).textTheme.bodySmall
                   ),
                   subtitle: Text(
-                    DateFormat('dd MMM, y').format(widget.task.startDateSelectedDate),
+                    DateFormat('dd MMM, y').format(widget.task.endDateSelectedDate),
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,

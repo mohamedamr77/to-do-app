@@ -57,7 +57,7 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                    style:  Theme.of(context).textTheme.bodySmall,
                  ),
                  subtitle: Text(
-                   DateFormat('dd MMM, y').format(taskAchieved.startDateSelectedDate),
+                   DateFormat('dd MMM, y').format(taskAchieved.endDateSelectedDate),
                    style: const TextStyle(
                      color: Color(0xffB6B4BD),
                      fontSize: 12,

@@ -22,9 +22,9 @@ class _AddTaskBodyState extends State<AddTaskBody> {
 
   final TextEditingController taskDescriptionController = TextEditingController();
 
-  final DateTime startDateSelectedDate = DateTime.now();
+   DateTime? startDateSelectedDate;
 
-  final DateTime endDateSelectedDate = DateTime.now();
+   DateTime? endDateSelectedDate;
 
   final TimeOfDay selectedTime = TimeOfDay.now();
 
@@ -80,12 +80,20 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                   title: TextApp.startText,
                   subTitle: TextApp.enterTheStartDateText,
                   selectedDate: startDateSelectedDate,
+                  onDateSelected: (DateTime picked) {
+                    startDateSelectedDate=picked;
+                    print("startDate $startDateSelectedDate");
+                },
                 ),
 
                 CustomDataPicker(
                   title: TextApp.endDateText,
                   subTitle: TextApp.enterTheEndDateText,
                   selectedDate: endDateSelectedDate,
+                  onDateSelected: (DateTime p) {
+                    endDateSelectedDate=p;
+                    print("endDate $endDateSelectedDate");
+                  },
                 ),
 
                 CustomTimePicker(selectedTime: selectedTime,),
@@ -99,12 +107,12 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                     if (_formKey.currentState!.validate()) {
                       tasksList.add(
                           TaskModel(
-                        taskName: taskName,
-                        taskDescriptionController: taskDescriptionController,
-                        startDateSelectedDate: startDateSelectedDate,
-                        endDateSelectedDate: endDateSelectedDate,
-                        timeOfTask: selectedTime,
-                      ));
+                            taskName: taskName,
+                            taskDescriptionController: taskDescriptionController,
+                            startDateSelectedDate: startDateSelectedDate!,
+                            endDateSelectedDate: endDateSelectedDate!,
+                            timeOfTask: selectedTime,
+                          ));
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),)).then((x){
                         setState(() {});
                       });
