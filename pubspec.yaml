@@ -41,6 +41,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   flutter_hooks: ^0.20.5
   lottie: ^3.1.2
+  animate_do: ^3.3.4
 
 dev_dependencies:
   flutter_test:

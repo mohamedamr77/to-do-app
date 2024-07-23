@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/core/data/model/task_model.dart';
@@ -26,7 +27,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
 
    DateTime? endDateSelectedDate;
 
-  final TimeOfDay selectedTime = TimeOfDay.now();
+   TimeOfDay? selectedTime ;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -82,8 +83,11 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                   selectedDate: startDateSelectedDate,
                   onDateSelected: (DateTime picked) {
                     startDateSelectedDate=picked;
-                    print("startDate $startDateSelectedDate");
-                },
+                    if (kDebugMode) {
+                      print("startDate $startDateSelectedDate");
+                    }
+                    },
+
                 ),
 
                 CustomDataPicker(
@@ -92,11 +96,17 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                   selectedDate: endDateSelectedDate,
                   onDateSelected: (DateTime p) {
                     endDateSelectedDate=p;
-                    print("endDate $endDateSelectedDate");
+                    if (
+                    kDebugMode)
+                    {
+                      print("endDate $endDateSelectedDate");
+                    }
                   },
                 ),
 
-                CustomTimePicker(selectedTime: selectedTime,),
+                CustomTimePicker(selectedTime: selectedTime, onTimeSelected: (TimeOfDay t)  {
+                  selectedTime=t;
+                },),
 
                 const SizedBox(height: 20,),
 
@@ -111,7 +121,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                             taskDescriptionController: taskDescriptionController,
                             startDateSelectedDate: startDateSelectedDate!,
                             endDateSelectedDate: endDateSelectedDate!,
-                            timeOfTask: selectedTime,
+                            timeOfTask: selectedTime!,
                           ));
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),)).then((x){
                         setState(() {});

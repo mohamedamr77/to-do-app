@@ -1,4 +1,5 @@
 //done
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/textCore.dart';
 
@@ -10,10 +11,12 @@ class CustomTextBold extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width*0.4,
       height: MediaQuery.of(context).size.height*0.09,
-      child:  Text(TextApp.onboardingTitleText,
-        textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.bodyLarge,
+      child:  FadeInLeftBig(
+        child: Text(TextApp.onboardingTitleText,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyLarge,
 
+        ),
       ),
     );
   }

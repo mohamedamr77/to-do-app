@@ -18,7 +18,7 @@ class DoneTaskBody extends StatelessWidget {
         padding: const  EdgeInsets.symmetric(horizontal: 15, vertical:10),
         child: Column(
           children: [
-            const CustomAppbar(title: TextApp.archivedTasksText),
+            const CustomAppbar(title:"Done Tasks"),
             SizedBox(height: MediaQuery.of(context).size.height*0.22,),
              Text("Not Tasks Done \n Make Task And Go to Task And Make Task Done ",
               textAlign: TextAlign.center,
