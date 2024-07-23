@@ -40,7 +40,7 @@ class EnterName extends StatelessWidget {
                     hintStyle: Theme.of(context).textTheme.titleSmall
                   ),
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
+                    if (value == null || value.trim().isEmpty ) {
                       return 'Please enter your name';
                     }
                     return null;

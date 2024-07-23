@@ -9,13 +9,14 @@ class CustomDataPicker extends StatefulWidget {
     required this.title,
     required this.subTitle,
     required this.selectedDate,
-    required this.onDateSelected,
+    required this.onDateSelected, @required this.clickInButton,
   });
 
   final String title;
   final String subTitle;
   DateTime? selectedDate;
   final Function(DateTime) onDateSelected;
+   bool? clickInButton;
 
   @override
   State<CustomDataPicker> createState() => _CustomDataPickerState();
@@ -25,6 +26,14 @@ class _CustomDataPickerState extends State<CustomDataPicker> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: StadiumBorder(
+      side: BorderSide(
+        // border color
+        color:widget.clickInButton==true&&widget.selectedDate==null? Colors.red:Colors.white,
+        // border thickness
+        width: 5,
+      ),
+    ),
       color: Theme.of(context).cardColor,
       child: ListTile(
         onTap: () async {

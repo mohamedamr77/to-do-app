@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -5,9 +6,10 @@ import 'package:todo/core/imageCore.dart';
 import '../../../../core/textCore.dart';
 
 class CustomTimePicker extends StatefulWidget {
-   CustomTimePicker({super.key,required this.selectedTime, required this.onTimeSelected});
+   CustomTimePicker({super.key,required this.selectedTime, required this.onTimeSelected,@required this.clickInButton});
    TimeOfDay? selectedTime;
    final Function(TimeOfDay) onTimeSelected;
+   bool? clickInButton;
   @override
   State<CustomTimePicker> createState() => _CustomTimePickerState();
 }
@@ -17,6 +19,14 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
   @override
   Widget build(BuildContext context) {
     return  Card(
+      shape: StadiumBorder(
+        side: BorderSide(
+          // border color
+          color:widget.clickInButton==true&&widget.selectedTime==null? Colors.red:Colors.white,
+          // border thickness
+          width: 5,
+        ),
+      ),
       color: Theme.of(context).cardColor,
       child: ListTile(
         onTap: () async{

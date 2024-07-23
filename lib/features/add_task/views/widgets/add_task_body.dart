@@ -30,6 +30,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
    TimeOfDay? selectedTime ;
 
   final _formKey = GlobalKey<FormState>();
+  bool? clickInButton;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +87,7 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                     if (kDebugMode) {
                       print("startDate $startDateSelectedDate");
                     }
-                    },
+                    }, clickInButton: clickInButton,
 
                 ),
 
@@ -102,11 +103,12 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                       print("endDate $endDateSelectedDate");
                     }
                   },
+                  clickInButton: clickInButton,
                 ),
 
                 CustomTimePicker(selectedTime: selectedTime, onTimeSelected: (TimeOfDay t)  {
                   selectedTime=t;
-                },),
+                }, clickInButton: null,),
 
                 const SizedBox(height: 20,),
 
@@ -114,6 +116,8 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                   backGroundColor:  Theme.of(context).canvasColor==Colors.black? const Color(0xff90B6E2) :const Color(0xff3F6188),
                   nameButton: TextApp.addTaskText,
                   onTap: () {
+                    clickInButton=true;
+                    setState(() {});
                     if (_formKey.currentState!.validate()) {
                       tasksList.add(
                           TaskModel(
