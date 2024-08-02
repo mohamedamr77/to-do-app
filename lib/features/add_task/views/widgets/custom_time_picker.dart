@@ -19,14 +19,14 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
   @override
   Widget build(BuildContext context) {
     return  Card(
-      shape: StadiumBorder(
-        side: BorderSide(
-          // border color
-          color:widget.clickInButton==true&&widget.selectedTime==null? Colors.red:Colors.white,
-          // border thickness
-          width: 5,
-        ),
-      ),
+      // shape: StadiumBorder(
+      //   side: BorderSide(
+      //     // border color
+      //     color:widget.clickInButton==true&&widget.selectedTime==null? Colors.red:Colors.white,
+      //     // border thickness
+      //     width: 5,
+      //   ),
+      // ),
       color: Theme.of(context).cardColor,
       child: ListTile(
         onTap: () async{

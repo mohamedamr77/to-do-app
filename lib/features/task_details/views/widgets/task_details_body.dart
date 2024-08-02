@@ -191,6 +191,7 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                ],
              )
           ],
+
         );
       },
     );

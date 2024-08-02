@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/core/apptheme.dart';
@@ -8,7 +10,12 @@ import 'cubit/theme/get_State.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MyApp(), // Wrap your app
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -24,6 +31,9 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<GetThemeCubit, GetThemeState>(
         builder: (context, state) {
           return MaterialApp(
+            useInheritedMediaQuery: true,
+            locale: DevicePreview.locale(context),
+            builder: DevicePreview.appBuilder,
             theme: AppTheme.lightThemeData,
             themeMode: context.read<GetThemeCubit>().isDark ? ThemeMode.dark : ThemeMode.light,
             darkTheme: AppTheme.darkThemeData,
