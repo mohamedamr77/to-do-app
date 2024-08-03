@@ -13,20 +13,22 @@ class CustomOnboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-           body: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const CustomBanner(),
-                SizedBox(height: MediaQuery.of(context).size.height*0.04,),
-                const CustomTextBold(),
-                SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-                const CustomTextDescription(),
-                SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-                CustomButtonStarted(text: TextApp.startText, trailing: Image.asset(ImageApp.arrowStartImage), onTap: () {
-                  Navigator.pushNamed(context, CustomRegesterScreen.id
-                  );
-                },),
-              ],
+           body: SingleChildScrollView(
+             child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const CustomBanner(),
+                  SizedBox(height: MediaQuery.of(context).size.height*0.04,),
+                  const CustomTextBold(),
+                  SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+                  const CustomTextDescription(),
+                  SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+                  CustomButtonStarted(text: TextApp.startText, trailing: Image.asset(ImageApp.arrowStartImage), onTap: () {
+                    Navigator.pushNamed(context, CustomRegesterScreen.id
+                    );
+                  },),
+                ],
+             ),
            ),
     );
   }

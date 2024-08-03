@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/textCore.dart';
@@ -65,7 +67,9 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                     Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
-                        const Image(image: AssetImage(ImageApp.regesterImage)),
+                         Image(
+                           image: AssetImage(ImageApp.regesterImage),
+                         ),
                         Stack(
                           alignment: Alignment.center,
                           children: [
@@ -125,7 +129,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: 5.h),
                     TextButton(
                       onPressed: () {
                         pickImage().then((value) {
