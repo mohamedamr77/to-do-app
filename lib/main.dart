@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:todo/core/apptheme.dart';
+import 'package:todo/core/box.dart';
 import 'package:todo/cubit/get_cubit.dart';
 import 'package:todo/cubit/theme/get_cubit.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
@@ -14,7 +15,7 @@ import 'features/onboarding/views/onboarding_screen.dart';
 
 void main() async{
   await Hive.initFlutter();
-  var box = await Hive.openBox('kNotesBox');
+  var box = await Hive.openBox(BoxApp.kTaskBox);
   Hive.registerAdapter(
       TaskModelAdapter(),
   );
