@@ -33,4 +33,5 @@ class TextApp {
   static const String setTimeForTaskText = "Set a Time For The Task";
   static const String amText = "AM";
   static const String pmText = "PM";
+  static const String kNotesBox = "NotesBox";
 }

@@ -8,12 +8,16 @@ import 'package:todo/core/apptheme.dart';
 import 'package:todo/cubit/get_cubit.dart';
 import 'package:todo/cubit/theme/get_cubit.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
+import 'core/data/model/task_model.dart';
 import 'cubit/theme/get_State.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
 
 void main() async{
   await Hive.initFlutter();
-  var box = await Hive.openBox('testBox');
+  var box = await Hive.openBox('kNotesBox');
+  Hive.registerAdapter(
+      TaskModelAdapter(),
+  );
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
