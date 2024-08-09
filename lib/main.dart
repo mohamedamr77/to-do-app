@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:todo/core/apptheme.dart';
 import 'package:todo/cubit/get_cubit.dart';
 import 'package:todo/cubit/theme/get_cubit.dart';
@@ -10,7 +11,9 @@ import 'package:todo/features/regester/views/regester_screen.dart';
 import 'cubit/theme/get_State.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
 
-void main() {
+void main() async{
+  await Hive.initFlutter();
+  var box = await Hive.openBox('testBox');
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,

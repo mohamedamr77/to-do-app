@@ -7,16 +7,18 @@ class CustomField extends StatelessWidget {
     required this.hintText,
     required this.minLine,
     required this.maxLine,
-    required this.controller,
+
     required this.validator,
+    required this.onSaved,
   });
 
   final String title;
   final String hintText;
   final int minLine;
   final int maxLine;
-  final TextEditingController controller;
+  // final TextEditingController controller;
   final String? Function(String?) validator;
+  void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +36,11 @@ class CustomField extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall
           ),
           TextFormField(
+            onSaved: onSaved,
             style: TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 14
             ),
-            controller: controller,
             maxLines: maxLine,
             minLines: minLine,
             onTapOutside: (e){
