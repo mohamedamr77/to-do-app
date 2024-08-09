@@ -10,7 +10,6 @@ import 'custom_data_picker.dart';
 import 'custom_time_picker.dart';
 import 'cutsom_field.dart';
 
-
 class AddTaskBody extends StatefulWidget {
   const AddTaskBody({super.key});
 
@@ -19,18 +18,14 @@ class AddTaskBody extends StatefulWidget {
 }
 
 class _AddTaskBodyState extends State<AddTaskBody> {
-   String? taskName ;
+  final TextEditingController taskName = TextEditingController();
+  final TextEditingController taskDescriptionController = TextEditingController();
 
-   String? taskDescriptionController ;
+  DateTime? startDateSelectedDate;
+  DateTime? endDateSelectedDate;
+  TimeOfDay? selectedTime;
 
-   DateTime? startDateSelectedDate;
-
-   DateTime? endDateSelectedDate;
-
-   TimeOfDay? selectedTime ;
-  AutovalidateMode autoValidateMode = AutovalidateMode.onUserInteraction;
   final _formKey = GlobalKey<FormState>();
-  bool? clickInButton;
 
   @override
   Widget build(BuildContext context) {
@@ -40,20 +35,19 @@ class _AddTaskBodyState extends State<AddTaskBody> {
         child: SafeArea(
           child: Form(
             key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
-                const SizedBox(height: 10,),
+                const SizedBox(height: 10),
                 const CustomAppbar(title: TextApp.addTaskText),
-                const SizedBox(height: 15,),
+                const SizedBox(height: 15),
 
                 CustomField(
-                  title:TextApp.taskNameText,
+                  title: TextApp.taskNameText,
                   hintText: TextApp.enterTheTaskNameText,
                   minLine: 1,
                   maxLine: 1,
-                   onSaved: (value){
-                    taskName=value;
-                   },
+                  controller: taskName,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return TextApp.pleaseEnterTheTaskNameText;
@@ -62,16 +56,14 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                   },
                 ),
 
-                const SizedBox(height: 10,),
+                const SizedBox(height: 10),
 
                 CustomField(
-                  onSaved: (value){
-                     taskDescriptionController=value;
-                  },
                   title: TextApp.descriptionText,
                   hintText: TextApp.enterTheTaskDescText,
                   minLine: 4,
                   maxLine: 4,
+                  controller: taskDescriptionController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return TextApp.pleaseEnterTheTaskDescText;
@@ -80,19 +72,18 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                   },
                 ),
 
-                const SizedBox(height: 20,),
+                const SizedBox(height: 20),
 
                 CustomDataPicker(
                   title: TextApp.startText,
                   subTitle: TextApp.enterTheStartDateText,
                   selectedDate: startDateSelectedDate,
                   onDateSelected: (DateTime picked) {
-                    startDateSelectedDate=picked;
+                    startDateSelectedDate = picked;
                     if (kDebugMode) {
                       print("startDate $startDateSelectedDate");
                     }
-                    }, clickInButton: clickInButton,
-
+                  },
                 ),
 
                 CustomDataPicker(
@@ -100,38 +91,52 @@ class _AddTaskBodyState extends State<AddTaskBody> {
                   subTitle: TextApp.enterTheEndDateText,
                   selectedDate: endDateSelectedDate,
                   onDateSelected: (DateTime p) {
-                    endDateSelectedDate=p;
-                    if (
-                    kDebugMode)
-                    {
+                    endDateSelectedDate = p;
+                    if (kDebugMode) {
                       print("endDate $endDateSelectedDate");
                     }
                   },
-                  clickInButton: clickInButton,
                 ),
 
-                CustomTimePicker(selectedTime: selectedTime, onTimeSelected: (TimeOfDay t)  {
-                  selectedTime=t;
-                }, clickInButton: null,),
+                CustomTimePicker(
+                  selectedTime: selectedTime,
+                  onTimeSelected: (TimeOfDay t) {
+                    selectedTime = t;
+                  },
+                ),
 
-                const SizedBox(height: 20,),
+                const SizedBox(height: 20),
 
                 CustomButton(
-                  backGroundColor:  Theme.of(context).canvasColor==Colors.black? const Color(0xff90B6E2) :const Color(0xff3F6188),
+                  backGroundColor: Theme.of(context).canvasColor == Colors.black
+                      ? const Color(0xff90B6E2)
+                      : const Color(0xff3F6188),
                   nameButton: TextApp.addTaskText,
                   onTap: () {
-                    clickInButton=true;
-                    setState(() {});
+                    // Check if the start date is null, set it to today's date if so
+                    startDateSelectedDate ??= DateTime.now();
+
+                    // Check if the end date is null, set it to today's date if so
+                    endDateSelectedDate ??= DateTime.now();
+
+                    // Check if the time is null, set it to the current time if so
+                    selectedTime ??= TimeOfDay.now();
+
                     if (_formKey.currentState!.validate()) {
-                      tasksList.add(
-                          TaskModel(
-                            taskName: taskName,
-                            taskDescriptionController: taskDescriptionController,
-                            startDateSelectedDate: startDateSelectedDate!,
-                            endDateSelectedDate: endDateSelectedDate!,
-                            timeOfTask: selectedTime!,
-                          ));
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),)).then((x){
+                      _formKey.currentState!.save();
+                      tasksList.add(TaskModel(
+                        taskName: taskName,
+                        taskDescriptionController: taskDescriptionController,
+                        startDateSelectedDate: startDateSelectedDate!,
+                        endDateSelectedDate: endDateSelectedDate!,
+                        timeOfTask: selectedTime!,
+                      ));
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePageScreen(),
+                        ),
+                      ).then((x) {
                         setState(() {});
                       });
                     }
