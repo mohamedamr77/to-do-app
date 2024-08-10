@@ -11,6 +11,7 @@ import 'package:todo/cubit/theme/get_cubit.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
 import 'core/data/model/task_model.dart';
 import 'cubit/theme/get_State.dart';
+import 'features/add_task/data/cubit/add_task_cubit/add_task_cubit.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
 
 void main() async{
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => GetUserCubit()),
         BlocProvider(create: (context) => GetThemeCubit()),
+        BlocProvider(create: (context) => AddTaskCubit()),
       ],
       child: BlocBuilder<GetThemeCubit, GetThemeState>(
         builder: (context, state) {
