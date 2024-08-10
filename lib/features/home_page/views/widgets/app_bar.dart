@@ -8,7 +8,8 @@ import '../../../../core/textCore.dart';
 import 'profile_picture.dart';
 
 class AppBarSection extends StatelessWidget {
-  const AppBarSection({super.key, required this.name, required this.pictureUser});
+  const AppBarSection(
+      {super.key, required this.name, required this.pictureUser});
   final String? name;
   final File? pictureUser;
 
@@ -32,14 +33,9 @@ class AppBarSection extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                  Text(
-                  TextApp.helloText,
-                  style: Theme.of(context).textTheme.labelMedium
-                ),
-                Text(
-                  name!,
-                  style: Theme.of(context).textTheme.displayMedium
-                ),
+                Text(TextApp.helloText,
+                    style: Theme.of(context).textTheme.labelMedium),
+                Text(name!, style: Theme.of(context).textTheme.displayMedium),
                 const SizedBox(height: 12),
                 const Text(
                   "Saturday, May 25th",

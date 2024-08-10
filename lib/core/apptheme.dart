@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'colorCore.dart';
 
-class AppTheme{
+class AppTheme {
   //Theme.of(context).textTheme.bodyLarge
   static final ThemeData lightThemeData = ThemeData(
       scaffoldBackgroundColor: Colors.white.withOpacity(0.98),
       textTheme: const TextTheme(
-        //24 ,   FontWeight.w600, Color(0xff24252C), "LexendDeca",
+          //24 ,   FontWeight.w600, Color(0xff24252C), "LexendDeca",
           bodyLarge: TextStyle(
             color: Color(0xff24252C),
             fontWeight: FontWeight.w600,
@@ -49,44 +49,35 @@ class AppTheme{
             fontWeight: FontWeight.w600,
             fontFamily: "LexendDeca",
           ),
-
-          labelMedium:  TextStyle(
+          labelMedium: TextStyle(
             color: Color(0xff306BA6),
             fontSize: 14,
             fontWeight: FontWeight.w400,
             fontFamily: "LexendDeca",
           ),
-
-          displayMedium:  TextStyle(
+          displayMedium: TextStyle(
             color: Color(0xff306BA6),
             fontSize: 16,
             fontWeight: FontWeight.w500,
             fontFamily: "LexendDeca",
           ),
-
           headlineLarge: TextStyle(
             color: Color(0xff24252C),
             fontSize: 14,
             fontWeight: FontWeight.w600,
             fontFamily: "LexendDeca",
-          )
-      ),
+          )),
       cardColor: Colors.white,
       canvasColor: Colors.black,
       indicatorColor: ColorApp.primaryColor,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Color(0xff90B6E2),
-          foregroundColor: Colors.white
-      ),
-      buttonTheme: const ButtonThemeData(
-          buttonColor: Color(0xff90B6E2)
-      )
-  );
-  static  final ThemeData darkThemeData = ThemeData(
+          backgroundColor: Color(0xff90B6E2), foregroundColor: Colors.white),
+      buttonTheme: const ButtonThemeData(buttonColor: Color(0xff90B6E2)));
+  static final ThemeData darkThemeData = ThemeData(
       scaffoldBackgroundColor: const Color(0xff18283A),
-      textTheme:  TextTheme(
-        //todoList
-          bodyLarge:  const TextStyle(
+      textTheme: TextTheme(
+          //todoList
+          bodyLarge: const TextStyle(
             color: Color(0xffF0F0F0),
             fontSize: 24,
             fontWeight: FontWeight.w600,
@@ -120,35 +111,30 @@ class AppTheme{
             fontWeight: FontWeight.w400,
             fontFamily: "LexendDecaRegularStyle",
           ),
-
           titleMedium: const TextStyle(
             color: Color(0xffF0F0F0),
             fontSize: 16,
             fontWeight: FontWeight.w600,
             fontFamily: "LexendDeca",
           ),
-
-          labelMedium:  const TextStyle(
+          labelMedium: const TextStyle(
             color: Color(0xffF0F0F0),
             fontSize: 14,
             fontWeight: FontWeight.w400,
             fontFamily: "LexendDeca",
           ),
-
-          displayMedium:  const TextStyle(
+          displayMedium: const TextStyle(
             color: Color(0xffF0F0F0),
             fontSize: 16,
             fontWeight: FontWeight.w500,
             fontFamily: "LexendDeca",
           ),
-
           headlineLarge: const TextStyle(
             color: Color(0xffF0F0F0),
             fontSize: 14,
             fontWeight: FontWeight.w600,
             fontFamily: "LexendDeca",
-          )
-      ),
+          )),
       cardColor: const Color(0xff24364B),
       canvasColor: Colors.white,
       indicatorColor: const Color(0xff2A4463),
@@ -156,9 +142,5 @@ class AppTheme{
         backgroundColor: Color(0xff3F6188),
         foregroundColor: Colors.white,
       ),
-      buttonTheme: const ButtonThemeData(
-          buttonColor: Color(0xff3F6188)
-      )
-
-  );
+      buttonTheme: const ButtonThemeData(buttonColor: Color(0xff3F6188)));
 }

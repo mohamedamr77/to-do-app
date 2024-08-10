@@ -7,7 +7,7 @@ class CustomField extends StatelessWidget {
     required this.hintText,
     required this.minLine,
     required this.maxLine,
-   required this.controller,
+    required this.controller,
     required this.validator,
     @required this.onSaved,
   });
@@ -31,20 +31,14 @@ class CustomField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: Theme.of(context).textTheme.bodySmall
-          ),
+          Text(title, style: Theme.of(context).textTheme.bodySmall),
           TextFormField(
             controller: controller,
             onSaved: onSaved,
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 14
-            ),
+            style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
             maxLines: maxLine,
             minLines: minLine,
-            onTapOutside: (e){
+            onTapOutside: (e) {
               FocusManager.instance.primaryFocus?.unfocus();
             },
             decoration: InputDecoration(

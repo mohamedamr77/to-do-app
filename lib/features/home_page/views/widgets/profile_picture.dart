@@ -10,10 +10,11 @@ class ProfilePicture extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-         CircleAvatar(
-          radius: 30,
-          backgroundColor: Theme.of(context).canvasColor==Colors.white? const Color(0xff335072) :Colors.white
-        ),
+        CircleAvatar(
+            radius: 30,
+            backgroundColor: Theme.of(context).canvasColor == Colors.white
+                ? const Color(0xff335072)
+                : Colors.white),
         CircleAvatar(
           radius: 26,
           backgroundImage: FileImage(pictureUser),
@@ -22,4 +23,3 @@ class ProfilePicture extends StatelessWidget {
     );
   }
 }
-

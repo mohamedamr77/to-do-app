@@ -29,15 +29,14 @@ class CustomButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              nameButton,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.labelLarge
-            ),
+            Text(nameButton,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelLarge),
             if (image != null) ...[
               const SizedBox(width: 10),
-              SvgPicture.asset(image!,
-              color: Colors.white,
+              SvgPicture.asset(
+                image!,
+                color: Colors.white,
               )
             ],
           ],

@@ -15,7 +15,8 @@ class HomePageScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         foregroundColor: Colors.white,
-        backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+        backgroundColor:
+            Theme.of(context).floatingActionButtonTheme.backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
@@ -33,8 +34,9 @@ class HomePageScreen extends StatelessWidget {
       ),
       body: BlocBuilder<GetUserCubit, GetUserState>(
         builder: (BuildContext context, state) {
-          return HomePageBody(name: BlocProvider.of<GetUserCubit>(context).name, pictureUser: BlocProvider.of<GetUserCubit>(context).image);
-
+          return HomePageBody(
+              name: BlocProvider.of<GetUserCubit>(context).name,
+              pictureUser: BlocProvider.of<GetUserCubit>(context).image);
         },
       ),
       drawer: Drawer(
@@ -43,11 +45,9 @@ class HomePageScreen extends StatelessWidget {
             topRight: Radius.circular(60),
           ),
         ),
-        child: DrawerBody(name: BlocProvider
-            .of<GetUserCubit>(context)
-            .name, pictureUser: BlocProvider
-            .of<GetUserCubit>(context)
-            .image),
+        child: DrawerBody(
+            name: BlocProvider.of<GetUserCubit>(context).name,
+            pictureUser: BlocProvider.of<GetUserCubit>(context).image),
       ),
     );
   }

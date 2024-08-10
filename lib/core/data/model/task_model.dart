@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 part 'task_model.g.dart';
+
 @HiveType(typeId: 0)
-class TaskModel extends HiveObject{
+class TaskModel extends HiveObject {
   @HiveField(0)
   TextEditingController taskName;
   @HiveField(1)
@@ -23,9 +24,7 @@ class TaskModel extends HiveObject{
     required this.startDateSelectedDate,
     required this.endDateSelectedDate,
     required this.timeOfTask,
-    this.archivedTask=false,
-    this.doneTask=false,
-
-}
-);
+    this.archivedTask = false,
+    this.doneTask = false,
+  });
 }

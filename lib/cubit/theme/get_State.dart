@@ -1,2 +1,3 @@
 class GetThemeState {}
-class ChangeThemingState extends GetThemeState{}
+
+class ChangeThemingState extends GetThemeState {}

@@ -9,14 +9,15 @@ class CustomDataPicker extends StatefulWidget {
     required this.title,
     required this.subTitle,
     required this.selectedDate,
-    required this.onDateSelected, @required this.clickInButton,
+    required this.onDateSelected,
+    @required this.clickInButton,
   });
 
   final String title;
   final String subTitle;
   DateTime? selectedDate;
   final Function(DateTime) onDateSelected;
-   bool? clickInButton;
+  bool? clickInButton;
 
   @override
   State<CustomDataPicker> createState() => _CustomDataPickerState();
@@ -45,7 +46,9 @@ class _CustomDataPickerState extends State<CustomDataPicker> {
         leading: SvgPicture.asset(ImageApp.calendarImage),
         title: Text(
           widget.selectedDate == null
-              ? (widget.title == TextApp.startText ? TextApp.startText : TextApp.endDateText)
+              ? (widget.title == TextApp.startText
+                  ? TextApp.startText
+                  : TextApp.endDateText)
               : "${widget.selectedDate!.toLocal()}".split(' ')[0],
           style: Theme.of(context).textTheme.bodySmall,
         ),

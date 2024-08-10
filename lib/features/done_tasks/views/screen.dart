@@ -6,10 +6,8 @@ class DoneTaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
-      body: DoneTaskBody(
-
-      ),
+    return const Scaffold(
+      body: DoneTaskBody(),
     );
   }
 }

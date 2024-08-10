@@ -33,25 +33,28 @@ class DrawerBody extends StatelessWidget {
                     Stack(
                       alignment: Alignment.center,
                       children: [
-                        CircleAvatar
-                          (
+                        CircleAvatar(
                             radius: 30,
-                            backgroundColor: Theme.of(context).canvasColor == Colors.white ? const Color(0xff335072) : Colors.white
-                        ),
+                            backgroundColor:
+                                Theme.of(context).canvasColor == Colors.white
+                                    ? const Color(0xff335072)
+                                    : Colors.white),
                         CircleAvatar(
                           radius: 26,
                           backgroundImage: FileImage(File(pictureUser!.path)),
                         ),
                       ],
                     ),
-                    const SizedBox(width: 10,),
-                    Text(name!,
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      name!,
                       style: const TextStyle(
                           color: ColorApp.whiteColor,
                           fontFamily: FontFamilyApp.lexendDecaRegular,
                           fontSize: 18,
-                          fontWeight: FontWeight.w600
-                      ),
+                          fontWeight: FontWeight.w600),
                     )
                   ],
                 ),
@@ -67,81 +70,99 @@ class DrawerBody extends StatelessWidget {
                     color: Theme.of(context).cardColor,
                     child: ListTile(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ArchivedTasksScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ArchivedTasksScreen()));
                       },
-                      leading: SvgPicture.asset(ImageApp.archieveIcon,
-                        color: Theme.of(context).canvasColor == Colors.white ? Colors.white : const Color(0xff739CCB),
+                      leading: SvgPicture.asset(
+                        ImageApp.archieveIcon,
+                        color: Theme.of(context).canvasColor == Colors.white
+                            ? Colors.white
+                            : const Color(0xff739CCB),
                       ),
-                      title: Text(TextApp.archivedTasksText,
+                      title: Text(
+                        TextApp.archivedTasksText,
                         style: Theme.of(context).canvasColor == Colors.white
                             ? const TextStyle(
-                            color: Color(0xffF0F0F0),
-                            fontFamily: FontFamilyApp.lexendDecaRegular,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500
-                        )
+                                color: Color(0xffF0F0F0),
+                                fontFamily: FontFamilyApp.lexendDecaRegular,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500)
                             : const TextStyle(
-                            color: ColorApp.drawerTextCardColor,
-                            fontFamily: FontFamilyApp.lexendDecaRegular,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500
-                        ),
+                                color: ColorApp.drawerTextCardColor,
+                                fontFamily: FontFamilyApp.lexendDecaRegular,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Card(
                     color: Theme.of(context).cardColor,
                     child: ListTile(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const DoneTaskScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DoneTaskScreen()));
                       },
-                      leading: SvgPicture.asset(ImageApp.doneIcon,
-                        color: Theme.of(context).canvasColor == Colors.white ? Colors.white : const Color(0xff739CCB),
+                      leading: SvgPicture.asset(
+                        ImageApp.doneIcon,
+                        color: Theme.of(context).canvasColor == Colors.white
+                            ? Colors.white
+                            : const Color(0xff739CCB),
                       ),
-                      title: Text(TextApp.doneTasksText,
+                      title: Text(
+                        TextApp.doneTasksText,
                         style: Theme.of(context).canvasColor == Colors.white
                             ? const TextStyle(
-                            color: Color(0xffF0F0F0),
-                            fontFamily: FontFamilyApp.lexendDecaRegular,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500
-                        )
+                                color: Color(0xffF0F0F0),
+                                fontFamily: FontFamilyApp.lexendDecaRegular,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500)
                             : const TextStyle(
-                            color: ColorApp.drawerTextCardColor,
-                            fontFamily: FontFamilyApp.lexendDecaRegular,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500
-                        ),
+                                color: ColorApp.drawerTextCardColor,
+                                fontFamily: FontFamilyApp.lexendDecaRegular,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Card(
                     color: Theme.of(context).cardColor,
                     child: ListTile(
-                      leading: Icon(Icons.dark_mode,
-                        color: Theme.of(context).canvasColor == Colors.white ? Colors.white : const Color(0xff739CCB),
+                      leading: Icon(
+                        Icons.dark_mode,
+                        color: Theme.of(context).canvasColor == Colors.white
+                            ? Colors.white
+                            : const Color(0xff739CCB),
                       ),
-                      title: Text("Dark Mode",
+                      title: Text(
+                        "Dark Mode",
                         style: Theme.of(context).canvasColor == Colors.white
                             ? const TextStyle(
-                            color: Color(0xffF0F0F0),
-                            fontFamily: FontFamilyApp.lexendDecaRegular,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500
-                        )
+                                color: Color(0xffF0F0F0),
+                                fontFamily: FontFamilyApp.lexendDecaRegular,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500)
                             : const TextStyle(
-                            color: ColorApp.drawerTextCardColor,
-                            fontFamily: FontFamilyApp.lexendDecaRegular,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500
-                        ),
+                                color: ColorApp.drawerTextCardColor,
+                                fontFamily: FontFamilyApp.lexendDecaRegular,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
                       ),
                       trailing: Switch(
                         value: BlocProvider.of<GetThemeCubit>(context).isDark,
                         onChanged: (bool value) {
-                          BlocProvider.of<GetThemeCubit>(context).changeTheme(value);
+                          BlocProvider.of<GetThemeCubit>(context)
+                              .changeTheme(value);
                         },
                       ),
                     ),

@@ -14,16 +14,16 @@ import 'cubit/theme/get_State.dart';
 import 'features/add_task/data/cubit/add_task_cubit/add_task_cubit.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
 
-void main() async{
+void main() async {
   await Hive.initFlutter();
   var box = await Hive.openBox(BoxApp.kTaskBox);
   Hive.registerAdapter(
-      TaskModelAdapter(),
+    TaskModelAdapter(),
   );
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => MyApp(), // Wrap your app
+      builder: (context) => const MyApp(), // Wrap your app
     ),
   );
 }
@@ -50,10 +50,13 @@ class MyApp extends StatelessWidget {
               locale: DevicePreview.locale(context),
               builder: DevicePreview.appBuilder,
               theme: AppTheme.lightThemeData,
-              themeMode: context.read<GetThemeCubit>().isDark ? ThemeMode.dark : ThemeMode.light,
+              themeMode: context.read<GetThemeCubit>().isDark
+                  ? ThemeMode.dark
+                  : ThemeMode.light,
               darkTheme: AppTheme.darkThemeData,
               routes: {
-                CustomRegesterScreen.id: (context) => const CustomRegesterScreen(),
+                CustomRegesterScreen.id: (context) =>
+                    const CustomRegesterScreen(),
                 CustomOnboarding.id: (context) => const CustomOnboarding(),
                 // HomePageScreen.id: (context) =>  HomePageScreen(),
               },

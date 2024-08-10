@@ -8,8 +8,10 @@ class DoneDetailsScreen extends StatelessWidget {
   final TaskModel task;
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: TaskDoneDetailsBody(task: task,),
+    return Scaffold(
+      body: TaskDoneDetailsBody(
+        task: task,
+      ),
     );
   }
 }

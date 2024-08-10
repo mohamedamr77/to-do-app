@@ -17,6 +17,7 @@ class AddTaskForm extends StatefulWidget {
   @override
   State<AddTaskForm> createState() => _AddTaskFormState();
 }
+
 final TextEditingController taskName = TextEditingController();
 final TextEditingController taskDescriptionController = TextEditingController();
 
@@ -40,7 +41,6 @@ class _AddTaskFormState extends State<AddTaskForm> {
               const SizedBox(height: 10),
               const CustomAppbar(title: TextApp.addTaskText),
               const SizedBox(height: 15),
-
               CustomField(
                 title: TextApp.taskNameText,
                 hintText: TextApp.enterTheTaskNameText,
@@ -54,9 +54,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
                   return null;
                 },
               ),
-
               const SizedBox(height: 10),
-
               CustomField(
                 title: TextApp.descriptionText,
                 hintText: TextApp.enterTheTaskDescText,
@@ -70,9 +68,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
                   return null;
                 },
               ),
-
               const SizedBox(height: 20),
-
               CustomDataPicker(
                 title: TextApp.startText,
                 subTitle: TextApp.enterTheStartDateText,
@@ -84,7 +80,6 @@ class _AddTaskFormState extends State<AddTaskForm> {
                   }
                 },
               ),
-
               CustomDataPicker(
                 title: TextApp.endDateText,
                 subTitle: TextApp.enterTheEndDateText,
@@ -96,16 +91,14 @@ class _AddTaskFormState extends State<AddTaskForm> {
                   }
                 },
               ),
-
               CustomTimePicker(
                 selectedTime: selectedTime,
                 onTimeSelected: (TimeOfDay t) {
                   selectedTime = t;
-                }, clickInButton: null,
+                },
+                clickInButton: null,
               ),
-
               const SizedBox(height: 20),
-
               CustomButton(
                 backGroundColor: Theme.of(context).canvasColor == Colors.black
                     ? const Color(0xff90B6E2)

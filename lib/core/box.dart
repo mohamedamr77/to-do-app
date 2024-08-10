@@ -1,3 +1,3 @@
-class BoxApp{
-  static const String kTaskBox="TaskBox";
+class BoxApp {
+  static const String kTaskBox = "TaskBox";
 }

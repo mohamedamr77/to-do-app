@@ -4,23 +4,24 @@ import 'package:todo/features/task_details_archieved/views/widgets/task_details_
 
 class TaskDetailsAchievedScreen extends StatefulWidget {
   const TaskDetailsAchievedScreen({super.key, required this.taskModel});
-     final TaskModel taskModel;
+  final TaskModel taskModel;
 
   @override
-  State<TaskDetailsAchievedScreen> createState() => _TaskDetailsAchievedScreenState();
+  State<TaskDetailsAchievedScreen> createState() =>
+      _TaskDetailsAchievedScreenState();
 }
 
 class _TaskDetailsAchievedScreenState extends State<TaskDetailsAchievedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:  TaskDetailsAchievedBody(
-        taskAchieved: widget.taskModel,
-        onTap: () {
-        widget.taskModel.archivedTask=false;
+        body: TaskDetailsAchievedBody(
+      taskAchieved: widget.taskModel,
+      onTap: () {
+        widget.taskModel.archivedTask = false;
         setState(() {});
-      },)
-    );
+      },
+    ));
   }
 }
 /*

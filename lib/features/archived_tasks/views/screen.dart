@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/features/archived_tasks/views/widgets/arciheved_tasks_body.dart';
 
-
 class ArchivedTasksScreen extends StatelessWidget {
   const ArchivedTasksScreen({super.key});
 

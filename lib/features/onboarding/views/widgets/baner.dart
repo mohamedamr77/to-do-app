@@ -12,8 +12,8 @@ class CustomBanner extends StatelessWidget {
       child: Center(
         child: Image(
           image: const AssetImage(ImageApp.onBoardingImage),
-          width: MediaQuery.of(context).size.width*0.75,
-          height: MediaQuery.of(context).size.height*0.45,
+          width: MediaQuery.of(context).size.width * 0.75,
+          height: MediaQuery.of(context).size.height * 0.45,
         ),
       ),
     );

@@ -10,7 +10,7 @@ import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 
 class TaskDoneDetailsBody extends StatelessWidget {
-  const TaskDoneDetailsBody({super.key,required this.task});
+  const TaskDoneDetailsBody({super.key, required this.task});
   final TaskModel task;
 
   @override
@@ -22,7 +22,7 @@ class TaskDoneDetailsBody extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-               const CustomAppbar(title: TextApp.taskNameText),
+              const CustomAppbar(title: TextApp.taskNameText),
               const SizedBox(height: 20),
               CustomContainerShowData(
                 title: TextApp.taskNameText,
@@ -37,14 +37,15 @@ class TaskDoneDetailsBody extends StatelessWidget {
                 color: Theme.of(context).cardColor,
                 child: ListTile(
                   leading: SvgPicture.asset(ImageApp.calendarImage),
-                  title:   Text(
+                  title: Text(
                     TextApp.startDateText,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
                     DateFormat('dd MMM, y').format(task.startDateSelectedDate),
                     style: const TextStyle(
-                      color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
+                      color:
+                          ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       fontFamily: FontFamilyApp.lexendDecaRegular,
@@ -58,14 +59,15 @@ class TaskDoneDetailsBody extends StatelessWidget {
                 color: Theme.of(context).cardColor,
                 child: ListTile(
                   leading: SvgPicture.asset(ImageApp.calendarImage),
-                  title:  Text(
+                  title: Text(
                     TextApp.endDateText,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
                     DateFormat('dd MMM, y').format(task.startDateSelectedDate),
                     style: const TextStyle(
-                      color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
+                      color:
+                          ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       fontFamily: FontFamilyApp.lexendDecaRegular,
@@ -78,26 +80,28 @@ class TaskDoneDetailsBody extends StatelessWidget {
               Card(
                 color: Theme.of(context).cardColor,
                 child: ListTile(
-                  leading: Theme.of(context).canvasColor==Colors.black?
-                  SvgPicture.asset("assets/images/svg/timeicon.svg") : SvgPicture.asset("assets/images/svg/fluent-emoji-flat_watch_blackmode.svg"),
-                  title:  Text(
+                  leading: Theme.of(context).canvasColor == Colors.black
+                      ? SvgPicture.asset("assets/images/svg/timeicon.svg")
+                      : SvgPicture.asset(
+                          "assets/images/svg/fluent-emoji-flat_watch_blackmode.svg"),
+                  title: Text(
                     TextApp.addTimeText,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
                     _formatTaskTime(task.timeOfTask),
                     style: const TextStyle(
-                      color: ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
+                      color:
+                          ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      fontFamily:FontFamilyApp.lexendDecaRegular,
+                      fontFamily: FontFamilyApp.lexendDecaRegular,
                     ),
                   ),
                   //trailing: SvgPicture.asset(ImageApp.arrowDownImage),
                 ),
               ),
               const SizedBox(height: 15),
-
             ],
           ),
         ),

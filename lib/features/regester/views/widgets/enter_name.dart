@@ -17,17 +17,14 @@ class EnterName extends StatelessWidget {
             padding: const EdgeInsets.all(22),
             width: MediaQuery.of(context).size.width - 50,
             decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                  color: const Color(0xff87B5E3)
-              )
-            ),
+                color: Theme.of(context).cardColor,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: const Color(0xff87B5E3))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
+                Text(
                   TextApp.yourNameText,
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
@@ -35,12 +32,11 @@ class EnterName extends StatelessWidget {
                   keyboardType: TextInputType.name,
                   controller: controller,
                   decoration: InputDecoration(
-                    hintText: TextApp.enterNameText,
-                    border: InputBorder.none,
-                    hintStyle: Theme.of(context).textTheme.titleSmall
-                  ),
+                      hintText: TextApp.enterNameText,
+                      border: InputBorder.none,
+                      hintStyle: Theme.of(context).textTheme.titleSmall),
                   validator: (value) {
-                    if (value == null || value.trim().isEmpty ) {
+                    if (value == null || value.trim().isEmpty) {
                       return 'Please enter your name';
                     }
                     return null;

@@ -3,7 +3,11 @@ import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/fontfamily.dart';
 
 class DialogButton extends StatelessWidget {
-  const DialogButton({super.key, required this.text, required this.result, required this.color});
+  const DialogButton(
+      {super.key,
+      required this.text,
+      required this.result,
+      required this.color});
   final String text;
   final bool result;
   final Color color;

@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -67,9 +66,9 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                     Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
-                         Image(
-                           image: AssetImage(ImageApp.regesterImage),
-                         ),
+                        const Image(
+                          image: AssetImage(ImageApp.regesterImage),
+                        ),
                         Stack(
                           alignment: Alignment.center,
                           children: [
@@ -94,8 +93,10 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                                 });
                               },
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 0.325,
-                                height: MediaQuery.of(context).size.height * 0.156,
+                                width:
+                                    MediaQuery.of(context).size.width * 0.325,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.156,
                                 decoration: BoxDecoration(
                                   color: Theme.of(context).cardColor,
                                   borderRadius: BorderRadius.circular(20),
@@ -111,17 +112,18 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                                   },
                                   child: myPhoto == null
                                       ? const Icon(
-                                    Icons.add_a_photo,
-                                    color: ColorApp.whiteColor,
-                                    size: 40,
-                                  )
+                                          Icons.add_a_photo,
+                                          color: ColorApp.whiteColor,
+                                          size: 40,
+                                        )
                                       : ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Image.file(
-                                      File(myPhoto!.path),
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          child: Image.file(
+                                            File(myPhoto!.path),
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
                                 ),
                               ),
                             ),
@@ -129,7 +131,7 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                         ),
                       ],
                     ),
-                     SizedBox(height: 5.h),
+                    SizedBox(height: 5.h),
                     TextButton(
                       onPressed: () {
                         pickImage().then((value) {
@@ -138,16 +140,16 @@ class _CustomRegesterScreenState extends State<CustomRegesterScreen> {
                         });
                       },
                       child: Text(
-                        myPhoto == null ? TextApp.addPhotoText : "Update photo",
-                        style: Theme.of(context).textTheme.bodySmall
-                      ),
+                          myPhoto == null
+                              ? TextApp.addPhotoText
+                              : "Update photo",
+                          style: Theme.of(context).textTheme.bodySmall),
                     ),
                   ],
                 ),
                 const SizedBox(height: 5),
                 EnterName(controller: nameController),
-                CustomButtonStarted
-                  (
+                CustomButtonStarted(
                   text: 'Get Started ',
                   trailing: null,
                   onTap: _submitForm,
