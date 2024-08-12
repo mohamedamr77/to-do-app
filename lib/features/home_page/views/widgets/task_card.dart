@@ -11,11 +11,8 @@ class TaskCard extends StatefulWidget {
   const TaskCard(
       {super.key,
       required this.onTap,
-      required this.title,
-      required this.subtitle,
       required this.taskModel});
-  final String title;
-  final TimeOfDay subtitle;
+
   final TaskModel taskModel;
   final void Function()? onTap;
 
@@ -39,9 +36,9 @@ class _TaskCardState extends State<TaskCard> {
         }),
         leading: SvgPicture.asset(ImageApp.bagIcon),
         title:
-            Text(widget.title, style: Theme.of(context).textTheme.titleMedium),
+            Text(widget.taskModel.taskName.toString(), style: Theme.of(context).textTheme.titleMedium),
         subtitle: Text(
-          _formatTaskTime(widget.subtitle),
+          _formatTaskTime(widget.taskModel.timeOfTask),
           style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,

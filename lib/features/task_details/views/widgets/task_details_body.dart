@@ -31,12 +31,12 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
               const SizedBox(height: 20),
               CustomContainerShowData(
                 title: TextApp.taskNameText,
-                detailsTitle: widget.task.taskName.text,
+                detailsTitle: widget.task.taskName!,
               ),
               const SizedBox(height: 16),
               CustomContainerShowData(
                   title: TextApp.descriptionText,
-                  detailsTitle: widget.task.taskDescriptionController.text),
+                  detailsTitle: widget.task.taskDescriptionController!),
               const SizedBox(height: 16),
               Card(
                 color: Theme.of(context).cardColor,

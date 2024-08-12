@@ -26,12 +26,12 @@ class TaskDoneDetailsBody extends StatelessWidget {
               const SizedBox(height: 20),
               CustomContainerShowData(
                 title: TextApp.taskNameText,
-                detailsTitle: task.taskName.text,
+                detailsTitle: task.taskName!,
               ),
               const SizedBox(height: 16),
               CustomContainerShowData(
                   title: TextApp.descriptionText,
-                  detailsTitle: task.taskDescriptionController.text),
+                  detailsTitle: task.taskDescriptionController!),
               const SizedBox(height: 16),
               Card(
                 color: Theme.of(context).cardColor,

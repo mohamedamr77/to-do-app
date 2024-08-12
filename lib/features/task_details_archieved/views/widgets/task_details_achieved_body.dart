@@ -22,12 +22,12 @@ class TaskDetailsAchievedBody extends StatelessWidget {
             const SizedBox(height: 20),
             CustomContainerShowData(
               title: 'Task Name',
-              detailsTitle: taskAchieved.taskName.text,
+              detailsTitle: taskAchieved.taskName!,
             ),
             const SizedBox(height: 16),
             CustomContainerShowData(
                 title: "Description",
-                detailsTitle: taskAchieved.taskDescriptionController.text),
+                detailsTitle: taskAchieved.taskDescriptionController!),
             const SizedBox(height: 16),
             Card(
               color: Theme.of(context).cardColor,

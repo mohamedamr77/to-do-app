@@ -59,7 +59,7 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
                     child: ListView.separated(
                       itemBuilder: (BuildContext context, int index) {
                         return CardList(
-                          title: archiveList[index].taskName.text,
+                          title: archiveList[index].taskName!,
                           subtitle: archiveList[index].timeOfTask,
                           taskModel: archiveList[index],
                           onTap: () {

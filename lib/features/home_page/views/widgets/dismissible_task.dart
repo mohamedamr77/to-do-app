@@ -12,12 +12,10 @@ class DismissibleTask extends StatefulWidget {
   const DismissibleTask(
       {super.key,
       required this.index,
-      required this.title,
-      required this.subtitle,
+
       required this.taskModel});
   final int index;
-  final String title;
-  final TimeOfDay subtitle;
+
   final TaskModel taskModel;
 
   @override
@@ -27,9 +25,7 @@ class DismissibleTask extends StatefulWidget {
 class _DismissibleTaskState extends State<DismissibleTask> {
   @override
   Widget build(BuildContext context) {
-    List<TaskModel> notArchiveList = tasksList
-        .where((notArchiveTask) => notArchiveTask.archivedTask == false)
-        .toList();
+
     return Dismissible(
       key: UniqueKey(),
       confirmDismiss: (direction) => _confirmDismissTask(direction, context),
@@ -41,8 +37,6 @@ class _DismissibleTaskState extends State<DismissibleTask> {
                 !tasksList[widget.index].doneTask;
           });
         },
-        title: widget.title,
-        subtitle: widget.subtitle,
         taskModel: widget.taskModel,
       ),
     );

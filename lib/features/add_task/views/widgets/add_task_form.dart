@@ -21,16 +21,15 @@ class AddTaskForm extends StatefulWidget {
   State<AddTaskForm> createState() => _AddTaskFormState();
 }
 
-final TextEditingController taskName = TextEditingController();
-final TextEditingController taskDescriptionController = TextEditingController();
-
-DateTime? startDateSelectedDate;
-DateTime? endDateSelectedDate;
-TimeOfDay? selectedTime;
-
-final _formKey = GlobalKey<FormState>();
-
 class _AddTaskFormState extends State<AddTaskForm> {
+    String? taskName ;
+    String? taskDescriptionController;
+
+  DateTime? startDateSelectedDate;
+  DateTime? endDateSelectedDate;
+  TimeOfDay? selectedTime;
+
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -49,7 +48,9 @@ class _AddTaskFormState extends State<AddTaskForm> {
                 hintText: TextApp.enterTheTaskNameText,
                 minLine: 1,
                 maxLine: 1,
-                controller: taskName,
+                onSaved: (value) {
+                  taskName=value;
+                },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return TextApp.pleaseEnterTheTaskNameText;
@@ -63,7 +64,9 @@ class _AddTaskFormState extends State<AddTaskForm> {
                 hintText: TextApp.enterTheTaskDescText,
                 minLine: 4,
                 maxLine: 4,
-                controller: taskDescriptionController,
+                onSaved: (value){
+                  taskDescriptionController=value;
+                },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return TextApp.pleaseEnterTheTaskDescText;
@@ -106,9 +109,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
                 builder: (context, state) {
                   return CustomButton(
                     isLoading: state is AddTaskLoadingState ?true : false,
-                    backGroundColor: Theme
-                        .of(context)
-                        .canvasColor == Colors.black
+                    backGroundColor: Theme.of(context).canvasColor == Colors.black
                         ? const Color(0xff90B6E2)
                         : const Color(0xff3F6188),
                     nameButton: TextApp.addTaskText,
@@ -124,21 +125,14 @@ class _AddTaskFormState extends State<AddTaskForm> {
 
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        tasksList.add(TaskModel(
+                     var task=   TaskModel(
                           taskName: taskName,
                           taskDescriptionController: taskDescriptionController,
                           startDateSelectedDate: startDateSelectedDate!,
                           endDateSelectedDate: endDateSelectedDate!,
                           timeOfTask: selectedTime!,
-                        ));
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const HomePageScreen(),
-                          ),
-                        ).then((x) {
-                          setState(() {});
-                        });
+                        );
+                        BlocProvider.of<AddTaskCubit>(context).addTask(task);
                       }
                     },
                   );

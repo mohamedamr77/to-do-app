@@ -5,9 +5,9 @@ part 'task_model.g.dart';
 @HiveType(typeId: 0)
 class TaskModel extends HiveObject {
   @HiveField(0)
-  TextEditingController taskName;
+  String? taskName;
   @HiveField(1)
-  TextEditingController taskDescriptionController;
+  String? taskDescriptionController;
   @HiveField(2)
   DateTime startDateSelectedDate;
   @HiveField(3)

@@ -53,7 +53,7 @@ class DoneTaskBody extends StatelessWidget {
                     child: ListView.separated(
                       itemBuilder: (context, index) => CardDoneList(
                         taskModel: doneTasksList[index],
-                        title: doneTasksList[index].taskName.text,
+                        title: doneTasksList[index].taskName!,
                         subtitle: doneTasksList[index].timeOfTask,
                         startDate: doneTasksList[index].startDateSelectedDate,
                         endDate: doneTasksList[index].endDateSelectedDate,
