@@ -38,8 +38,9 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 subtitle: Text(
-                  DateFormat('dd MMM, y')
-                      .format(taskAchieved.startDateSelectedDate),
+                  // DateFormat('dd MMM, y')
+                  //     .format(taskAchieved.startDateSelectedDate),
+                  "ads",
                   style: const TextStyle(
                     color: Color(0xffB6B4BD),
                     fontSize: 12,
@@ -59,8 +60,9 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 subtitle: Text(
-                  DateFormat('dd MMM, y')
-                      .format(taskAchieved.endDateSelectedDate),
+                  // DateFormat('dd MMM, y')
+                  //     .format(taskAchieved.endDateSelectedDate),
+                  ",as",
                   style: const TextStyle(
                     color: Color(0xffB6B4BD),
                     fontSize: 12,
@@ -83,7 +85,8 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 subtitle: Text(
-                  _formatTaskTime(taskAchieved.timeOfTask),
+                  // _formatTaskTime(taskAchieved.timeOfTask),
+                  "das",
                   style: const TextStyle(
                     color: Color(0xffB6B4BD),
                     fontSize: 12,

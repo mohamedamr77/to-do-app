@@ -45,8 +45,9 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                   title: Text(TextApp.startDateText,
                       style: Theme.of(context).textTheme.bodySmall),
                   subtitle: Text(
-                    DateFormat('dd MMM, y')
-                        .format(widget.task.startDateSelectedDate),
+                    // DateFormat('dd MMM, y')
+                    //     .format(widget.task.startDateSelectedDate),
+                    "asdsfdas",
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
@@ -64,8 +65,9 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                   title: Text(TextApp.endDateText,
                       style: Theme.of(context).textTheme.bodySmall),
                   subtitle: Text(
-                    DateFormat('dd MMM, y')
-                        .format(widget.task.endDateSelectedDate),
+                    // DateFormat('dd MMM, y')
+                    //     .format(widget.task.endDateSelectedDate),
+                    "ads",
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
@@ -86,7 +88,8 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                   title: Text(TextApp.addTimeText,
                       style: Theme.of(context).textTheme.bodySmall),
                   subtitle: Text(
-                    _formatTaskTime(widget.task.timeOfTask),
+                    // _formatTaskTime(widget.task.timeOfTask),
+                    "asd",
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,

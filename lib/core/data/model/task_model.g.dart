@@ -19,9 +19,9 @@ class TaskModelAdapter extends TypeAdapter<TaskModel> {
     return TaskModel(
       taskName: fields[0] as String,
       taskDescriptionController: fields[1] as String,
-      startDateSelectedDate: fields[2] as DateTime,
-      endDateSelectedDate: fields[3] as DateTime,
-      timeOfTask: fields[4] as TimeOfDay,
+      startDateSelectedDate: fields[2] as String,
+      endDateSelectedDate: fields[3] as String,
+      timeOfTask: fields[4] as String,
       archivedTask: fields[5] as bool,
       doneTask: fields[6] as bool,
     );

@@ -10,35 +10,43 @@ import '../../../../core/data/model/task_model.dart';
 import '../../../done_details/views/screen.dart';
 
 class CardDoneList extends StatelessWidget {
-  const CardDoneList(
-      {super.key,
-      required this.title,
-      required this.subtitle,
-      required this.startDate,
-      required this.endDate,
-      required this.taskModel});
+  const CardDoneList({super.key,
+    required this.title,
+    required this.subtitle,
+    required this.startDate,
+    required this.endDate,
+    required this.taskModel});
+
   final String title;
-  final TimeOfDay subtitle;
-  final DateTime startDate;
-  final DateTime endDate;
+  final String subtitle;
+  final String startDate;
+  final String endDate;
   final TaskModel taskModel;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DoneDetailsScreen(
-              task: taskModel,
-            ),
-          )),
+      onTap: () =>
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    DoneDetailsScreen(
+                      task: taskModel,
+                    ),
+              )),
       child: Card(
-        color: Theme.of(context).cardColor,
+        color: Theme
+            .of(context)
+            .cardColor,
         child: ListTile(
           leading: SvgPicture.asset(ImageApp.bagIcon),
-          title: Text(title, style: Theme.of(context).textTheme.headlineLarge),
+          title: Text(title, style: Theme
+              .of(context)
+              .textTheme
+              .headlineLarge),
           subtitle: Text(
-            _formatTaskTime(subtitle),
+            "dsfa",
             style: const TextStyle(
               color: ColorApp.primaryColor,
               fontWeight: FontWeight.w400,
@@ -49,7 +57,7 @@ class CardDoneList extends StatelessWidget {
           trailing: Column(
             children: [
               Text(
-                DateFormat('dd MMM, y').format(startDate),
+                "fdsa",
                 style: const TextStyle(
                   color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
@@ -61,7 +69,7 @@ class CardDoneList extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                DateFormat('dd MMM, y').format(endDate),
+                "fsdafasd",
                 style: const TextStyle(
                   color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
@@ -74,12 +82,5 @@ class CardDoneList extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _formatTaskTime(TimeOfDay time) {
-    final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
-    final minute = time.minute.toString().padLeft(2, '0');
-    final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
-    return '$hour:$minute $period';
   }
 }

@@ -60,7 +60,7 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
                       itemBuilder: (BuildContext context, int index) {
                         return CardList(
                           title: archiveList[index].taskName!,
-                          subtitle: archiveList[index].timeOfTask,
+                          subtitle: archiveList[index].timeOfTask!,
                           taskModel: archiveList[index],
                           onTap: () {
                             tasksList[index].archivedTask = false;

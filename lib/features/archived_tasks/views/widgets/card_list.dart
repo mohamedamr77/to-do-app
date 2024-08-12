@@ -10,13 +10,13 @@ import '../../../task_details_archieved/views/screen.dart';
 class CardList extends StatelessWidget {
   const CardList(
       {super.key,
-      required this.title,
-      required this.subtitle,
-      required this.taskModel,
-      required this.onTap});
+        required this.title,
+        required this.subtitle,
+        required this.taskModel,
+        required this.onTap});
 
   final String title;
-  final TimeOfDay subtitle;
+  final String subtitle;
   final TaskModel taskModel;
   final void Function()? onTap;
 
@@ -37,7 +37,7 @@ class CardList extends StatelessWidget {
           leading: SvgPicture.asset(ImageApp.bagIcon),
           title: Text(title, style: Theme.of(context).textTheme.titleMedium),
           subtitle: Text(
-            _formatTaskTime(subtitle),
+            subtitle,
             style: const TextStyle(
               color: ColorApp.primaryColor,
               fontWeight: FontWeight.w400,
@@ -52,21 +52,21 @@ class CardList extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6),
                 color: (Theme.of(context).canvasColor == Colors.black &&
-                        taskModel.archivedTask == true
+                    taskModel.archivedTask == true
                     ? ColorApp.primaryColor
                     : Theme.of(context).canvasColor == Colors.black &&
-                            taskModel.archivedTask == false
-                        ? ColorApp.whiteColor
-                        : Theme.of(context).canvasColor == Colors.white &&
-                                taskModel.archivedTask == true
-                            ? const Color(0xff90B6E2)
-                            : const Color(0xff24364B)),
+                    taskModel.archivedTask == false
+                    ? ColorApp.whiteColor
+                    : Theme.of(context).canvasColor == Colors.white &&
+                    taskModel.archivedTask == true
+                    ? const Color(0xff90B6E2)
+                    : const Color(0xff24364B)),
               ),
               child: Text(
                 TextApp.unarchiveText,
                 style: TextStyle(
                   color: (Theme.of(context).canvasColor == Colors.white &&
-                          taskModel.archivedTask == true
+                      taskModel.archivedTask == true
                       ? const Color(0xff24364B)
                       : Colors.white),
                   fontSize: 11,
@@ -79,12 +79,5 @@ class CardList extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _formatTaskTime(TimeOfDay time) {
-    final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
-    final minute = time.minute.toString().padLeft(2, '0');
-    final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
-    return '$hour:$minute $period';
   }
 }

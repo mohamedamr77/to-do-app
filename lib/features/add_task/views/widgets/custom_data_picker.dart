@@ -15,8 +15,8 @@ class CustomDataPicker extends StatefulWidget {
 
   final String title;
   final String subTitle;
-  DateTime? selectedDate;
-  final Function(DateTime) onDateSelected;
+  String? selectedDate; // Changed to String?
+  final Function(String) onDateSelected; // Changed to accept a String
   bool? clickInButton;
 
   @override
@@ -32,24 +32,26 @@ class _CustomDataPickerState extends State<CustomDataPicker> {
         onTap: () async {
           final DateTime? picked = await showDatePicker(
             context: context,
-            initialDate: widget.selectedDate ?? DateTime.now(),
+            initialDate: widget.selectedDate != null
+                ? DateTime.parse(widget.selectedDate!)
+                : DateTime.now(),
             firstDate: DateTime.now(),
             lastDate: DateTime(2025),
           );
-          if (picked != null && picked != widget.selectedDate) {
+          if (picked != null) {
             setState(() {
-              widget.selectedDate = picked;
+              widget.selectedDate = "${picked.toLocal()}".split(' ')[0];
             });
-            widget.onDateSelected(picked);
+            widget.onDateSelected(widget.selectedDate!);
           }
         },
         leading: SvgPicture.asset(ImageApp.calendarImage),
         title: Text(
           widget.selectedDate == null
               ? (widget.title == TextApp.startText
-                  ? TextApp.startText
-                  : TextApp.endDateText)
-              : "${widget.selectedDate!.toLocal()}".split(' ')[0],
+              ? TextApp.startText
+              : TextApp.endDateText)
+              : widget.selectedDate!,
           style: Theme.of(context).textTheme.bodySmall,
         ),
         subtitle: Text(

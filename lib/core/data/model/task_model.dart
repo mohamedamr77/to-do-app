@@ -9,11 +9,11 @@ class TaskModel extends HiveObject {
   @HiveField(1)
   String? taskDescriptionController;
   @HiveField(2)
-  DateTime startDateSelectedDate;
+  String? startDateSelectedDate;
   @HiveField(3)
-  DateTime endDateSelectedDate;
+  String? endDateSelectedDate;
   @HiveField(4)
-  TimeOfDay timeOfTask;
+  String? timeOfTask;
   @HiveField(5)
   bool archivedTask;
   @HiveField(6)

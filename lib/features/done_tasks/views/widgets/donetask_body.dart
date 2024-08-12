@@ -54,9 +54,9 @@ class DoneTaskBody extends StatelessWidget {
                       itemBuilder: (context, index) => CardDoneList(
                         taskModel: doneTasksList[index],
                         title: doneTasksList[index].taskName!,
-                        subtitle: doneTasksList[index].timeOfTask,
-                        startDate: doneTasksList[index].startDateSelectedDate,
-                        endDate: doneTasksList[index].endDateSelectedDate,
+                        subtitle: doneTasksList[index].timeOfTask!,
+                        startDate: doneTasksList[index].startDateSelectedDate!,
+                        endDate: doneTasksList[index].endDateSelectedDate!,
                       ),
                       separatorBuilder: (context, index) => const SizedBox(
                         height: 10,

@@ -25,9 +25,9 @@ class _AddTaskFormState extends State<AddTaskForm> {
     String? taskName ;
     String? taskDescriptionController;
 
-  DateTime? startDateSelectedDate;
-  DateTime? endDateSelectedDate;
-  TimeOfDay? selectedTime;
+  String? startDateSelectedDate;
+  String? endDateSelectedDate;
+  String? selectedTime;
 
   final _formKey = GlobalKey<FormState>();
   @override
@@ -79,7 +79,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
                 title: TextApp.startText,
                 subTitle: TextApp.enterTheStartDateText,
                 selectedDate: startDateSelectedDate,
-                onDateSelected: (DateTime picked) {
+                onDateSelected: (String picked) {
                   startDateSelectedDate = picked;
                   if (kDebugMode) {
                     print("startDate $startDateSelectedDate");
@@ -90,7 +90,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
                 title: TextApp.endDateText,
                 subTitle: TextApp.enterTheEndDateText,
                 selectedDate: endDateSelectedDate,
-                onDateSelected: (DateTime p) {
+                onDateSelected: (String p) {
                   endDateSelectedDate = p;
                   if (kDebugMode) {
                     print("endDate $endDateSelectedDate");
@@ -99,7 +99,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
               ),
               CustomTimePicker(
                 selectedTime: selectedTime,
-                onTimeSelected: (TimeOfDay t) {
+                onTimeSelected: (String t) {
                   selectedTime = t;
                 },
                 clickInButton: null,
@@ -115,13 +115,13 @@ class _AddTaskFormState extends State<AddTaskForm> {
                     nameButton: TextApp.addTaskText,
                     onTap: () {
                       // Check if the start date is null, set it to today's date if so
-                      startDateSelectedDate ??= DateTime.now();
+                      startDateSelectedDate ??= DateTime.now().toString();
 
                       // Check if the end date is null, set it to today's date if so
-                      endDateSelectedDate ??= DateTime.now();
+                      endDateSelectedDate ??= DateTime.now().toString();
 
                       // Check if the time is null, set it to the current time if so
-                      selectedTime ??= TimeOfDay.now();
+                      selectedTime ??= TimeOfDay.now().toString();
 
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();

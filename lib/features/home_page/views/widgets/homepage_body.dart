@@ -17,12 +17,12 @@ class HomePageBody extends StatefulWidget {
 
 class _HomePageBodyState extends State<HomePageBody> {
 
-  //  @override
-  // void initState() {
-  //   // TODO: implement initState
-  //    BlocProvider.of<TasksCubit>(context).fetchAllTasks();
-  //   super.initState();
-  // }
+   @override
+  void initState() {
+    // TODO: implement initState
+     BlocProvider.of<TasksCubit>(context).fetchAllTasks();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
