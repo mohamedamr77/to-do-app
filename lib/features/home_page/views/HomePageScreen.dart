@@ -14,7 +14,7 @@ class HomePageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-  create: (context) => HomePageCubit(),
+  create: (context) => TasksCubit(),
   child: Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
@@ -36,14 +36,7 @@ class HomePageScreen extends StatelessWidget {
           size: 35,
         ),
       ),
-      body: BlocBuilder<GetUserCubit, GetUserState>(
-        builder: (BuildContext context, state) {
-          return HomePageBody(
-              name: BlocProvider.of<GetUserCubit>(context).name,
-              pictureUser: BlocProvider.of<GetUserCubit>(context).image
-          );
-        },
-      ),
+      body:  const HomePageBody(),
       drawer: Drawer(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -58,13 +51,3 @@ class HomePageScreen extends StatelessWidget {
 );
   }
 }
-/*
-
-BlocBuilder<GetUserCubit, GetUserState>(
-        builder: (BuildContext context, state) {
-          return HomePageBody(
-              name: BlocProvider.of<GetUserCubit>(context).name,
-              pictureUser: BlocProvider.of<GetUserCubit>(context).image);
-        },
-      ),
- */
