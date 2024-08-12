@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:todo/core/apptheme.dart';
 import 'package:todo/core/box.dart';
-import 'package:todo/cubit/get_cubit.dart';
+import 'package:todo/cubit/Image_name/get_cubit.dart';
 import 'package:todo/cubit/simple_bloc_observer.dart';
 import 'package:todo/cubit/theme/get_cubit.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
