@@ -20,7 +20,7 @@ class _HomePageBodyState extends State<HomePageBody> {
    @override
   void initState() {
     // TODO: implement initState
-     BlocProvider.of<TasksCubit>(context).fetchAllTasks();
+     BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
     super.initState();
   }
 
