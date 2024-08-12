@@ -1,5 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo/features/add_task/data/cubit/add_task_cubit/add_task_cubit.dart';
+import 'package:todo/features/add_task/data/cubit/add_task_cubit/add_task_state.dart';
 
 import '../../../../core/data/model/task_list.dart';
 import '../../../../core/data/model/task_model.dart';
@@ -99,39 +102,46 @@ class _AddTaskFormState extends State<AddTaskForm> {
                 clickInButton: null,
               ),
               const SizedBox(height: 20),
-              CustomButton(
-                backGroundColor: Theme.of(context).canvasColor == Colors.black
-                    ? const Color(0xff90B6E2)
-                    : const Color(0xff3F6188),
-                nameButton: TextApp.addTaskText,
-                onTap: () {
-                  // Check if the start date is null, set it to today's date if so
-                  startDateSelectedDate ??= DateTime.now();
+              BlocBuilder<AddTaskCubit, AddTaskState>(
+                builder: (context, state) {
+                  return CustomButton(
+                    isLoading: state is AddTaskLoadingState ?true : false,
+                    backGroundColor: Theme
+                        .of(context)
+                        .canvasColor == Colors.black
+                        ? const Color(0xff90B6E2)
+                        : const Color(0xff3F6188),
+                    nameButton: TextApp.addTaskText,
+                    onTap: () {
+                      // Check if the start date is null, set it to today's date if so
+                      startDateSelectedDate ??= DateTime.now();
 
-                  // Check if the end date is null, set it to today's date if so
-                  endDateSelectedDate ??= DateTime.now();
+                      // Check if the end date is null, set it to today's date if so
+                      endDateSelectedDate ??= DateTime.now();
 
-                  // Check if the time is null, set it to the current time if so
-                  selectedTime ??= TimeOfDay.now();
+                      // Check if the time is null, set it to the current time if so
+                      selectedTime ??= TimeOfDay.now();
 
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    tasksList.add(TaskModel(
-                      taskName: taskName,
-                      taskDescriptionController: taskDescriptionController,
-                      startDateSelectedDate: startDateSelectedDate!,
-                      endDateSelectedDate: endDateSelectedDate!,
-                      timeOfTask: selectedTime!,
-                    ));
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomePageScreen(),
-                      ),
-                    ).then((x) {
-                      setState(() {});
-                    });
-                  }
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        tasksList.add(TaskModel(
+                          taskName: taskName,
+                          taskDescriptionController: taskDescriptionController,
+                          startDateSelectedDate: startDateSelectedDate!,
+                          endDateSelectedDate: endDateSelectedDate!,
+                          timeOfTask: selectedTime!,
+                        ));
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePageScreen(),
+                          ),
+                        ).then((x) {
+                          setState(() {});
+                        });
+                      }
+                    },
+                  );
                 },
               ),
             ],

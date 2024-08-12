@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:todo/features/add_task/data/cubit/add_task_cubit/add_task_cubit.dart';
 import 'package:todo/features/add_task/data/cubit/add_task_cubit/add_task_state.dart';
 import 'package:todo/features/add_task/views/widgets/add_task_form.dart';
@@ -16,24 +15,24 @@ class AddTaskBody extends StatelessWidget {
       child: SingleChildScrollView(
           child: BlocConsumer<AddTaskCubit, AddTaskState>(
             builder: (BuildContext context, AddTaskState state) {
-              return ModalProgressHUD(
-                  inAsyncCall: state is AddTaskLoadingState ? true : false,
+              return AbsorbPointer(
+                  absorbing: state is AddTaskLoadingState?true:false,
                   child: const AddTaskForm());
             },
             listener: (BuildContext context, AddTaskState state) {
               if (state is AddTaskSuccessState) {
                 Navigator.pop(context);
               }
-              if (state is AddTaskFailureState) {
+              if(state is AddTaskFailureState){
                 // Handle failure state
                 if (kDebugMode) {
                   print("Error : ${state.errorMessage}");
                 }
               }
-            },
+           },
 
-          )
-      ),
+      )
+    )
     );
   }
 }

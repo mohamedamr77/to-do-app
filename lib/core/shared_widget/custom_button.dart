@@ -8,12 +8,14 @@ class CustomButton extends StatelessWidget {
     required this.nameButton,
     required this.onTap,
     this.image,
+    this.isLoading = false,
   });
 
   final void Function()? onTap;
   final Color backGroundColor;
   final String nameButton;
   final String? image;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +28,24 @@ class CustomButton extends StatelessWidget {
           color: backGroundColor,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Row(
+        child: isLoading
+            ? Center(
+                child: CircularProgressIndicator()
+            )
+            : Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(nameButton,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.labelLarge),
+            Text(
+              nameButton,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.labelLarge,
+            ),
             if (image != null) ...[
               const SizedBox(width: 10),
               SvgPicture.asset(
                 image!,
                 color: Colors.white,
-              )
+              ),
             ],
           ],
         ),
