@@ -13,41 +13,38 @@ class HomePageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-  create: (context) => HomePageCubit(),
-  child: Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        foregroundColor: Colors.white,
-        backgroundColor:
-            Theme.of(context).floatingActionButtonTheme.backgroundColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        onPressed: () async {
-          // Navigate to AddTaskScreen and wait for result
-          final result = await Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AddTaskScreen()),
-          );
-        },
-        child: const Icon(
-          Icons.add,
-          size: 35,
-        ),
-      ),
-      body:  const HomePageBody(),
-      drawer: Drawer(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(60),
+    return Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
+          foregroundColor: Colors.white,
+          backgroundColor:
+              Theme.of(context).floatingActionButtonTheme.backgroundColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          onPressed: () async {
+            // Navigate to AddTaskScreen and wait for result
+            final result = await Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AddTaskScreen()),
+            );
+          },
+          child: const Icon(
+            Icons.add,
+            size: 35,
           ),
         ),
-        child: DrawerBody(
-            name: BlocProvider.of<GetUserCubit>(context).name,
-            pictureUser: BlocProvider.of<GetUserCubit>(context).image),
-      ),
-    ),
-);
+        body:  const HomePageBody(),
+        drawer: Drawer(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(60),
+            ),
+          ),
+          child: DrawerBody(
+              name: BlocProvider.of<GetUserCubit>(context).name,
+              pictureUser: BlocProvider.of<GetUserCubit>(context).image),
+        ),
+      );
   }
 }

@@ -9,6 +9,7 @@ import 'package:todo/core/box.dart';
 import 'package:todo/cubit/Image_name/get_cubit.dart';
 import 'package:todo/cubit/simple_bloc_observer.dart';
 import 'package:todo/cubit/theme/get_cubit.dart';
+import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
 import 'core/data/model/task_model.dart';
 import 'cubit/theme/get_State.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => GetUserCubit()),
         BlocProvider(create: (context) => GetThemeCubit()),
+        BlocProvider(create: (context) => HomePageCubit()),
       ],
       child: BlocBuilder<GetThemeCubit, GetThemeState>(
         builder: (context, state) {

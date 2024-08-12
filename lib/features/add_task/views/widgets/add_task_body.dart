@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/features/add_task/views/controller/cubit/add_task_cubit/add_task_cubit.dart';
 import 'package:todo/features/add_task/views/controller/cubit/add_task_cubit/add_task_state.dart';
 import 'package:todo/features/add_task/views/widgets/add_task_form.dart';
+import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
 
 class AddTaskBody extends StatelessWidget {
   const AddTaskBody({super.key});
@@ -21,6 +22,7 @@ class AddTaskBody extends StatelessWidget {
             },
             listener: (BuildContext context, AddTaskState state) {
               if (state is AddTaskSuccessState) {
+                BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
                 Navigator.pop(context);
               }
               if(state is AddTaskFailureState){
@@ -30,7 +32,6 @@ class AddTaskBody extends StatelessWidget {
                 }
               }
            },
-
       )
     )
     );
