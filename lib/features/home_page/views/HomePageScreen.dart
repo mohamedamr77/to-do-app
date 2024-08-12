@@ -6,6 +6,7 @@ import 'package:todo/cubit/tasks/tasks_cubit.dart';
 import 'package:todo/features/home_page/views/widgets/drawer_body.dart';
 import 'package:todo/features/home_page/views/widgets/homepage_body.dart';
 import '../../add_task/views/screen.dart';
+import '../controller/home_page_Cubit.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key});
@@ -13,7 +14,7 @@ class HomePageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-  create: (context) => TasksCubit(),
+  create: (context) => HomePageCubit(),
   child: Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
@@ -39,7 +40,8 @@ class HomePageScreen extends StatelessWidget {
         builder: (BuildContext context, state) {
           return HomePageBody(
               name: BlocProvider.of<GetUserCubit>(context).name,
-              pictureUser: BlocProvider.of<GetUserCubit>(context).image);
+              pictureUser: BlocProvider.of<GetUserCubit>(context).image
+          );
         },
       ),
       drawer: Drawer(
@@ -56,3 +58,13 @@ class HomePageScreen extends StatelessWidget {
 );
   }
 }
+/*
+
+BlocBuilder<GetUserCubit, GetUserState>(
+        builder: (BuildContext context, state) {
+          return HomePageBody(
+              name: BlocProvider.of<GetUserCubit>(context).name,
+              pictureUser: BlocProvider.of<GetUserCubit>(context).image);
+        },
+      ),
+ */
