@@ -11,16 +11,3 @@ class AddTaskScreen extends StatelessWidget {
     );
   }
 }
-/*
-Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              // ColorApp.bgGroundColor1,
-              // ColorApp.bgGroundColor2,
-            ],
-          ),
-        ),
-        child: AddTaskBody(),
-      ),
- */

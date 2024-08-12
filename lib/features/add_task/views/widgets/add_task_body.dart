@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/features/add_task/data/cubit/add_task_cubit/add_task_cubit.dart';
-import 'package:todo/features/add_task/data/cubit/add_task_cubit/add_task_state.dart';
+import 'package:todo/features/add_task/views/controller/cubit/add_task_cubit/add_task_cubit.dart';
+import 'package:todo/features/add_task/views/controller/cubit/add_task_cubit/add_task_state.dart';
 import 'package:todo/features/add_task/views/widgets/add_task_form.dart';
 
 class AddTaskBody extends StatelessWidget {

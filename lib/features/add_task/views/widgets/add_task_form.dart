@@ -1,106 +1,88 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/features/add_task/data/cubit/add_task_cubit/add_task_cubit.dart';
-import 'package:todo/features/add_task/data/cubit/add_task_cubit/add_task_state.dart';
-
-import '../../../../core/data/model/task_list.dart';
+import 'package:todo/features/add_task/views/controller/cubit/add_task_cubit/add_task_cubit.dart';
+import 'package:todo/features/add_task/views/controller/cubit/add_task_cubit/add_task_state.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/textCore.dart';
-import '../../../home_page/views/HomePageScreen.dart';
 import 'custom_data_picker.dart';
 import 'custom_time_picker.dart';
 import 'cutsom_field.dart';
 
-class AddTaskForm extends StatefulWidget {
+class AddTaskForm extends StatelessWidget {
   const AddTaskForm({super.key});
 
-  @override
-  State<AddTaskForm> createState() => _AddTaskFormState();
-}
-
-class _AddTaskFormState extends State<AddTaskForm> {
-    String? taskName ;
-    String? taskDescriptionController;
-
-  String? startDateSelectedDate;
-  String? endDateSelectedDate;
-  String? selectedTime;
-
-  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: SafeArea(
         child: Form(
-          key: _formKey,
+          key: BlocProvider.of<AddTaskCubit>(context).formKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
             children: [
+
               const SizedBox(height: 10),
+
               const CustomAppbar(title: TextApp.addTaskText),
+
               const SizedBox(height: 15),
+
               CustomField(
                 title: TextApp.taskNameText,
                 hintText: TextApp.enterTheTaskNameText,
                 minLine: 1,
                 maxLine: 1,
                 onSaved: (value) {
-                  taskName=value;
-                },
+                  BlocProvider.of<AddTaskCubit>(context).taskName=value;
+                  },
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return TextApp.pleaseEnterTheTaskNameText;
-                  }
-                  return null;
+                  return BlocProvider.of<AddTaskCubit>(context).validate(value);
                 },
+
               ),
+
               const SizedBox(height: 10),
+
               CustomField(
                 title: TextApp.descriptionText,
                 hintText: TextApp.enterTheTaskDescText,
                 minLine: 4,
                 maxLine: 4,
                 onSaved: (value){
-                  taskDescriptionController=value;
+                  BlocProvider.of<AddTaskCubit>(context).taskDescriptionController=value;
                 },
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return TextApp.pleaseEnterTheTaskDescText;
-                  }
-                  return null;
+                  return BlocProvider.of<AddTaskCubit>(context).validate(value);
                 },
               ),
               const SizedBox(height: 20),
+
               CustomDataPicker(
                 title: TextApp.startText,
                 subTitle: TextApp.enterTheStartDateText,
-                selectedDate: startDateSelectedDate,
+                selectedDate: BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate,
                 onDateSelected: (String picked) {
-                  startDateSelectedDate = picked;
-                  if (kDebugMode) {
-                    print("startDate $startDateSelectedDate");
-                  }
+                  BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate = picked;
                 },
               ),
+
               CustomDataPicker(
                 title: TextApp.endDateText,
                 subTitle: TextApp.enterTheEndDateText,
-                selectedDate: endDateSelectedDate,
+                selectedDate: BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate,
                 onDateSelected: (String p) {
-                  endDateSelectedDate = p;
-                  if (kDebugMode) {
-                    print("endDate $endDateSelectedDate");
-                  }
+                  BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate = p;
                 },
               ),
+
               CustomTimePicker(
-                selectedTime: selectedTime,
+                selectedTime: BlocProvider.of<AddTaskCubit>(context).selectedTime,
                 onTimeSelected: (String t) {
-                  selectedTime = t;
+                  BlocProvider.of<AddTaskCubit>(context).selectedTime = t;
                 },
                 clickInButton: null,
               ),
@@ -113,28 +95,7 @@ class _AddTaskFormState extends State<AddTaskForm> {
                         ? const Color(0xff90B6E2)
                         : const Color(0xff3F6188),
                     nameButton: TextApp.addTaskText,
-                    onTap: () {
-                      // Check if the start date is null, set it to today's date if so
-                      startDateSelectedDate ??= DateTime.now().toString();
-
-                      // Check if the end date is null, set it to today's date if so
-                      endDateSelectedDate ??= DateTime.now().toString();
-
-                      // Check if the time is null, set it to the current time if so
-                      selectedTime ??= TimeOfDay.now().toString();
-
-                      if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-                     var task=   TaskModel(
-                          taskName: taskName,
-                          taskDescriptionController: taskDescriptionController,
-                          startDateSelectedDate: startDateSelectedDate!,
-                          endDateSelectedDate: endDateSelectedDate!,
-                          timeOfTask: selectedTime!,
-                        );
-                        BlocProvider.of<AddTaskCubit>(context).addTask(task);
-                      }
-                    },
+                    onTap: () => onTapButton(context),
                   );
                 },
               ),
@@ -144,4 +105,23 @@ class _AddTaskFormState extends State<AddTaskForm> {
       ),
     );
   }
+}
+
+onTapButton (BuildContext context) {
+    BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate ??= DateTime.now().toString();
+    BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate ??= DateTime.now().toString();
+    BlocProvider.of<AddTaskCubit>(context).selectedTime ??= TimeOfDay.now().toString();
+
+    if (BlocProvider.of<AddTaskCubit>(context).formKey.currentState!.validate()) {
+      BlocProvider.of<AddTaskCubit>(context).formKey.currentState!.save();
+
+      var task=   TaskModel(
+        taskName: BlocProvider.of<AddTaskCubit>(context).taskName,
+        taskDescriptionController: BlocProvider.of<AddTaskCubit>(context).taskDescriptionController,
+        startDateSelectedDate: BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate,
+        endDateSelectedDate: BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate,
+        timeOfTask: BlocProvider.of<AddTaskCubit>(context).selectedTime,
+      );
+      BlocProvider.of<AddTaskCubit>(context).addTask(task);
+    }
 }

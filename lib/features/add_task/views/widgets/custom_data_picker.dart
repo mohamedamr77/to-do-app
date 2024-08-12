@@ -4,13 +4,15 @@ import 'package:todo/core/imageCore.dart';
 import '../../../../core/textCore.dart';
 
 class CustomDataPicker extends StatefulWidget {
-  CustomDataPicker({
+  CustomDataPicker(
+      {
     super.key,
     required this.title,
     required this.subTitle,
     required this.selectedDate,
     required this.onDateSelected,
-    @required this.clickInButton,
+        this.clickInButton
+
   });
 
   final String title;
