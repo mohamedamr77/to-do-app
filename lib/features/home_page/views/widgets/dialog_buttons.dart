@@ -7,15 +7,16 @@ class DialogButton extends StatelessWidget {
       {super.key,
       required this.text,
       required this.result,
-      required this.color});
+      required this.color,required this.onTap});
   final String text;
   final bool result;
   final Color color;
+ final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).pop(result),
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
         decoration: BoxDecoration(

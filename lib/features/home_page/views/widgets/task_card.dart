@@ -38,7 +38,7 @@ class _TaskCardState extends State<TaskCard> {
         title:
             Text(widget.taskModel.taskName.toString(), style: Theme.of(context).textTheme.titleMedium),
         subtitle: Text(
-        "dsa",
+          widget.taskModel.timeOfTask!,
           style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,
@@ -50,13 +50,6 @@ class _TaskCardState extends State<TaskCard> {
       ),
     );
   }
-  //
-  // String _formatTaskTime(TimeOfDay time) {
-  //   final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
-  //   final minute = time.minute.toString().padLeft(2, '0');
-  //   final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
-  //   return '$hour:$minute $period';
-  // }
 
   Widget _buildDoneButton() {
     return GestureDetector(

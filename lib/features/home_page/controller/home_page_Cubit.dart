@@ -7,7 +7,7 @@ import '../../../core/data/model/task_model.dart';
 
 class HomePageCubit extends Cubit<HomePageState> {
   HomePageCubit() : super(HomePageInitialState());
-
+   void Function()? onTap;
   // Fetch all tasks and update the state
   void fetchAllTasks() async {
     try {
@@ -25,4 +25,15 @@ class HomePageCubit extends Cubit<HomePageState> {
       debugPrint('Error fetching tasks: $e');
     }
   }
+
+  void deleteTask(TaskModel task) async {
+    try {
+      var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
+      await notesBox.delete(task.key); // Delete the task using its key
+      fetchAllTasks(); // Fetch the updated task list
+    } catch (e) {
+      debugPrint('Error deleting task: $e');
+    }
+  }
+
 }

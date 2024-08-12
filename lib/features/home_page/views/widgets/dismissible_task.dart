@@ -1,10 +1,14 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
+import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
 import '../../../../core/data/model/task_model.dart';
+import '../../controller/home_page_state.dart';
 import 'dialog_buttons.dart';
 import 'task_card.dart';
 
@@ -26,6 +30,7 @@ class _DismissibleTaskState extends State<DismissibleTask> {
   @override
   Widget build(BuildContext context) {
 
+
     return Dismissible(
       key: UniqueKey(),
       confirmDismiss: (direction) => _confirmDismissTask(direction, context),
@@ -33,8 +38,10 @@ class _DismissibleTaskState extends State<DismissibleTask> {
       child: TaskCard(
         onTap: () {
           setState(() {
-            tasksList[widget.index].doneTask =
-                !tasksList[widget.index].doneTask;
+                 tasksList[widget.index].doneTask = !tasksList[widget.index].doneTask;
+                 if (kDebugMode) {
+                   print(tasksList[widget.index].doneTask);
+                 }
           });
         },
         taskModel: widget.taskModel,
@@ -80,15 +87,22 @@ class _DismissibleTaskState extends State<DismissibleTask> {
                     : Colors.black,
               ),
             ),
-            actions: const [
+            actions:  [
               DialogButton(
                   text: TextApp.cancelText,
                   result: false,
-                  color: ColorApp.primaryColor),
+                  color: ColorApp.primaryColor, onTap: () {
+                    Navigator.of(context).pop(false);
+              },
+              ),
               DialogButton(
                   text: TextApp.deleteText,
                   result: true,
-                  color: ColorApp.redColor),
+                  color: ColorApp.redColor, onTap: () {
+                widget.taskModel.delete();
+                Navigator.of(context).pop(true);
+
+              },),
             ],
           );
         },
