@@ -33,7 +33,9 @@ class HomePageCubit extends Cubit<HomePageState> {
     notesBox.putAt(index, taskModel);
     List<TaskModel> tasks = notesBox.values.toList();
     List<TaskModel> tasksNotArchive = tasks.where((notArchiveTask) => notArchiveTask.doneTask == true).toList();
-    print(tasksNotArchive.length);
+    if (kDebugMode) {
+      print(tasksNotArchive.length);
+    }
     // Update the task in Hive
     fetchAllTasks(); // Emit the updated list to refresh the UI
   }

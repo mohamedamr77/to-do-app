@@ -10,7 +10,7 @@ import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import 'package:todo/features/task_details/views/controller/task_details_cubit.dart';
-import 'package:todo/features/task_details/views/widgets/show_deleteDialog.dart';
+import 'package:todo/core/shared_widget/show_deleteDialog.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 import '../../../home_page/controller/home_page_Cubit.dart';
@@ -135,7 +135,16 @@ class TaskDetailsBody extends StatelessWidget {
                 backGroundColor: const Color(0XFFBD5461),
                 nameButton: TextApp.deleteText,
                 onTap: () {
-                  showDeleteDialog(context, task);
+                  DeleteDialog.show(
+                      context: context,
+                      task: task,
+                      onTap: () {
+                        task.delete();
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),),
+                        );
+                        BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
+                      },
+                  );
                 },
                 image: ImageApp.deleteIcon,
               ),

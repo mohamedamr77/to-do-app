@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import 'package:todo/core/shared_widget/show_deleteDialog.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_button.dart';
@@ -119,7 +120,15 @@ class TaskDetailsAchievedBody extends StatelessWidget {
               backGroundColor: const Color(0XFFBD5461),
               nameButton: 'Delete',
               onTap: () {
-                _showDeleteDialog(context, taskAchieved);
+                DeleteDialog.show(
+                  task: taskAchieved,
+                  onTap: () {
+                    taskAchieved.delete();
+                    Navigator.of(context)..pop()..pop();
+                    BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
+                  },
+                  context: context,
+                );
               },
               image: "assets/images/svg/delete_dismissible.svg",
             ),
@@ -129,84 +138,6 @@ class TaskDetailsAchievedBody extends StatelessWidget {
     );
   }
 
-  void _showDeleteDialog(BuildContext context, TaskModel task) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          content: const Text(
-            'Are you sure you want to delete this task?',
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontFamily: "LexendDeca",
-                fontSize: 16),
-          ),
-          actions: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    task.delete();
-                    // Navigator.of(context).pop();
-                    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ArchivedTasksScreen() ,));
-                    Navigator.of(context)..pop()..pop();
-                    BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 35, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: const Color(0xffBD5461),
-                    ),
-                    child: const Text(
-                      "Yes",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: "LexendDeca",
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 35, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: const Color(0xff90B6E2),
-                    ),
-                    child: const Text(
-                      "No",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: "LexendDeca",
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
-              ],
-            )
-          ],
-        );
-      },
-    );
-  }
+
 }
 
-String _formatTaskTime(TimeOfDay time) {
-  final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
-  final minute = time.minute.toString().padLeft(2, '0');
-  final period = time.hour < 12 ? 'AM' : 'PM';
-  return '$hour:$minute $period';
-}
