@@ -11,16 +11,10 @@ import '../../../done_details/views/screen.dart';
 
 class CardDoneList extends StatelessWidget {
   const CardDoneList({super.key,
-    required this.title,
-    required this.subtitle,
-    required this.startDate,
-    required this.endDate,
+
     required this.taskModel});
 
-  final String title;
-  final String subtitle;
-  final String startDate;
-  final String endDate;
+
   final TaskModel taskModel;
 
   @override
@@ -36,17 +30,12 @@ class CardDoneList extends StatelessWidget {
                     ),
               )),
       child: Card(
-        color: Theme
-            .of(context)
-            .cardColor,
+        color: Theme.of(context).cardColor,
         child: ListTile(
           leading: SvgPicture.asset(ImageApp.bagIcon),
-          title: Text(title, style: Theme
-              .of(context)
-              .textTheme
-              .headlineLarge),
+          title: Text(taskModel.taskName!, style: Theme.of(context).textTheme.headlineLarge),
           subtitle: Text(
-            "dsfa",
+            taskModel.timeOfTask!,
             style: const TextStyle(
               color: ColorApp.primaryColor,
               fontWeight: FontWeight.w400,
