@@ -161,8 +161,7 @@ class DrawerBody extends StatelessWidget {
                       trailing: Switch(
                         value: BlocProvider.of<GetThemeCubit>(context).isDark,
                         onChanged: (bool value) {
-                          BlocProvider.of<GetThemeCubit>(context)
-                              .changeTheme(value);
+                          BlocProvider.of<GetThemeCubit>(context).changeTheme(value);
                         },
                       ),
                     ),

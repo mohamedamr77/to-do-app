@@ -17,14 +17,19 @@ import 'features/archived_tasks/controller/archived_task_cubit.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
 
 void main() async {
-  Bloc.observer=SimpleBlocObserver();
+  Bloc.observer = SimpleBlocObserver();
   await Hive.initFlutter();
-  Hive.registerAdapter(TaskModelAdapter() );
- await Hive.openBox<TaskModel>(BoxApp.kTaskBox);
+  Hive.registerAdapter(TaskModelAdapter());
+  await Hive.openBox<TaskModel>(BoxApp.kTaskBox);
+  await Hive.openBox(BoxApp.kThemeBox);
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => const MyApp(), // Wrap your app
+      builder: (context) =>
+          BlocProvider(
+            create: (context) => GetThemeCubit(),
+            child: MyApp(),
+          ), // Wrap your app
     ),
   );
 }
@@ -34,10 +39,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<GetThemeCubit>(context).setSwitchValueFromHive();
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => GetUserCubit()),
-        BlocProvider(create: (context) => GetThemeCubit()),
         BlocProvider(create: (context) => HomePageCubit()),
         BlocProvider(create: (context) => ArchivedTaskCubit(),
         ),
@@ -54,13 +59,15 @@ class MyApp extends StatelessWidget {
               locale: DevicePreview.locale(context),
               builder: DevicePreview.appBuilder,
               theme: AppTheme.lightThemeData,
-              themeMode: context.read<GetThemeCubit>().isDark
+              themeMode: BlocProvider
+                  .of<GetThemeCubit>(context)
+                  .isDark
                   ? ThemeMode.dark
                   : ThemeMode.light,
               darkTheme: AppTheme.darkThemeData,
               routes: {
                 CustomRegesterScreen.id: (context) =>
-                    const CustomRegesterScreen(),
+                const CustomRegesterScreen(),
                 CustomOnboarding.id: (context) => const CustomOnboarding(),
                 // HomePageScreen.id: (context) =>  HomePageScreen(),
               },
