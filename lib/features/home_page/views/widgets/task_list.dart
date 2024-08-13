@@ -18,7 +18,7 @@ class TaskList extends StatelessWidget {
     // List<TaskModel> notArchiveList = tasksList.where((notArchiveTask) => notArchiveTask.archivedTask == false).toList();
     return BlocBuilder<HomePageCubit, HomePageState>(
       builder: (context, state) {
-          if(state is HomeScreenNotesIsFound)
+          if(state is HomeScreenNotes)
            {
             List<TaskModel> tasks=state.tasksNotArchive;
             return ListView.separated(

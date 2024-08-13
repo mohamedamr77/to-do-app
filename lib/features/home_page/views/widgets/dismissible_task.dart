@@ -30,19 +30,13 @@ class _DismissibleTaskState extends State<DismissibleTask> {
   @override
   Widget build(BuildContext context) {
 
-
     return Dismissible(
       key: UniqueKey(),
       confirmDismiss: (direction) => _confirmDismissTask(direction, context),
       background: _buildDismissBackground(),
       child: TaskCard(
         onTap: () {
-          setState(() {
-                 tasksList[widget.index].doneTask = !tasksList[widget.index].doneTask;
-                 if (kDebugMode) {
-                   print(tasksList[widget.index].doneTask);
-                 }
-          });
+          BlocProvider.of<HomePageCubit>(context).updateDone(widget.index, widget.taskModel);
         },
         taskModel: widget.taskModel,
       ),
