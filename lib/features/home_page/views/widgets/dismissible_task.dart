@@ -93,8 +93,9 @@ class _DismissibleTaskState extends State<DismissibleTask> {
                   text: TextApp.deleteText,
                   result: true,
                   color: ColorApp.redColor, onTap: () {
-                widget.taskModel.delete();
+                 widget.taskModel.delete();
                 Navigator.of(context).pop(true);
+                BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
 
               },),
             ],
