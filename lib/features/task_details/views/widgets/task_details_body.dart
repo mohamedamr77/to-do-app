@@ -97,7 +97,6 @@ class TaskDetailsBody extends StatelessWidget {
                   title: Text(TextApp.addTimeText,
                       style: Theme.of(context).textTheme.bodySmall),
                   subtitle: Text(
-                    // _formatTaskTime(widget.task.timeOfTask),
                     task.timeOfTask!,
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
@@ -118,7 +117,7 @@ class TaskDetailsBody extends StatelessWidget {
                 nameButton:
                     task.archivedTask == true ? "Unarchive" : "Archive",
                 onTap: () {
-                  // widget.task.archivedTask = !widget.task.archivedTask;
+
                   BlocProvider.of<TaskDetailsCubit>(context).updateArchive(index,task );
                   Navigator.pop(context);
                   BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
@@ -155,3 +154,9 @@ class TaskDetailsBody extends StatelessWidget {
 
 }
 
+// String _formatTaskTime(TimeOfDay time) {
+//   final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
+//   final minute = time.minute.toString().padLeft(2, '0');
+//   final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
+//   return '$hour:$minute $period';
+// }
