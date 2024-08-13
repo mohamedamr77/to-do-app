@@ -110,7 +110,7 @@ class AddTaskForm extends StatelessWidget {
 onTapButton (BuildContext context) {
     BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate ??= DateTime.now().toString();
     BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate ??= DateTime.now().toString();
-    BlocProvider.of<AddTaskCubit>(context).selectedTime ??= TimeOfDay.now().toString();
+    BlocProvider.of<AddTaskCubit>(context).selectedTime ??= '${TimeOfDay.now().hour}:${TimeOfDay.now().minute} ${TimeOfDay.now().period.name.toUpperCase()}';
 
     if (BlocProvider.of<AddTaskCubit>(context).formKey.currentState!.validate()) {
       BlocProvider.of<AddTaskCubit>(context).formKey.currentState!.save();
