@@ -22,4 +22,10 @@ class ArchivedTaskCubit extends Cubit<ArchivedTaskState>{
     }
   }
 
+  void updateArchive(int index, TaskModel taskModel) {
+    var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
+    taskModel.archivedTask = !taskModel.archivedTask;  // Toggle the doneTask status
+    notesBox.putAt(index, taskModel);
+  }
+
 }

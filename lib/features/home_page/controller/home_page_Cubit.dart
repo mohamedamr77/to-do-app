@@ -35,6 +35,6 @@ class HomePageCubit extends Cubit<HomePageState> {
     List<TaskModel> tasksNotArchive = tasks.where((notArchiveTask) => notArchiveTask.doneTask == true).toList();
     print(tasksNotArchive.length);
     // Update the task in Hive
-     emit(HomeScreenNotes(tasksNotArchive: notesBox.values.toList()));  // Emit the updated list to refresh the UI
+    fetchAllTasks(); // Emit the updated list to refresh the UI
   }
 }

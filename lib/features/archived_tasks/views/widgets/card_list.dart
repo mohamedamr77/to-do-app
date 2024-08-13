@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
+import 'package:todo/features/archived_tasks/controller/archived_task_cubit.dart';
 import '../../../../core/colorCore.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../task_details_archieved/views/screen.dart';
@@ -10,11 +12,12 @@ import '../../../task_details_archieved/views/screen.dart';
 class CardList extends StatelessWidget {
   const CardList(
       {super.key,
-        required this.taskModel,
+        required this.taskModel, required this.index,
        });
 
 
   final TaskModel taskModel;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,11 @@ class CardList extends StatelessWidget {
             ),
           ),
           trailing: GestureDetector(
-            onTap: (){},
+            onTap: (){
+              BlocProvider.of<ArchivedTaskCubit>(context).updateArchive(index,taskModel);
+              BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
+
+            },
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
               decoration: BoxDecoration(

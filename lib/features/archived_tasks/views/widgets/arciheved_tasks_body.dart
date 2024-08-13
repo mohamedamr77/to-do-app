@@ -43,7 +43,7 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
                   Expanded(
                     child: ListView.separated(
                       itemBuilder: (context, index) => CardList(
-                        taskModel: tasks[index],
+                        taskModel: tasks[index], index: index,
                       ),
                       separatorBuilder: (context, index) => const SizedBox(
                         height: 10,
