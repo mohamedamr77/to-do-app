@@ -14,7 +14,6 @@ class HomePageCubit extends Cubit<HomePageState> {
       var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
       List<TaskModel> tasks = notesBox.values.toList();
       List<TaskModel> tasksNotArchive =tasks.where((notArchiveTask) => notArchiveTask.archivedTask == false).toList();
-
           if (tasksNotArchive.isNotEmpty) {
         emit(HomeScreenNotesIsFound( tasksNotArchive: tasksNotArchive)); // Pass the list of tasks to the state
       } else {
@@ -26,14 +25,6 @@ class HomePageCubit extends Cubit<HomePageState> {
     }
   }
 
-  void deleteTask(TaskModel task) async {
-    try {
-      var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
-      await notesBox.delete(task.key); // Delete the task using its key
-      fetchAllTasks(); // Fetch the updated task list
-    } catch (e) {
-      debugPrint('Error deleting task: $e');
-    }
-  }
+
 
 }
