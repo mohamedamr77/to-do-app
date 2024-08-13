@@ -10,6 +10,7 @@ import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import 'package:todo/features/task_details/views/controller/task_details_cubit.dart';
+import 'package:todo/features/task_details/views/widgets/show_deleteDialog.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 import '../../../home_page/controller/home_page_Cubit.dart';
@@ -54,7 +55,7 @@ class TaskDetailsBody extends StatelessWidget {
                   subtitle: Text(
                     // DateFormat('dd MMM, y')
                     //     .format(widget.task.startDateSelectedDate),
-                    "asdsfdas",
+                            task.startDateSelectedDate!,
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
@@ -76,7 +77,7 @@ class TaskDetailsBody extends StatelessWidget {
                   subtitle: Text(
                     // DateFormat('dd MMM, y')
                     //     .format(widget.task.endDateSelectedDate),
-                    "ads",
+                    task.endDateSelectedDate!,
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
@@ -100,7 +101,7 @@ class TaskDetailsBody extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodySmall),
                   subtitle: Text(
                     // _formatTaskTime(widget.task.timeOfTask),
-                    "asd",
+                    task.timeOfTask!,
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
@@ -134,7 +135,7 @@ class TaskDetailsBody extends StatelessWidget {
                 backGroundColor: const Color(0XFFBD5461),
                 nameButton: TextApp.deleteText,
                 onTap: () {
-                  _showDeleteDialog(context, task);
+                  showDeleteDialog(context, task);
                 },
                 image: ImageApp.deleteIcon,
               ),
@@ -145,88 +146,6 @@ class TaskDetailsBody extends StatelessWidget {
     );
   }
 
-  void _showDeleteDialog(BuildContext context, TaskModel task) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: Theme.of(context).canvasColor == Colors.white
-              ? const Color(0xff283F5A)
-              : Colors.white,
-          content: Text(
-            TextApp.areYouSureDeleteText,
-            style: TextStyle(
-                color: Theme.of(context).canvasColor == Colors.white
-                    ? const Color(0xffF0F0F0)
-                    : Colors.black,
-                fontWeight: FontWeight.w500,
-                fontFamily: FontFamilyApp.lexendDecaRegular,
-                fontSize: 16),
-          ),
-          actions: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    task.delete();
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),));
-                    BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 35, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: const Color(0xffBD5461),
-                    ),
-                    child: const Text(
-                      TextApp.yesText,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: "LexendDeca",
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 35, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: ColorApp.primaryColor,
-                    ),
-                    child: const Text(
-                      TextApp.noText,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: FontFamilyApp.lexendDecaSemiBold,
-                        color: ColorApp.whiteColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            )
-          ],
-        );
-      },
-    );
-  }
+
 }
 
-// String _formatTaskTime(TimeOfDay time) {
-//   final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
-//   final minute = time.minute.toString().padLeft(2, '0');
-//   final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
-//   return '$hour:$minute $period';
-// }
