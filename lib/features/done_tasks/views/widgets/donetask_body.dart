@@ -62,38 +62,3 @@ class _DoneTaskBodyState extends State<DoneTaskBody> {
     );
   }
 }
-
-
-
-
-
-/*
-SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-              child: Column(
-                children: [
-                  const CustomAppbar(title: TextApp.doneTasksText),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Expanded(
-                    child: ListView.separated(
-                      itemBuilder: (context, index) => CardDoneList(
-                        taskModel: doneTasksList[index],
-                        title: doneTasksList[index].taskName!,
-                        subtitle: doneTasksList[index].timeOfTask!,
-                        startDate: doneTasksList[index].startDateSelectedDate!,
-                        endDate: doneTasksList[index].endDateSelectedDate!,
-                      ),
-                      separatorBuilder: (context, index) => const SizedBox(
-                        height: 10,
-                      ),
-                      itemCount: doneTasksList.length,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          );
- */
