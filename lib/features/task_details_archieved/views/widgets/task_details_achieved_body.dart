@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
+import '../../../archived_tasks/controller/archived_task_cubit.dart';
+import '../../../archived_tasks/views/screen.dart';
 
 class TaskDetailsAchievedBody extends StatelessWidget {
   const TaskDetailsAchievedBody(
@@ -139,7 +142,11 @@ class TaskDetailsAchievedBody extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pop();
+                    task.delete();
+                    // Navigator.of(context).pop();
+                    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ArchivedTasksScreen() ,));
+                    Navigator.of(context)..pop()..pop();
+                    BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
                   },
                   child: Container(
                     padding: const EdgeInsets.symmetric(
