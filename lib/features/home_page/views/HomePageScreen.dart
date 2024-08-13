@@ -41,9 +41,7 @@ class HomePageScreen extends StatelessWidget {
               topRight: Radius.circular(60),
             ),
           ),
-          child: DrawerBody(
-              name: BlocProvider.of<GetUserCubit>(context).name,
-              pictureUser: BlocProvider.of<GetUserCubit>(context).image),
+          child: DrawerBody(),
         ),
       );
   }

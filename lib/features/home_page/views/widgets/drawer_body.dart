@@ -8,12 +8,13 @@ import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/cubit/theme/get_cubit.dart';
 import 'package:todo/features/done_tasks/views/screen.dart';
+import 'package:todo/features/regester/views/regester_screen.dart';
+import '../../../../cubit/Image_name/get_cubit.dart';
 import '../../../archived_tasks/views/screen.dart';
 
 class DrawerBody extends StatelessWidget {
-  const DrawerBody({super.key, required this.name, required this.pictureUser});
-  final String? name;
-  final File? pictureUser;
+  const DrawerBody({super.key,});
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,6 @@ class DrawerBody extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(30),
             width: double.infinity,
-            height: 160,
             color: Theme.of(context).indicatorColor,
             child: Align(
               alignment: Alignment.centerLeft,
@@ -41,7 +41,7 @@ class DrawerBody extends StatelessWidget {
                                     : Colors.white),
                         CircleAvatar(
                           radius: 26,
-                          backgroundImage: FileImage(File(pictureUser!.path)),
+                          backgroundImage: FileImage(File( BlocProvider.of<GetUserCubit>(context).image!.path)),
                         ),
                       ],
                     ),
@@ -49,7 +49,7 @@ class DrawerBody extends StatelessWidget {
                       width: 10,
                     ),
                     Text(
-                      name!,
+                        BlocProvider.of<GetUserCubit>(context).name!,
                       style: const TextStyle(
                           color: ColorApp.whiteColor,
                           fontFamily: FontFamilyApp.lexendDecaRegular,
