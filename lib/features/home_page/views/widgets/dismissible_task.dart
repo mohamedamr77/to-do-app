@@ -38,7 +38,7 @@ class _DismissibleTaskState extends State<DismissibleTask> {
         onTap: () {
           BlocProvider.of<HomePageCubit>(context).updateDone(widget.index, widget.taskModel);
         },
-        taskModel: widget.taskModel,
+        taskModel: widget.taskModel, index: widget.index,
       ),
     );
   }

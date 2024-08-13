@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:todo/core/colorCore.dart';
@@ -7,12 +8,14 @@ import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/core/textCore.dart';
+import 'package:todo/features/task_details/views/controller/task_details_cubit.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 
 class TaskDetailsBody extends StatefulWidget {
-  const TaskDetailsBody({super.key, required this.task});
+  const TaskDetailsBody({super.key, required this.task, required this.index});
   final TaskModel task;
+  final int index;
 
   @override
   State<TaskDetailsBody> createState() => _TaskDetailsBodyState();
@@ -107,7 +110,8 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                 nameButton:
                     widget.task.archivedTask == true ? "Unarchive" : "Archive",
                 onTap: () {
-                  widget.task.archivedTask = !widget.task.archivedTask;
+                  // widget.task.archivedTask = !widget.task.archivedTask;
+                  BlocProvider.of<TaskDetailsCubit>(context).updateArchive(widget.index,widget.task );
                   Navigator.pop(context);
                 },
                 image: ImageApp.archieveIcon,
