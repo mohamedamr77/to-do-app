@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:todo/core/shared_widget/show_deleteDialog.dart';
 import '../../../../core/data/model/task_model.dart';
+import '../../../../core/shared_function/convert_date.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
@@ -44,9 +45,7 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 subtitle: Text(
-                  // DateFormat('dd MMM, y')
-                  //     .format(taskAchieved.startDateSelectedDate),
-                  "ads",
+                  ConvertDate(date: taskAchieved.startDateSelectedDate!),
                   style: const TextStyle(
                     color: Color(0xffB6B4BD),
                     fontSize: 12,
@@ -66,9 +65,7 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 subtitle: Text(
-                  // DateFormat('dd MMM, y')
-                  //     .format(taskAchieved.endDateSelectedDate),
-                  ",as",
+                    ConvertDate(date: taskAchieved.endDateSelectedDate!),
                   style: const TextStyle(
                     color: Color(0xffB6B4BD),
                     fontSize: 12,

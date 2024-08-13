@@ -6,6 +6,7 @@ import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
 import '../../../../core/data/model/task_model.dart';
+import '../../../../core/shared_function/convert_date.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 
@@ -42,13 +43,10 @@ class TaskDoneDetailsBody extends StatelessWidget {
                   leading: SvgPicture.asset(ImageApp.calendarImage),
                   title: Text(
                     TextApp.startDateText,
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .bodySmall,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
-                    task.startDateSelectedDate!,
+                    ConvertDate(date: task.startDateSelectedDate!),
                     style: const TextStyle(
                       color:
                       ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
@@ -74,7 +72,7 @@ class TaskDoneDetailsBody extends StatelessWidget {
                         .bodySmall,
                   ),
                   subtitle: Text(
-                    task.endDateSelectedDate!,
+                    ConvertDate(date: task.endDateSelectedDate!),
                     style: const TextStyle(
                       color:
                       ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,

@@ -6,6 +6,7 @@ import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
+import 'package:todo/core/shared_function/convert_date.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/features/home_page/views/HomePageScreen.dart';
@@ -53,9 +54,7 @@ class TaskDetailsBody extends StatelessWidget {
                   title: Text(TextApp.startDateText,
                       style: Theme.of(context).textTheme.bodySmall),
                   subtitle: Text(
-                    // DateFormat('dd MMM, y')
-                    //     .format(widget.task.startDateSelectedDate),
-                            task.startDateSelectedDate!,
+                    ConvertDate(date: task.startDateSelectedDate!),
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
@@ -75,9 +74,7 @@ class TaskDetailsBody extends StatelessWidget {
                   title: Text(TextApp.endDateText,
                       style: Theme.of(context).textTheme.bodySmall),
                   subtitle: Text(
-                    // DateFormat('dd MMM, y')
-                    //     .format(widget.task.endDateSelectedDate),
-                    task.endDateSelectedDate!,
+                    ConvertDate(date: task.endDateSelectedDate!),
                     style: const TextStyle(
                       color: Color(0xffB6B4BD),
                       fontSize: 12,
