@@ -14,9 +14,13 @@ class TaskDetailsCubit extends Cubit<TaskDetailsState>{
     var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
     taskModel.archivedTask = !taskModel.archivedTask;  // Toggle the doneTask status
     notesBox.putAt(index, taskModel);
-    // List<TaskModel> tasks = notesBox.values.toList();
-    // List<TaskModel> tasksNotArchive = tasks.where((archivedTask) => archivedTask.archivedTask == true).toList();
-    // print(tasksNotArchive.length);
   }
 
 }
+
+
+/*
+   // List<TaskModel> tasks = notesBox.values.toList();
+    // List<TaskModel> tasksNotArchive = tasks.where((archivedTask) => archivedTask.archivedTask == true).toList();
+    // print(tasksNotArchive.length);
+ */

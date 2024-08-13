@@ -8,20 +8,17 @@ import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/core/textCore.dart';
+import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import 'package:todo/features/task_details/views/controller/task_details_cubit.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
+import '../../../home_page/controller/home_page_Cubit.dart';
 
-class TaskDetailsBody extends StatefulWidget {
+class TaskDetailsBody extends StatelessWidget {
   const TaskDetailsBody({super.key, required this.task, required this.index});
   final TaskModel task;
   final int index;
 
-  @override
-  State<TaskDetailsBody> createState() => _TaskDetailsBodyState();
-}
-
-class _TaskDetailsBodyState extends State<TaskDetailsBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -30,17 +27,24 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
           child: Column(
             children: [
+
               const CustomAppbar(title: TextApp.taskDetailsText),
+
               const SizedBox(height: 20),
+
               CustomContainerShowData(
                 title: TextApp.taskNameText,
-                detailsTitle: widget.task.taskName!,
+                detailsTitle: task.taskName!,
               ),
+
               const SizedBox(height: 16),
+
               CustomContainerShowData(
                   title: TextApp.descriptionText,
-                  detailsTitle: widget.task.taskDescriptionController!),
+                  detailsTitle: task.taskDescriptionController!),
+
               const SizedBox(height: 16),
+
               Card(
                 color: Theme.of(context).cardColor,
                 child: ListTile(
@@ -60,7 +64,9 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                   ),
                 ),
               ),
+
               const SizedBox(height: 8),
+
               Card(
                 color: Theme.of(context).cardColor,
                 child: ListTile(
@@ -80,7 +86,9 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                   ),
                 ),
               ),
+
               const SizedBox(height: 8),
+
               Card(
                 color: Theme.of(context).cardColor,
                 child: ListTile(
@@ -102,26 +110,31 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
                   ),
                 ),
               ),
+
               const SizedBox(height: 15),
+
               CustomButton(
                 backGroundColor: Theme.of(context).canvasColor == Colors.black
                     ? const Color(0xff90B6E2)
                     : const Color(0xff3F6188),
                 nameButton:
-                    widget.task.archivedTask == true ? "Unarchive" : "Archive",
+                    task.archivedTask == true ? "Unarchive" : "Archive",
                 onTap: () {
                   // widget.task.archivedTask = !widget.task.archivedTask;
-                  BlocProvider.of<TaskDetailsCubit>(context).updateArchive(widget.index,widget.task );
+                  BlocProvider.of<TaskDetailsCubit>(context).updateArchive(index,task );
                   Navigator.pop(context);
+                  BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
                 },
                 image: ImageApp.archieveIcon,
               ),
+
               const SizedBox(height: 8),
+
               CustomButton(
                 backGroundColor: const Color(0XFFBD5461),
                 nameButton: TextApp.deleteText,
                 onTap: () {
-                  _showDeleteDialog(context, widget.task);
+                  _showDeleteDialog(context, task);
                 },
                 image: ImageApp.deleteIcon,
               ),
@@ -156,7 +169,9 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pop();
+                    task.delete();
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),));
+                    BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
                   },
                   child: Container(
                     padding: const EdgeInsets.symmetric(
@@ -209,9 +224,9 @@ class _TaskDetailsBodyState extends State<TaskDetailsBody> {
   }
 }
 
-String _formatTaskTime(TimeOfDay time) {
-  final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
-  final minute = time.minute.toString().padLeft(2, '0');
-  final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
-  return '$hour:$minute $period';
-}
+// String _formatTaskTime(TimeOfDay time) {
+//   final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
+//   final minute = time.minute.toString().padLeft(2, '0');
+//   final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
+//   return '$hour:$minute $period';
+// }
