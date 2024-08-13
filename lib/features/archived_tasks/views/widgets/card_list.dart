@@ -10,34 +10,25 @@ import '../../../task_details_archieved/views/screen.dart';
 class CardList extends StatelessWidget {
   const CardList(
       {super.key,
-        required this.title,
-        required this.subtitle,
         required this.taskModel,
-        required this.onTap});
+       });
 
-  final String title;
-  final String subtitle;
+
   final TaskModel taskModel;
-  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>
-                  TaskDetailsAchievedScreen(taskModel: taskModel),
-            ));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TaskDetailsAchievedScreen(taskModel: taskModel),));
       },
       child: Card(
         color: Theme.of(context).cardColor,
         child: ListTile(
           leading: SvgPicture.asset(ImageApp.bagIcon),
-          title: Text(title, style: Theme.of(context).textTheme.titleMedium),
+          title: Text(taskModel.taskName!, style: Theme.of(context).textTheme.titleMedium),
           subtitle: Text(
-            subtitle,
+            taskModel.timeOfTask!,
             style: const TextStyle(
               color: ColorApp.primaryColor,
               fontWeight: FontWeight.w400,
@@ -46,7 +37,7 @@ class CardList extends StatelessWidget {
             ),
           ),
           trailing: GestureDetector(
-            onTap: onTap,
+            onTap: (){},
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
               decoration: BoxDecoration(
