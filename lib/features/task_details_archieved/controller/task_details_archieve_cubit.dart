@@ -5,8 +5,8 @@ import 'package:todo/features/task_details_archieved/controller/task_detials_arc
 import '../../../core/box.dart';
 import '../../../core/data/model/task_model.dart';
 
-class TaskDetailsCubit extends Cubit<TaskDetailsArchieveState>{
-  TaskDetailsCubit() : super(TaskDetailsArchieveInitialState());
+class TaskDetailsArchieveCubit extends Cubit<TaskDetailsArchieveState>{
+  TaskDetailsArchieveCubit() : super(TaskDetailsArchieveInitialState());
 
   // Update doneTask status
   void updateArchive(int index, TaskModel taskModel) {

@@ -8,12 +8,14 @@ import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 import '../../../archived_tasks/controller/archived_task_cubit.dart';
 import '../../../archived_tasks/views/screen.dart';
+import '../../controller/task_details_archieve_cubit.dart';
 
 class TaskDetailsAchievedBody extends StatelessWidget {
   const TaskDetailsAchievedBody(
-      {super.key, required this.taskAchieved, required this.onTap});
+      {super.key, required this.taskAchieved, required this.index});
   final TaskModel taskAchieved;
-  final void Function()? onTap;
+  final int index;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -105,7 +107,11 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   ? const Color(0xff90B6E2)
                   : const Color(0xff3F6188),
               nameButton: 'Unarchive',
-              onTap: onTap,
+              onTap: (){
+                BlocProvider.of<TaskDetailsArchieveCubit>(context).updateArchive(index, taskAchieved);
+                 Navigator.pop(context);
+                 BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
+              },
               image: "assets/images/svg/archievetaskIcon.svg",
             ),
             const SizedBox(height: 8),

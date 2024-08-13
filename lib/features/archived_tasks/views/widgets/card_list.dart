@@ -23,7 +23,7 @@ class CardList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => TaskDetailsAchievedScreen(taskModel: taskModel),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TaskDetailsAchievedScreen(taskModel: taskModel, index: index,),));
       },
       child: Card(
         color: Theme.of(context).cardColor,
