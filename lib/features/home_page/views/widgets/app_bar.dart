@@ -6,7 +6,7 @@ import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 import '../../../../core/textCore.dart';
-import '../../../../cubit/Image_name/get_cubit.dart';
+import '../../../regester/controller/get_cubit.dart';
 import 'profile_picture.dart';
 
 class AppBarSection extends StatelessWidget {

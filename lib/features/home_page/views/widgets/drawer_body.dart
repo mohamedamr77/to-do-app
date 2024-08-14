@@ -9,7 +9,7 @@ import 'package:todo/core/textCore.dart';
 import 'package:todo/cubit/theme/get_cubit.dart';
 import 'package:todo/features/done_tasks/views/screen.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
-import '../../../../cubit/Image_name/get_cubit.dart';
+import '../../../regester/controller/get_cubit.dart';
 import '../../../archived_tasks/views/screen.dart';
 
 class DrawerBody extends StatelessWidget {

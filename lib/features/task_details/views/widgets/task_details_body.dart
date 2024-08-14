@@ -153,10 +153,3 @@ class TaskDetailsBody extends StatelessWidget {
 
 
 }
-
-// String _formatTaskTime(TimeOfDay time) {
-//   final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
-//   final minute = time.minute.toString().padLeft(2, '0');
-//   final period = time.hour < 12 ? TextApp.amText : TextApp.pmText;
-//   return '$hour:$minute $period';
-// }

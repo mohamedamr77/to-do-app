@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/textCore.dart';
-import 'package:todo/cubit/Image_name/get_cubit.dart';
+import 'package:todo/features/regester/controller/get_cubit.dart';
 import 'package:todo/features/home_page/views/HomePageScreen.dart';
 import 'package:todo/features/regester/views/widgets/enter_name.dart';
 import '../../../core/imageCore.dart';
