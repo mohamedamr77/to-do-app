@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,12 +13,13 @@ import '../../../task_details_archieved/views/screen.dart';
 class CardList extends StatelessWidget {
   const CardList(
       {super.key,
-        required this.taskModel, required this.index,
+        required this.taskModel, required this.index,required this.onTap,
        });
 
 
   final TaskModel taskModel;
   final int index;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +42,7 @@ class CardList extends StatelessWidget {
             ),
           ),
           trailing: GestureDetector(
-            onTap: (){
-              BlocProvider.of<ArchivedTaskCubit>(context).updateArchive(index,taskModel);
-              BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
-
-            },
+            onTap: onTap,
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
               decoration: BoxDecoration(

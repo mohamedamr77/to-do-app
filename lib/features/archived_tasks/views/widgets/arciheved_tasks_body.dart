@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
@@ -17,6 +18,9 @@ class ArcihevedTasksBody extends StatefulWidget {
   State<ArcihevedTasksBody> createState() => _ArcihevedTasksBodyState();
 }
 class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
+
+  final GlobalKey<AnimatedListState>  key=GlobalKey();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -40,17 +44,24 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
                   const SizedBox(
                     height: 50,
                   ),
+
+
                   Expanded(
-                    child: ListView.separated(
-                      itemBuilder: (context, index) => CardList(
-                        taskModel: tasks[index], index: index,
-                      ),
-                      separatorBuilder: (context, index) => const SizedBox(
-                        height: 10,
-                      ),
-                      itemCount: tasks.length,
-                    ),
+                    child: AnimatedList(
+                      key: key,
+                      initialItemCount: tasks.length,
+                      itemBuilder: (context, index, animation) {
+                      return  SizeTransition(
+                        sizeFactor: animation,
+                        child: CardList(
+                          taskModel: tasks[index], index: index, onTap: (){
+                          deleteItem(taskModel: tasks[index], index: index);
+                        },
+                        ),
+                      );
+                    },)
                   )
+
                 ],
               ),
             ),
@@ -60,6 +71,44 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
         }
       },
     );
+
+  }
+
+  void deleteItem ({required  TaskModel taskModel , required int index}){
+
+    BlocProvider.of<ArchivedTaskCubit>(context).updateArchive(index,taskModel);
+    BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
+
+    key.currentState!.removeItem(index, (context, animation) {
+      return SlideTransition(
+      position: animation.drive(Tween<Offset>(
+        begin: const Offset(1.0, 0.0),
+        end: const Offset(0.5, 1.0),
+      )),
+      child: CardList(taskModel: taskModel, index: index, onTap: (){}));
+    },
+    );
+
   }
 }
 
+
+
+/*
+  void deleteItem ({required  TaskModel taskModel , required int index}){
+
+    BlocProvider.of<ArchivedTaskCubit>(context).updateArchive(index,taskModel);
+    BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
+
+    key.currentState!.removeItem(index, (context, animation) {
+      return SlideTransition(
+      position: animation.drive(Tween<Offset>(
+        begin: const Offset(1.0, 0.0),
+        end: const Offset(0.5, 1.0),
+      )),
+      child: CardList(taskModel: taskModel, index: index, onTap: (){}));
+    },
+    );
+
+  }
+ */
