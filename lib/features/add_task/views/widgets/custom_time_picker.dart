@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:todo/core/imageCore.dart';
 import '../../../../core/textCore.dart';
 
+// ignore: must_be_immutable
 class CustomTimePicker extends StatefulWidget {
   CustomTimePicker({
     super.key,

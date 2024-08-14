@@ -19,7 +19,7 @@ class HomePageScreen extends StatelessWidget {
           ),
           onPressed: () async {
             // Navigate to AddTaskScreen and wait for result
-            final result = await Navigator.push(
+             await Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const AddTaskScreen()),
             );
