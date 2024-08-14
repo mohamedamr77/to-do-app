@@ -10,16 +10,17 @@ class GetUserCubit extends Cubit<GetUserState> {
   File? image;
 
   setName({required String name}) async{
-     var  box=Hive.box(BoxApp.kTaskBox);
+     var  box=Hive.box(BoxApp.kUserBox);
      await box.put("name", name);
 
      this.name = name;
      emit(NameState());
   }
 
-  setPhoto(File photo) async{
-    var  box=Hive.box(BoxApp.kTaskBox);
-    await box.put("image", photo);
+  setPhoto(File photo) async {
+    var box = Hive.box(BoxApp.kUserBox);
+    // Store the path as a String instead of the File itself
+    await box.put("image", photo.path);
     image = photo;
     emit(ImageState());
   }
@@ -29,9 +30,13 @@ class GetUserCubit extends Cubit<GetUserState> {
    name= box.get("name");
   }
 
-  setPhotoFromCubit(){
-    var box= Hive.box(BoxApp.kUserBox);
-    image= box.get("image");
+  setPhotoFromCubit() {
+    var box = Hive.box(BoxApp.kUserBox);
+    // Retrieve the path and convert it back to a File
+    String? imagePath = box.get("image");
+    if (imagePath != null) {
+      image = File(imagePath);
+    }
   }
 
 }

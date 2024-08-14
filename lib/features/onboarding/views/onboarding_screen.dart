@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
+import 'package:todo/features/home_page/views/HomePageScreen.dart';
+import 'package:todo/features/regester/controller/get_cubit.dart';
 import '../../regester/views/regester_screen.dart';
 import 'widgets/baner.dart';
 import 'widgets/button_Started.dart';
@@ -12,6 +15,8 @@ class CustomOnboarding extends StatelessWidget {
   static String id = "OnBoarding Screen";
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<GetUserCubit>(context).setNameFromCubit();
+    BlocProvider.of<GetUserCubit>(context).setPhotoFromCubit();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -33,7 +38,11 @@ class CustomOnboarding extends StatelessWidget {
               text: TextApp.startText,
               trailing: Image.asset(ImageApp.arrowStartImage),
               onTap: () {
-                Navigator.pushNamed(context, CustomRegesterScreen.id);
+                BlocProvider.of<GetUserCubit>(context).image==null &&
+                    BlocProvider.of<GetUserCubit>(context).name==null ?
+                Navigator.pushNamed(context, CustomRegesterScreen.id):
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePageScreen(),));
+
               },
             ),
           ],

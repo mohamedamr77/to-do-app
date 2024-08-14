@@ -16,6 +16,8 @@ class AppBarSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<GetUserCubit>(context).setNameFromCubit();
+    BlocProvider.of<GetUserCubit>(context).setPhotoFromCubit();
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 23, horizontal: 12),
@@ -36,7 +38,7 @@ class AppBarSection extends StatelessWidget {
               children: [
                 Text(TextApp.helloText,
                     style: Theme.of(context).textTheme.labelMedium),
-                Text(BlocProvider.of<GetUserCubit>(context).name!, style: Theme.of(context).textTheme.displayMedium),
+                Text(BlocProvider.of<GetUserCubit>(context).name??"", style: Theme.of(context).textTheme.displayMedium),
                 const SizedBox(height: 12),
                 const Text(
                   "Saturday, May 25th",
@@ -51,7 +53,7 @@ class AppBarSection extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          ProfilePicture(pictureUser: BlocProvider.of<GetUserCubit>(context).image!),
+          ProfilePicture(pictureUser: BlocProvider.of<GetUserCubit>(context).image??File("")),
           const SizedBox(width: 10),
         ],
       ),
