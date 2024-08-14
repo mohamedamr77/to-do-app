@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
@@ -121,6 +122,23 @@ class TaskDetailsBody extends StatelessWidget {
                   BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
                 },
                 image: ImageApp.archieveIcon,
+              ),
+
+              const SizedBox(height: 8),
+
+              CustomButton(
+                backGroundColor: Theme.of(context).canvasColor == Colors.black
+                    ? const Color(0xff90B6E2)
+                    : const Color(0xff3F6188),
+                nameButton:
+                "Edit ",
+                onTap: () {
+
+                },
+               widget: Padding(
+                 padding: const EdgeInsets.only(left: 20),
+                 child: FaIcon(FontAwesomeIcons.edit,color: Colors.white,),
+               ),
               ),
 
               const SizedBox(height: 8),

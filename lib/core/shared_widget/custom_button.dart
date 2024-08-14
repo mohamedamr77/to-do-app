@@ -9,6 +9,7 @@ class CustomButton extends StatelessWidget {
     required this.onTap,
     this.image,
     this.isLoading = false,
+    this.widget,
   });
 
   final void Function()? onTap;
@@ -16,6 +17,7 @@ class CustomButton extends StatelessWidget {
   final String nameButton;
   final String? image;
   final bool isLoading;
+  final Widget? widget;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +48,10 @@ class CustomButton extends StatelessWidget {
                 image!,
                 color: Colors.white,
               ),
+            ],
+            if (widget != null) ...[
+              const SizedBox(width: 10),
+              widget!,
             ],
           ],
         ),
