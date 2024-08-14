@@ -73,23 +73,28 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
     );
 
   }
-
-  void deleteItem ({required  TaskModel taskModel , required int index}){
-
-    BlocProvider.of<ArchivedTaskCubit>(context).updateArchive(index,taskModel);
-    BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
-
+  void deleteItem({required TaskModel taskModel, required int index}) {
+    // Animate the removal of the item
     key.currentState!.removeItem(index, (context, animation) {
-      return SlideTransition(
-      position: animation.drive(Tween<Offset>(
-        begin: const Offset(1.0, 0.0),
-        end: const Offset(0.5, 1.0),
-      )),
-      child: CardList(taskModel: taskModel, index: index, onTap: (){}));
-    },
+      return  SlideTransition(
+          position: animation.drive(Tween<Offset>(
+            begin: const Offset(1.0, 0.0),
+            end: const Offset(0.0, 1.0),
+          )),
+          child: CardList(taskModel: taskModel, index: index, onTap: () {}),
+        );
+      },
+      duration: const Duration(milliseconds: 300),
     );
 
+    // Delay updating the list to ensure the animation completes
+    Future.delayed(const Duration(milliseconds: 300), () {
+      BlocProvider.of<ArchivedTaskCubit>(context).updateArchive(index, taskModel);
+      // After updating, refresh the tasks
+      BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
+    });
   }
+
 }
 
 
