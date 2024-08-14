@@ -7,8 +7,9 @@ class CustomField extends StatelessWidget {
     required this.hintText,
     required this.minLine,
     required this.maxLine,
-
-    required this.validator,
+    this.onChanged,
+    this.validator,
+    this.initialValue,
     @required this.onSaved,
   });
 
@@ -16,10 +17,10 @@ class CustomField extends StatelessWidget {
   final String hintText;
   final int minLine;
   final int maxLine;
-
-  final String? Function(String?) validator;
+  final void Function(String)? onChanged;
+  final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
-
+  final String? initialValue;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,6 +34,8 @@ class CustomField extends StatelessWidget {
         children: [
           Text(title, style: Theme.of(context).textTheme.bodySmall),
           TextFormField(
+            initialValue: initialValue ,
+            onChanged: onChanged,
             onSaved: onSaved,
             style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
             maxLines: maxLine,

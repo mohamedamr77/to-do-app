@@ -120,6 +120,7 @@ onTapButton (BuildContext context) {
         startDateSelectedDate: BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate,
         endDateSelectedDate: BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate,
         timeOfTask: BlocProvider.of<AddTaskCubit>(context).selectedTime,
+        id: DateTime.now().millisecondsSinceEpoch,
       );
       BlocProvider.of<AddTaskCubit>(context).addTask(task);
     }

@@ -13,6 +13,7 @@ import 'package:todo/features/task_details/views/controller/task_details_cubit.d
 import 'package:todo/core/shared_widget/show_deleteDialog.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
+import '../../../edit_task/views/edit_task_view.dart';
 import '../../../home_page/controller/home_page_Cubit.dart';
 
 class TaskDetailsBody extends StatelessWidget {
@@ -133,7 +134,7 @@ class TaskDetailsBody extends StatelessWidget {
                 nameButton:
                 "Edit ",
                 onTap: () {
-
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => EditTaskScreen(taskModel: task,),));
                 },
                widget: Padding(
                  padding: const EdgeInsets.only(left: 20),

@@ -25,6 +25,8 @@ class HomePageCubit extends Cubit<HomePageState> {
     }
   }
 
+
+
   // Update doneTask status
   void updateDone(int index, TaskModel taskModel) {
     var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
