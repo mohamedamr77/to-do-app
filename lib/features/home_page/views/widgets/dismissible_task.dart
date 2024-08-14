@@ -1,14 +1,11 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo/core/colorCore.dart';
-import 'package:todo/core/data/model/task_list.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
 import '../../../../core/data/model/task_model.dart';
-import '../../controller/home_page_state.dart';
 import 'dialog_buttons.dart';
 import 'task_card.dart';
 

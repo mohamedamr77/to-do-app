@@ -1,11 +1,8 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
-import 'package:todo/features/archived_tasks/controller/archived_task_cubit.dart';
 import '../../../../core/colorCore.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../task_details_archieved/views/screen.dart';

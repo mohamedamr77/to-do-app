@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/features/done_tasks/views/controller/done_task_cubit.dart';
 import 'package:todo/features/done_tasks/views/controller/done_task_state.dart';
-import '../../../../core/data/model/task_list.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import 'body_not_found_done_tasks.dart';

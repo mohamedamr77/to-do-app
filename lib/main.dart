@@ -29,7 +29,7 @@ void main() async {
       builder: (context) =>
           BlocProvider(
             create: (context) => GetThemeCubit(),
-            child: MyApp(),
+            child: const MyApp(),
           ), // Wrap your app
     ),
   );

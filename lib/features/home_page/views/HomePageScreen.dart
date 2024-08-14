@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/features/regester/controller/get_cubit.dart';
-import 'package:todo/features/regester/controller/get_state.dart';
-import 'package:todo/cubit/tasks/tasks_cubit.dart';
 import 'package:todo/features/home_page/views/widgets/drawer_body.dart';
 import 'package:todo/features/home_page/views/widgets/homepage_body.dart';
 import '../../add_task/views/screen.dart';
-import '../controller/home_page_Cubit.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key});
@@ -35,8 +30,8 @@ class HomePageScreen extends StatelessWidget {
           ),
         ),
         body:  const HomePageBody(),
-        drawer: Drawer(
-          shape: const RoundedRectangleBorder(
+        drawer: const Drawer(
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(60),
             ),

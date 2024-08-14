@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
-import 'package:todo/core/data/model/task_list.dart';
-import 'package:todo/cubit/tasks/tasks_cubit.dart';
-import 'package:todo/cubit/tasks/tasks_state.dart';
 import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
 import 'package:todo/features/home_page/controller/home_page_state.dart';
 import '../../../../core/data/model/task_model.dart';

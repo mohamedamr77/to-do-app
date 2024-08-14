@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/features/archived_tasks/views/widgets/arciheved_tasks_body.dart';
 import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
-import '../controller/archived_task_cubit.dart';
 
 class ArchivedTasksScreen extends StatelessWidget {
   const ArchivedTasksScreen({super.key});
@@ -14,7 +13,7 @@ class ArchivedTasksScreen extends StatelessWidget {
          BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
         return true;
       },
-      child: Scaffold(
+      child: const Scaffold(
         body: ArcihevedTasksBody(),
       ),
     );

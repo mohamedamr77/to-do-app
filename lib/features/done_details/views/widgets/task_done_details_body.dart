@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
@@ -102,10 +101,10 @@ class TaskDoneDetailsBody extends StatelessWidget {
                         .textTheme
                         .bodySmall,
                   ),
-                  subtitle: Text(
+                  subtitle: const Text(
                     // task.startTimeSelectedTime!,
                     "Solve error ",
-                    style: const TextStyle(
+                    style: TextStyle(
                       color:
                       ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,
                       fontSize: 12,

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
-import 'package:todo/core/textCore.dart';
 
 import '../../../../core/data/model/task_model.dart';
 import '../../../done_details/views/screen.dart';
@@ -43,23 +41,23 @@ class CardDoneList extends StatelessWidget {
               fontFamily: FontFamilyApp.lexendDecaRegular,
             ),
           ),
-          trailing: Column(
+          trailing: const Column(
             children: [
               Text(
                 "fdsa",
-                style: const TextStyle(
+                style: TextStyle(
                   color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
                   fontFamily: FontFamilyApp.lexendDecaRegular,
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 10,
               ),
               Text(
                 "fsdafasd",
-                style: const TextStyle(
+                style: TextStyle(
                   color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 12,

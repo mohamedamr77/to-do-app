@@ -4,7 +4,6 @@ import 'package:todo/features/task_details/views/controller/task_details_state.d
 
 import '../../../../core/box.dart';
 import '../../../../core/data/model/task_model.dart';
-import '../../../home_page/controller/home_page_state.dart';
 
 class TaskDetailsCubit extends Cubit<TaskDetailsState>{
   TaskDetailsCubit() : super(TaskDetailsInitalState());

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
-import 'package:todo/features/home_page/controller/home_page_state.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({super.key, required this.title});

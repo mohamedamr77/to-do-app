@@ -41,7 +41,7 @@ class CustomOnboarding extends StatelessWidget {
                 BlocProvider.of<GetUserCubit>(context).image==null &&
                     BlocProvider.of<GetUserCubit>(context).name==null ?
                 Navigator.pushNamed(context, CustomRegesterScreen.id):
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePageScreen(),));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),));
 
               },
             ),

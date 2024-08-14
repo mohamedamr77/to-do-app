@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
 import 'package:todo/core/shared_widget/show_deleteDialog.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_function/convert_date.dart';
@@ -9,7 +8,6 @@ import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 import '../../../archived_tasks/controller/archived_task_cubit.dart';
-import '../../../archived_tasks/views/screen.dart';
 import '../../controller/task_details_archieve_cubit.dart';
 
 class TaskDetailsAchievedBody extends StatelessWidget {
@@ -87,10 +85,10 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   "Add Time",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                   // _formatTaskTime(taskAchieved.timeOfTask),
                   "das",
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Color(0xffB6B4BD),
                     fontSize: 12,
                     fontWeight: FontWeight.w400,

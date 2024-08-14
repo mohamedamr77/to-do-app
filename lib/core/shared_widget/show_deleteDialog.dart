@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../colorCore.dart';
 import '../data/model/task_model.dart';
 import '../fontfamily.dart';
 import '../textCore.dart';
-import '../../features/home_page/controller/home_page_Cubit.dart';
-import '../../features/home_page/views/HomePageScreen.dart';
 
 class DeleteDialog extends StatelessWidget {
   final TaskModel task;

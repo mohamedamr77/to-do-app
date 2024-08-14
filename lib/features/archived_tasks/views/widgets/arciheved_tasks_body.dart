@@ -1,14 +1,11 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
 import 'package:todo/core/shared_widget/custom_appbar.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/features/archived_tasks/controller/archived_task_cubit.dart';
 import 'package:todo/features/archived_tasks/controller/archived_task_state.dart';
 import 'package:todo/features/archived_tasks/views/widgets/body_not_found_archived_tasks.dart';
 import 'package:todo/features/archived_tasks/views/widgets/card_list.dart';
-import '../../../../core/data/model/task_list.dart';
 import '../../../../core/data/model/task_model.dart';
 
 class ArcihevedTasksBody extends StatefulWidget {
@@ -79,7 +76,7 @@ class _ArcihevedTasksBodyState extends State<ArcihevedTasksBody> {
       return  SlideTransition(
           position: animation.drive(Tween<Offset>(
             begin: const Offset(1.0, 0.0),
-            end: const Offset(0.0, 1.0),
+            end:  Offset.zero,
           )),
           child: CardList(taskModel: taskModel, index: index, onTap: () {}),
         );
