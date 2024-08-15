@@ -12,7 +12,6 @@ class CustomField extends StatelessWidget {
     this.initialValue,
     @required this.onSaved,
   });
-
   final String title;
   final String hintText;
   final int minLine;
