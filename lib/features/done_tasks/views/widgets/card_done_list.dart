@@ -8,30 +8,26 @@ import '../../../../core/data/model/task_model.dart';
 import '../../../done_details/views/screen.dart';
 
 class CardDoneList extends StatelessWidget {
-  const CardDoneList({super.key,
-
-    required this.taskModel});
-
+  const CardDoneList({super.key, required this.taskModel});
 
   final TaskModel taskModel;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () =>
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    DoneDetailsScreen(
-                      task: taskModel,
-                    ),
-              )),
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DoneDetailsScreen(
+              task: taskModel,
+            ),
+          )),
       child: Card(
         color: Theme.of(context).cardColor,
         child: ListTile(
           leading: SvgPicture.asset(ImageApp.bagIcon),
-          title: Text(taskModel.taskName!, style: Theme.of(context).textTheme.headlineLarge),
+          title: Text(taskModel.taskName!,
+              style: Theme.of(context).textTheme.headlineLarge),
           subtitle: Text(
             taskModel.timeOfTask!,
             style: const TextStyle(

@@ -33,7 +33,7 @@ class CustomField extends StatelessWidget {
         children: [
           Text(title, style: Theme.of(context).textTheme.bodySmall),
           TextFormField(
-            initialValue: initialValue ,
+            initialValue: initialValue,
             onChanged: onChanged,
             onSaved: onSaved,
             style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),

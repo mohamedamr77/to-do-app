@@ -1,2 +1,3 @@
-class EditTaskState{}
+class EditTaskState {}
+
 class EditTaskInitialState extends EditTaskState {}

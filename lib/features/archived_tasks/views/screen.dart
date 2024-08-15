@@ -9,8 +9,8 @@ class ArchivedTasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async{
-         BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
+      onWillPop: () async {
+        BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
         return true;
       },
       child: const Scaffold(

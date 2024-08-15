@@ -63,7 +63,7 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 subtitle: Text(
-                    ConvertDate(date: taskAchieved.endDateSelectedDate!),
+                  ConvertDate(date: taskAchieved.endDateSelectedDate!),
                   style: const TextStyle(
                     color: Color(0xffB6B4BD),
                     fontSize: 12,
@@ -103,10 +103,11 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   ? const Color(0xff90B6E2)
                   : const Color(0xff3F6188),
               nameButton: 'Unarchive',
-              onTap: (){
-                BlocProvider.of<TaskDetailsArchieveCubit>(context).updateArchive(index, taskAchieved);
-                 Navigator.pop(context);
-                 BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
+              onTap: () {
+                BlocProvider.of<TaskDetailsArchieveCubit>(context)
+                    .updateArchive(index, taskAchieved);
+                Navigator.pop(context);
+                BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
               },
               image: "assets/images/svg/archievetaskIcon.svg",
             ),
@@ -119,7 +120,9 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   task: taskAchieved,
                   onTap: () {
                     taskAchieved.delete();
-                    Navigator.of(context)..pop()..pop();
+                    Navigator.of(context)
+                      ..pop()
+                      ..pop();
                     BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
                   },
                   context: context,
@@ -132,7 +135,4 @@ class TaskDetailsAchievedBody extends StatelessWidget {
       ),
     );
   }
-
-
 }
-

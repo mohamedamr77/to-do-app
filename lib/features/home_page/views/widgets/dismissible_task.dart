@@ -11,10 +11,7 @@ import 'task_card.dart';
 
 class DismissibleTask extends StatefulWidget {
   const DismissibleTask(
-      {super.key,
-      required this.index,
-
-      required this.taskModel});
+      {super.key, required this.index, required this.taskModel});
   final int index;
 
   final TaskModel taskModel;
@@ -26,16 +23,17 @@ class DismissibleTask extends StatefulWidget {
 class _DismissibleTaskState extends State<DismissibleTask> {
   @override
   Widget build(BuildContext context) {
-
     return Dismissible(
       key: UniqueKey(),
       confirmDismiss: (direction) => _confirmDismissTask(direction, context),
       background: _buildDismissBackground(),
       child: TaskCard(
         onTap: () {
-          BlocProvider.of<HomePageCubit>(context).updateDone(widget.index, widget.taskModel);
+          BlocProvider.of<HomePageCubit>(context)
+              .updateDone(widget.index, widget.taskModel);
         },
-        taskModel: widget.taskModel, index: widget.index,
+        taskModel: widget.taskModel,
+        index: widget.index,
       ),
     );
   }
@@ -78,23 +76,25 @@ class _DismissibleTaskState extends State<DismissibleTask> {
                     : Colors.black,
               ),
             ),
-            actions:  [
+            actions: [
               DialogButton(
-                  text: TextApp.cancelText,
-                  result: false,
-                  color: ColorApp.primaryColor, onTap: () {
-                    Navigator.of(context).pop(false);
-              },
+                text: TextApp.cancelText,
+                result: false,
+                color: ColorApp.primaryColor,
+                onTap: () {
+                  Navigator.of(context).pop(false);
+                },
               ),
               DialogButton(
-                  text: TextApp.deleteText,
-                  result: true,
-                  color: ColorApp.redColor, onTap: () {
-                 widget.taskModel.delete();
-                Navigator.of(context).pop(true);
-                BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
-
-              },),
+                text: TextApp.deleteText,
+                result: true,
+                color: ColorApp.redColor,
+                onTap: () {
+                  widget.taskModel.delete();
+                  Navigator.of(context).pop(true);
+                  BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
+                },
+              ),
             ],
           );
         },

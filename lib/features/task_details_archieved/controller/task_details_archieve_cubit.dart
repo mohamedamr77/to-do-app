@@ -5,14 +5,14 @@ import 'package:todo/features/task_details_archieved/controller/task_detials_arc
 import '../../../core/box.dart';
 import '../../../core/data/model/task_model.dart';
 
-class TaskDetailsArchieveCubit extends Cubit<TaskDetailsArchieveState>{
+class TaskDetailsArchieveCubit extends Cubit<TaskDetailsArchieveState> {
   TaskDetailsArchieveCubit() : super(TaskDetailsArchieveInitialState());
 
   // Update doneTask status
   void updateArchive(int index, TaskModel taskModel) {
     var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
-    taskModel.archivedTask = !taskModel.archivedTask;  // Toggle the doneTask status
+    taskModel.archivedTask =
+        !taskModel.archivedTask; // Toggle the doneTask status
     notesBox.putAt(index, taskModel);
   }
-
 }

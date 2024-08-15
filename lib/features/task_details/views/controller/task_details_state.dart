@@ -1,2 +1,3 @@
-class TaskDetailsState{}
-class TaskDetailsInitalState extends TaskDetailsState{}
+class TaskDetailsState {}
+
+class TaskDetailsInitalState extends TaskDetailsState {}

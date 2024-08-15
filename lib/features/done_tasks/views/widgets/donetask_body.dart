@@ -22,13 +22,13 @@ class _DoneTaskBodyState extends State<DoneTaskBody> {
     BlocProvider.of<DoneTaskCubit>(context).fetchAllTasks();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-
     return BlocBuilder<DoneTaskCubit, DoneTaskState>(
       builder: (context, state) {
-        if(state is DoneTaskNotesFoundState) {
-          List<TaskModel> tasks=state.tasksDone;
+        if (state is DoneTaskNotesFoundState) {
+          List<TaskModel> tasks = state.tasksDone;
           return SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
@@ -53,7 +53,7 @@ class _DoneTaskBodyState extends State<DoneTaskBody> {
               ),
             ),
           );
-        } else{
+        } else {
           return const BodyNotFoundDoneTasks();
         }
       },

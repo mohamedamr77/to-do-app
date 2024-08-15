@@ -14,23 +14,22 @@ class TaskList extends StatelessWidget {
     // List<TaskModel> notArchiveList = tasksList.where((notArchiveTask) => notArchiveTask.archivedTask == false).toList();
     return BlocBuilder<HomePageCubit, HomePageState>(
       builder: (context, state) {
-          if(state is HomeScreenNotes)
-           {
-            List<TaskModel> tasks=state.tasksNotArchive;
-            return ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              itemBuilder: (context, index) {
-                return DismissibleTask(
-                  index: index,
-                  taskModel: tasks[index],
-                );
-              },
-              itemCount: tasks.length,
-              separatorBuilder: (context, index) => const SizedBox(height: 10),
-            );
-          }  else{
-            return const BodyIfNotFoundTask();
-          }
+        if (state is HomeScreenNotes) {
+          List<TaskModel> tasks = state.tasksNotArchive;
+          return ListView.separated(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            itemBuilder: (context, index) {
+              return DismissibleTask(
+                index: index,
+                taskModel: tasks[index],
+              );
+            },
+            itemCount: tasks.length,
+            separatorBuilder: (context, index) => const SizedBox(height: 10),
+          );
+        } else {
+          return const BodyIfNotFoundTask();
+        }
       },
     );
   }

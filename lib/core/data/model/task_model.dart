@@ -26,6 +26,6 @@ class TaskModel extends HiveObject {
     required this.timeOfTask,
     this.archivedTask = false,
     this.doneTask = false,
-    this.id ,
+    this.id,
   });
 }

@@ -26,11 +26,10 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) =>
-          BlocProvider(
-            create: (context) => GetThemeCubit(),
-            child: const MyApp(),
-          ), // Wrap your app
+      builder: (context) => BlocProvider(
+        create: (context) => GetThemeCubit(),
+        child: const MyApp(),
+      ), // Wrap your app
     ),
   );
 }
@@ -45,9 +44,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => GetUserCubit()),
         BlocProvider(create: (context) => HomePageCubit()),
-        BlocProvider(create: (context) => ArchivedTaskCubit(),
+        BlocProvider(
+          create: (context) => ArchivedTaskCubit(),
         ),
-
       ],
       child: BlocBuilder<GetThemeCubit, GetThemeState>(
         builder: (context, state) {
@@ -60,15 +59,13 @@ class MyApp extends StatelessWidget {
               locale: DevicePreview.locale(context),
               builder: DevicePreview.appBuilder,
               theme: AppTheme.lightThemeData,
-              themeMode: BlocProvider
-                  .of<GetThemeCubit>(context)
-                  .isDark
+              themeMode: BlocProvider.of<GetThemeCubit>(context).isDark
                   ? ThemeMode.dark
                   : ThemeMode.light,
               darkTheme: AppTheme.darkThemeData,
               routes: {
                 CustomRegesterScreen.id: (context) =>
-                const CustomRegesterScreen(),
+                    const CustomRegesterScreen(),
                 CustomOnboarding.id: (context) => const CustomOnboarding(),
                 // HomePageScreen.id: (context) =>  HomePageScreen(),
               },

@@ -9,35 +9,35 @@ class HomePageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: FloatingActionButton(
-          foregroundColor: Colors.white,
-          backgroundColor:
-              Theme.of(context).floatingActionButtonTheme.backgroundColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
-          onPressed: () async {
-            // Navigate to AddTaskScreen and wait for result
-             await Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const AddTaskScreen()),
-            );
-          },
-          child: const Icon(
-            Icons.add,
-            size: 35,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        foregroundColor: Colors.white,
+        backgroundColor:
+            Theme.of(context).floatingActionButtonTheme.backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        onPressed: () async {
+          // Navigate to AddTaskScreen and wait for result
+          await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddTaskScreen()),
+          );
+        },
+        child: const Icon(
+          Icons.add,
+          size: 35,
+        ),
+      ),
+      body: const HomePageBody(),
+      drawer: const Drawer(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(60),
           ),
         ),
-        body:  const HomePageBody(),
-        drawer: const Drawer(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(60),
-            ),
-          ),
-          child: DrawerBody(),
-        ),
-      );
+        child: DrawerBody(),
+      ),
+    );
   }
 }

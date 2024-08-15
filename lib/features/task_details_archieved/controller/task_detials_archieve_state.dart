@@ -1,2 +1,3 @@
-class TaskDetailsArchieveState{}
-class TaskDetailsArchieveInitialState extends TaskDetailsArchieveState{}
+class TaskDetailsArchieveState {}
+
+class TaskDetailsArchieveInitialState extends TaskDetailsArchieveState {}

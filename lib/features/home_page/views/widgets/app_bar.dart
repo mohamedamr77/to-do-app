@@ -10,9 +10,9 @@ import '../../../regester/controller/get_cubit.dart';
 import 'profile_picture.dart';
 
 class AppBarSection extends StatelessWidget {
-  const AppBarSection(
-      {super.key,});
-
+  const AppBarSection({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,8 @@ class AppBarSection extends StatelessWidget {
               children: [
                 Text(TextApp.helloText,
                     style: Theme.of(context).textTheme.labelMedium),
-                Text(BlocProvider.of<GetUserCubit>(context).name??"", style: Theme.of(context).textTheme.displayMedium),
+                Text(BlocProvider.of<GetUserCubit>(context).name ?? "",
+                    style: Theme.of(context).textTheme.displayMedium),
                 const SizedBox(height: 12),
                 const Text(
                   "Saturday, May 25th",
@@ -53,7 +54,9 @@ class AppBarSection extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          ProfilePicture(pictureUser: BlocProvider.of<GetUserCubit>(context).image??File("")),
+          ProfilePicture(
+              pictureUser:
+                  BlocProvider.of<GetUserCubit>(context).image ?? File("")),
           const SizedBox(width: 10),
         ],
       ),

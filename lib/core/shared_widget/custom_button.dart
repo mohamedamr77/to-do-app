@@ -31,30 +31,28 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: isLoading
-            ? const Center(
-                child: CircularProgressIndicator()
-            )
+            ? const Center(child: CircularProgressIndicator())
             : Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              nameButton,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            if (image != null) ...[
-              const SizedBox(width: 10),
-              SvgPicture.asset(
-                image!,
-                color: Colors.white,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    nameButton,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                  if (image != null) ...[
+                    const SizedBox(width: 10),
+                    SvgPicture.asset(
+                      image!,
+                      color: Colors.white,
+                    ),
+                  ],
+                  if (widget != null) ...[
+                    const SizedBox(width: 10),
+                    widget!,
+                  ],
+                ],
               ),
-            ],
-            if (widget != null) ...[
-              const SizedBox(width: 10),
-              widget!,
-            ],
-          ],
-        ),
       ),
     );
   }

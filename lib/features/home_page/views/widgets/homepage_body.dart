@@ -5,20 +5,19 @@ import 'app_bar.dart';
 import 'task_list.dart';
 
 class HomePageBody extends StatefulWidget {
-  const HomePageBody(
-      {super.key,});
-
+  const HomePageBody({
+    super.key,
+  });
 
   @override
   State<HomePageBody> createState() => _HomePageBodyState();
 }
 
 class _HomePageBodyState extends State<HomePageBody> {
-
-   @override
+  @override
   void initState() {
     // TODO: implement initState
-     BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
+    BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
     super.initState();
   }
 

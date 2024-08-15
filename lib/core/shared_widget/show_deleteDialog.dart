@@ -7,7 +7,7 @@ import '../textCore.dart';
 
 class DeleteDialog extends StatelessWidget {
   final TaskModel task;
-  const DeleteDialog({super.key, required this.task,required this.onTap});
+  const DeleteDialog({super.key, required this.task, required this.onTap});
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,8 @@ class DeleteDialog extends StatelessWidget {
             GestureDetector(
               onTap: onTap,
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 35, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   color: const Color(0xffBD5461),
@@ -56,8 +56,8 @@ class DeleteDialog extends StatelessWidget {
                 Navigator.of(context).pop();
               },
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 35, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   color: ColorApp.primaryColor,
@@ -79,11 +79,17 @@ class DeleteDialog extends StatelessWidget {
     );
   }
 
-  static void show({required BuildContext context,required TaskModel task,required void Function()? onTap}) {
+  static void show(
+      {required BuildContext context,
+      required TaskModel task,
+      required void Function()? onTap}) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return DeleteDialog(task: task, onTap: onTap,);
+        return DeleteDialog(
+          task: task,
+          onTap: onTap,
+        );
       },
     );
   }

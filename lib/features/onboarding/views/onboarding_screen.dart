@@ -38,11 +38,14 @@ class CustomOnboarding extends StatelessWidget {
               text: TextApp.startText,
               trailing: Image.asset(ImageApp.arrowStartImage),
               onTap: () {
-                BlocProvider.of<GetUserCubit>(context).image==null &&
-                    BlocProvider.of<GetUserCubit>(context).name==null ?
-                Navigator.pushNamed(context, CustomRegesterScreen.id):
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),));
-
+                BlocProvider.of<GetUserCubit>(context).image == null &&
+                        BlocProvider.of<GetUserCubit>(context).name == null
+                    ? Navigator.pushNamed(context, CustomRegesterScreen.id)
+                    : Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePageScreen(),
+                        ));
               },
             ),
           ],

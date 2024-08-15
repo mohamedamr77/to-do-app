@@ -6,15 +6,12 @@ import '../../../../core/textCore.dart';
 // ignore: must_be_immutable
 class CustomDataPicker extends StatefulWidget {
   CustomDataPicker(
-      {
-    super.key,
-    required this.title,
-    required this.subTitle,
-    required this.selectedDate,
-    required this.onDateSelected,
-        this.clickInButton
-
-  });
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.selectedDate,
+      required this.onDateSelected,
+      this.clickInButton});
 
   final String title;
   final String subTitle;
@@ -52,8 +49,8 @@ class _CustomDataPickerState extends State<CustomDataPicker> {
         title: Text(
           widget.selectedDate == null
               ? (widget.title == TextApp.startText
-              ? TextApp.startText
-              : TextApp.endDateText)
+                  ? TextApp.startText
+                  : TextApp.endDateText)
               : widget.selectedDate!,
           style: Theme.of(context).textTheme.bodySmall,
         ),

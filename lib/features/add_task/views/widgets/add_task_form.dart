@@ -23,63 +23,59 @@ class AddTaskForm extends StatelessWidget {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
             children: [
-
               const SizedBox(height: 10),
-
               const CustomAppbar(title: TextApp.addTaskText),
-
               const SizedBox(height: 15),
-
               CustomField(
                 title: TextApp.taskNameText,
                 hintText: TextApp.enterTheTaskNameText,
                 minLine: 1,
                 maxLine: 1,
                 onSaved: (value) {
-                  BlocProvider.of<AddTaskCubit>(context).taskName=value;
-                  },
+                  BlocProvider.of<AddTaskCubit>(context).taskName = value;
+                },
                 validator: (value) {
                   return BlocProvider.of<AddTaskCubit>(context).validate(value);
                 },
-
               ),
-
               const SizedBox(height: 10),
-
               CustomField(
                 title: TextApp.descriptionText,
                 hintText: TextApp.enterTheTaskDescText,
                 minLine: 4,
                 maxLine: 4,
-                onSaved: (value){
-                  BlocProvider.of<AddTaskCubit>(context).taskDescriptionController=value;
+                onSaved: (value) {
+                  BlocProvider.of<AddTaskCubit>(context)
+                      .taskDescriptionController = value;
                 },
                 validator: (value) {
                   return BlocProvider.of<AddTaskCubit>(context).validate(value);
                 },
               ),
               const SizedBox(height: 20),
-
               CustomDataPicker(
                 title: TextApp.startText,
                 subTitle: TextApp.enterTheStartDateText,
-                selectedDate: BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate,
+                selectedDate: BlocProvider.of<AddTaskCubit>(context)
+                    .startDateSelectedDate,
                 onDateSelected: (String picked) {
-                  BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate = picked;
+                  BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate =
+                      picked;
                 },
               ),
-
               CustomDataPicker(
                 title: TextApp.endDateText,
                 subTitle: TextApp.enterTheEndDateText,
-                selectedDate: BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate,
+                selectedDate:
+                    BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate,
                 onDateSelected: (String p) {
-                  BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate = p;
+                  BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate =
+                      p;
                 },
               ),
-
               CustomTimePicker(
-                selectedTime: BlocProvider.of<AddTaskCubit>(context).selectedTime,
+                selectedTime:
+                    BlocProvider.of<AddTaskCubit>(context).selectedTime,
                 onTimeSelected: (String t) {
                   BlocProvider.of<AddTaskCubit>(context).selectedTime = t;
                 },
@@ -89,10 +85,11 @@ class AddTaskForm extends StatelessWidget {
               BlocBuilder<AddTaskCubit, AddTaskState>(
                 builder: (context, state) {
                   return CustomButton(
-                    isLoading: state is AddTaskLoadingState ?true : false,
-                    backGroundColor: Theme.of(context).canvasColor == Colors.black
-                        ? const Color(0xff90B6E2)
-                        : const Color(0xff3F6188),
+                    isLoading: state is AddTaskLoadingState ? true : false,
+                    backGroundColor:
+                        Theme.of(context).canvasColor == Colors.black
+                            ? const Color(0xff90B6E2)
+                            : const Color(0xff3F6188),
                     nameButton: TextApp.addTaskText,
                     onTap: () => onTapButton(context),
                   );
@@ -106,22 +103,28 @@ class AddTaskForm extends StatelessWidget {
   }
 }
 
-onTapButton (BuildContext context) {
-    BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate ??= DateTime.now().toString();
-    BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate ??= DateTime.now().toString();
-    BlocProvider.of<AddTaskCubit>(context).selectedTime ??= '${TimeOfDay.now().hour}:${TimeOfDay.now().minute} ${TimeOfDay.now().period.name.toUpperCase()}';
+onTapButton(BuildContext context) {
+  BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate ??=
+      DateTime.now().toString();
+  BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate ??=
+      DateTime.now().toString();
+  BlocProvider.of<AddTaskCubit>(context).selectedTime ??=
+      '${TimeOfDay.now().hour}:${TimeOfDay.now().minute} ${TimeOfDay.now().period.name.toUpperCase()}';
 
-    if (BlocProvider.of<AddTaskCubit>(context).formKey.currentState!.validate()) {
-      BlocProvider.of<AddTaskCubit>(context).formKey.currentState!.save();
+  if (BlocProvider.of<AddTaskCubit>(context).formKey.currentState!.validate()) {
+    BlocProvider.of<AddTaskCubit>(context).formKey.currentState!.save();
 
-      var task=   TaskModel(
-        taskName: BlocProvider.of<AddTaskCubit>(context).taskName,
-        taskDescriptionController: BlocProvider.of<AddTaskCubit>(context).taskDescriptionController,
-        startDateSelectedDate: BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate,
-        endDateSelectedDate: BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate,
-        timeOfTask: BlocProvider.of<AddTaskCubit>(context).selectedTime,
-        id: DateTime.now().millisecondsSinceEpoch,
-      );
-      BlocProvider.of<AddTaskCubit>(context).addTask(task);
-    }
+    var task = TaskModel(
+      taskName: BlocProvider.of<AddTaskCubit>(context).taskName,
+      taskDescriptionController:
+          BlocProvider.of<AddTaskCubit>(context).taskDescriptionController,
+      startDateSelectedDate:
+          BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate,
+      endDateSelectedDate:
+          BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate,
+      timeOfTask: BlocProvider.of<AddTaskCubit>(context).selectedTime,
+      id: DateTime.now().millisecondsSinceEpoch,
+    );
+    BlocProvider.of<AddTaskCubit>(context).addTask(task);
+  }
 }

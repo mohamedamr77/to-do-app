@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 /// Flutter code sample for [AnimatedList].
 
-
 class AnimatedListSample extends StatefulWidget {
   const AnimatedListSample({super.key});
 
@@ -15,7 +14,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
   late ListModel<int> _list;
   int? _selectedItem;
   late int
-  _nextItem; // The next item inserted when the user presses the '+' button.
+      _nextItem; // The next item inserted when the user presses the '+' button.
 
   @override
   void initState() {
@@ -62,7 +61,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
   // Insert the "next item" into the list model.
   void _insert() {
     final int index =
-    _selectedItem == null ? _list.length : _list.indexOf(_selectedItem!);
+        _selectedItem == null ? _list.length : _list.indexOf(_selectedItem!);
     _list.insert(index, _nextItem);
     _nextItem++;
   }
@@ -144,7 +143,7 @@ class ListModel<E> {
     if (removedItem != null) {
       _animatedList!.removeItem(
         index,
-            (BuildContext context, Animation<double> animation) {
+        (BuildContext context, Animation<double> animation) {
           return removedItemBuilder(removedItem, context, animation);
         },
       );

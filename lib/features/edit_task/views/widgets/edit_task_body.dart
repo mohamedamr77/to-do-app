@@ -17,16 +17,15 @@ class EditTaskBody extends StatefulWidget {
   @override
   State<EditTaskBody> createState() => _EditTaskBodyState();
 }
+
 class _EditTaskBodyState extends State<EditTaskBody> {
+  String? taskName, description;
 
-  String? taskName,description;
-
-  void initState(){
+  void initState() {
     super.initState();
     taskName = widget.taskModel.taskName;
     description = widget.taskModel.taskDescriptionController;
-
-}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,48 +34,39 @@ class _EditTaskBodyState extends State<EditTaskBody> {
       child: SafeArea(
         child: Column(
           children: [
-
             const SizedBox(height: 10),
-
             const CustomAppbar(title: "Edit Task"),
-
             const SizedBox(height: 15),
-
             CustomField(
               initialValue: taskName,
               title: TextApp.taskNameText,
               hintText: TextApp.enterTheTaskNameText,
               minLine: 1,
               maxLine: 1,
-              onChanged: (newValue){
-                taskName=newValue;
+              onChanged: (newValue) {
+                taskName = newValue;
               },
             ),
-
             const SizedBox(height: 10),
-
             CustomField(
               initialValue: description,
               title: TextApp.descriptionText,
               hintText: TextApp.enterTheTaskDescText,
               minLine: 4,
               maxLine: 4,
-              onChanged: (newValue){
-                description=newValue;
+              onChanged: (newValue) {
+                description = newValue;
               },
-
             ),
             const SizedBox(height: 20),
-
             CustomDataPicker(
               title: TextApp.startText,
               subTitle: TextApp.enterTheStartDateText,
-               selectedDate: "22021",
+              selectedDate: "22021",
               onDateSelected: (String picked) {
                 // BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate = picked;
               },
             ),
-
             CustomDataPicker(
               title: TextApp.endDateText,
               subTitle: TextApp.enterTheEndDateText,
@@ -85,7 +75,6 @@ class _EditTaskBodyState extends State<EditTaskBody> {
                 // BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate = p;
               },
             ),
-
             CustomTimePicker(
               selectedTime: "2131",
               onTimeSelected: (String t) {
@@ -94,21 +83,22 @@ class _EditTaskBodyState extends State<EditTaskBody> {
               clickInButton: null,
             ),
             const SizedBox(height: 20),
-
-         CustomButton(
-        isLoading: false ,
-        backGroundColor: Theme.of(context).canvasColor == Colors.black
-        ? const Color(0xff90B6E2)
-            : const Color(0xff3F6188),
-        nameButton: "Done Edit",
-           onTap: (){
-            widget.taskModel.taskName=taskName??widget.taskModel.taskName;
-            widget.taskModel.taskDescriptionController=description??widget.taskModel.taskDescriptionController;
-            widget.taskModel.save();
-            BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
-             Navigator.pop(context);
-           },
-        )
+            CustomButton(
+              isLoading: false,
+              backGroundColor: Theme.of(context).canvasColor == Colors.black
+                  ? const Color(0xff90B6E2)
+                  : const Color(0xff3F6188),
+              nameButton: "Done Edit",
+              onTap: () {
+                widget.taskModel.taskName =
+                    taskName ?? widget.taskModel.taskName;
+                widget.taskModel.taskDescriptionController =
+                    description ?? widget.taskModel.taskDescriptionController;
+                widget.taskModel.save();
+                BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
+                Navigator.pop(context);
+              },
+            )
           ],
         ),
       ),

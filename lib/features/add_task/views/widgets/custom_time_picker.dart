@@ -49,11 +49,9 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
         leading: Theme.of(context).canvasColor == Colors.black
             ? SvgPicture.asset("assets/images/svg/timeicon.svg")
             : SvgPicture.asset(
-            "assets/images/svg/fluent-emoji-flat_watch_blackmode.svg"),
+                "assets/images/svg/fluent-emoji-flat_watch_blackmode.svg"),
         title: Text(
-          widget.selectedTime == null
-              ? "Add time"
-              : widget.selectedTime!,
+          widget.selectedTime == null ? "Add time" : widget.selectedTime!,
           style: Theme.of(context).textTheme.bodySmall,
         ),
         subtitle: Text(
