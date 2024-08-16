@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/core/data/model/task_model.dart';
+import 'package:todo/features/archived_tasks/controller/archived_task_cubit.dart';
 import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
 import 'package:todo/features/task_details/views/screen.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
@@ -42,52 +43,55 @@ class _EditTaskBodyState extends State<EditTaskBody> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
-            const CustomAppbar(title: "Edit Task"),
-            const SizedBox(height: 15),
-            CustomField(
-              initialValue: taskName,
-              title: TextApp.taskNameText,
-              hintText: TextApp.enterTheTaskNameText,
-              minLine: 1,
-              maxLine: 1,
-              onChanged: (newValue) {
-                taskName = newValue;
-              },
-            ),
-            const SizedBox(height: 10),
-            CustomField(
-              initialValue: description,
-              title: TextApp.descriptionText,
-              hintText: TextApp.enterTheTaskDescText,
-              minLine: 4,
-              maxLine: 4,
-              onChanged: (newValue) {
-                description = newValue;
-              },
-            ),
-            const SizedBox(height: 20),
-            const SizedBox(height: 20),
-            CustomButton(
-              isLoading: false,
-              backGroundColor: Theme.of(context).canvasColor == Colors.black
-                  ? const Color(0xff90B6E2)
-                  : const Color(0xff3F6188),
-              nameButton: "Done Edit",
-              onTap: () {
-                widget.taskModel.taskName =
-                    taskName ?? widget.taskModel.taskName;
-                widget.taskModel.taskDescriptionController =
-                    description ?? widget.taskModel.taskDescriptionController;
-                widget.taskModel.save();
-                Navigator.of(context)
-                  ..pop()
-                  ..pop();
-              },
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              const CustomAppbar(title: "Edit Task"),
+              const SizedBox(height: 15),
+              CustomField(
+                initialValue: taskName,
+                title: TextApp.taskNameText,
+                hintText: TextApp.enterTheTaskNameText,
+                minLine: 1,
+                maxLine: 1,
+                onChanged: (newValue) {
+                  taskName = newValue;
+                },
+              ),
+              const SizedBox(height: 10),
+              CustomField(
+                initialValue: description,
+                title: TextApp.descriptionText,
+                hintText: TextApp.enterTheTaskDescText,
+                minLine: 4,
+                maxLine: 4,
+                onChanged: (newValue) {
+                  description = newValue;
+                },
+              ),
+              const SizedBox(height: 20),
+              const SizedBox(height: 20),
+              CustomButton(
+                isLoading: false,
+                backGroundColor: Theme.of(context).canvasColor == Colors.black
+                    ? const Color(0xff90B6E2)
+                    : const Color(0xff3F6188),
+                nameButton: "Done Edit",
+                onTap: () {
+                  widget.taskModel.taskName =
+                      taskName ?? widget.taskModel.taskName;
+                  widget.taskModel.taskDescriptionController =
+                      description ?? widget.taskModel.taskDescriptionController;
+                  widget.taskModel.save();
+                  Navigator.of(context)
+                    ..pop()
+                    ..pop();
+                  BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -84,12 +84,12 @@ class TaskDoneDetailsBody extends StatelessWidget {
                       : SvgPicture.asset(
                           "assets/images/svg/fluent-emoji-flat_watch_blackmode.svg"),
                   title: Text(
-                    TextApp.addTimeText,
+                    "Time",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
-                  subtitle: const Text(
+                  subtitle:  Text(
                     // task.startTimeSelectedTime!,
-                    "Solve error ",
+                 task.timeOfTask! ,
                     style: TextStyle(
                       color:
                           ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,

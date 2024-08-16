@@ -5,6 +5,7 @@ import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
 
 import '../../../../core/data/model/task_model.dart';
+import '../../../../core/shared_function/convert_date.dart';
 import '../../../done_details/views/screen.dart';
 
 class CardDoneList extends StatelessWidget {
@@ -37,10 +38,10 @@ class CardDoneList extends StatelessWidget {
               fontFamily: FontFamilyApp.lexendDecaRegular,
             ),
           ),
-          trailing: const Column(
+          trailing:  Column(
             children: [
               Text(
-                "fdsa",
+                "${ConvertDate(date: taskModel.startDateSelectedDate!)}",
                 style: TextStyle(
                   color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
@@ -52,7 +53,7 @@ class CardDoneList extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "fsdafasd",
+                "${ConvertDate(date: taskModel.endDateSelectedDate!)}",
                 style: TextStyle(
                   color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:todo/core/shared_widget/show_deleteDialog.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_function/convert_date.dart';
@@ -8,6 +9,7 @@ import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
 import '../../../archived_tasks/controller/archived_task_cubit.dart';
+import '../../../edit_task/views/edit_task_view.dart';
 import '../../controller/task_details_archieve_cubit.dart';
 
 class TaskDetailsAchievedBody extends StatelessWidget {
@@ -85,9 +87,9 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   "Add Time",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-                subtitle: const Text(
+                subtitle:  Text(
                   // _formatTaskTime(taskAchieved.timeOfTask),
-                  "das",
+                  taskAchieved.timeOfTask!,
                   style: TextStyle(
                     color: Color(0xffB6B4BD),
                     fontSize: 12,
@@ -110,6 +112,29 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                 BlocProvider.of<ArchivedTaskCubit>(context).fetchAllTasks();
               },
               image: "assets/images/svg/archievetaskIcon.svg",
+            ),
+            const SizedBox(height: 8),
+            CustomButton(
+              backGroundColor: Theme.of(context).canvasColor == Colors.black
+                  ? const Color(0xff90B6E2)
+                  : const Color(0xff3F6188),
+              nameButton: "Edit ",
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditTaskScreen(
+                        taskModel: taskAchieved,
+                      ),
+                    ));
+              },
+              widget: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: FaIcon(
+                  FontAwesomeIcons.edit,
+                  color: Colors.white,
+                ),
+              ),
             ),
             const SizedBox(height: 8),
             CustomButton(
