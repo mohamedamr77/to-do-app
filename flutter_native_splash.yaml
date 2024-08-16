@@ -1,12 +1,12 @@
 flutter_native_splash:
   color: "#ffffff"
-  color_dark: "#272727"
+#  color_dark: "#272727"
   image: assets/images/icon app todo.png
-  image_dark: assets/images/icon app todo.png
+#  image_dark: assets/images/icon app todo.png
 
   android_12:
     color: "#ffffff"
-    color_dark: "#272727"
+#    color_dark: "#272727"
     image: assets/images/icon app todo.png
-    image_dark: assets/images/icon app todo.png
+#    image_dark: assets/images/icon app todo.png
 
