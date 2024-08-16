@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
+import 'package:todo/features/task_details/views/screen.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/textCore.dart';
@@ -21,10 +22,19 @@ class EditTaskBody extends StatefulWidget {
 class _EditTaskBodyState extends State<EditTaskBody> {
   String? taskName, description;
 
+  @override
   void initState() {
     super.initState();
     taskName = widget.taskModel.taskName;
     description = widget.taskModel.taskDescriptionController;
+
+    // Ensure start and end dates are always initialized
+    if (widget.taskModel.startDateSelectedDate == null) {
+      widget.taskModel.startDateSelectedDate = DateTime.now().toIso8601String().split('T')[0];
+    }
+    if (widget.taskModel.endDateSelectedDate == null) {
+      widget.taskModel.endDateSelectedDate = DateTime.now().toIso8601String().split('T')[0];
+    }
   }
 
   @override
@@ -59,29 +69,6 @@ class _EditTaskBodyState extends State<EditTaskBody> {
               },
             ),
             const SizedBox(height: 20),
-            CustomDataPicker(
-              title: TextApp.startText,
-              subTitle: TextApp.enterTheStartDateText,
-              selectedDate: "22021",
-              onDateSelected: (String picked) {
-                // BlocProvider.of<AddTaskCubit>(context).startDateSelectedDate = picked;
-              },
-            ),
-            CustomDataPicker(
-              title: TextApp.endDateText,
-              subTitle: TextApp.enterTheEndDateText,
-              selectedDate: "21312",
-              onDateSelected: (String p) {
-                // BlocProvider.of<AddTaskCubit>(context).endDateSelectedDate = p;
-              },
-            ),
-            CustomTimePicker(
-              selectedTime: "2131",
-              onTimeSelected: (String t) {
-                // BlocProvider.of<AddTaskCubit>(context).selectedTime = t;
-              },
-              clickInButton: null,
-            ),
             const SizedBox(height: 20),
             CustomButton(
               isLoading: false,
@@ -95,8 +82,9 @@ class _EditTaskBodyState extends State<EditTaskBody> {
                 widget.taskModel.taskDescriptionController =
                     description ?? widget.taskModel.taskDescriptionController;
                 widget.taskModel.save();
-                BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
-                Navigator.pop(context);
+                Navigator.of(context)
+                  ..pop()
+                  ..pop();
               },
             )
           ],
@@ -105,3 +93,4 @@ class _EditTaskBodyState extends State<EditTaskBody> {
     );
   }
 }
+
