@@ -351,10 +351,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_native_splash
-      sha256: aa06fec78de2190f3db4319dd60fdc8d12b2626e93ef9828633928c2dcaea840
+      sha256: "58fb249fb19ffe979e4ad288de018a118768988b1f497e6ff0b23ead6f5a1bc5"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.1"
+    version: "2.3.13"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:

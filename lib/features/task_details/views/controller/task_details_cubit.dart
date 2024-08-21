@@ -9,8 +9,13 @@ class TaskDetailsCubit extends Cubit<TaskDetailsState> {
   TaskDetailsCubit() : super(TaskDetailsInitalState());
 
   // Update doneTask status
-  void updateArchive(int index, TaskModel taskModel) {
+  void updateArchive(TaskModel taskModel) {
     var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
+    final index =
+        notesBox.values.toList().indexWhere((task) => task.id == taskModel.id);
+    if (index == -1) {
+      return;
+    }
     taskModel.archivedTask =
         !taskModel.archivedTask; // Toggle the doneTask status
     notesBox.putAt(index, taskModel);

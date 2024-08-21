@@ -104,7 +104,7 @@ class TaskDetailsBody extends StatelessWidget {
                 nameButton: task.archivedTask == true ? "Unarchive" : "Archive",
                 onTap: () {
                   BlocProvider.of<TaskDetailsCubit>(context)
-                      .updateArchive(index, task);
+                      .updateArchive( task);
                   Navigator.pop(context);
                   BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
                 },

@@ -5,6 +5,7 @@ part 'task_model.g.dart';
 class TaskModel extends HiveObject {
   @HiveField(0)
   String? taskName;
+  @HiveField(7)
   int? id;
   @HiveField(1)
   String? taskDescriptionController;
@@ -26,6 +27,8 @@ class TaskModel extends HiveObject {
     required this.timeOfTask,
     this.archivedTask = false,
     this.doneTask = false,
-    this.id,
-  });
+    this.id
+  }){
+    this.id  = DateTime.now().millisecondsSinceEpoch;
+  }
 }

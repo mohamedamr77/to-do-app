@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -23,22 +25,25 @@ void main() async {
   await Hive.openBox<TaskModel>(BoxApp.kTaskBox);
   await Hive.openBox(BoxApp.kThemeBox);
   await Hive.openBox(BoxApp.kUserBox);
+  // final isDark = Hive.box(BoxApp.kThemeBox).get('isDark',defaultValue: false,);
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
       builder: (context) => BlocProvider(
-        create: (context) => GetThemeCubit(),
-        child: const MyApp(),
+        create: (context) => GetThemeCubit()..initTheme(),
+        child:  MyApp(),
       ), // Wrap your app
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  const MyApp({super.key, });
+// final bool isDark;
   @override
   Widget build(BuildContext context) {
+    log(BlocProvider.of<GetThemeCubit>(context).isDark.toString());
+
     BlocProvider.of<GetThemeCubit>(context).setSwitchValueFromHive();
     return MultiBlocProvider(
       providers: [
@@ -59,8 +64,7 @@ class MyApp extends StatelessWidget {
               locale: DevicePreview.locale(context),
               builder: DevicePreview.appBuilder,
               theme: AppTheme.lightThemeData,
-              themeMode: BlocProvider.of<GetThemeCubit>(context).isDark
-                  ? ThemeMode.dark
+              themeMode:BlocProvider.of<GetThemeCubit>(context).isDark ? ThemeMode.dark
                   : ThemeMode.light,
               darkTheme: AppTheme.darkThemeData,
               routes: {

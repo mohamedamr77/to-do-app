@@ -162,7 +162,7 @@ class DrawerBody extends StatelessWidget {
                                 fontWeight: FontWeight.w500),
                       ),
                       trailing: Switch(
-                        value: BlocProvider.of<GetThemeCubit>(context).isDark,
+                        value: BlocProvider.of<GetThemeCubit>(context).isDark??false,
                         onChanged: (bool value) {
                           BlocProvider.of<GetThemeCubit>(context)
                               .changeTheme(value);
