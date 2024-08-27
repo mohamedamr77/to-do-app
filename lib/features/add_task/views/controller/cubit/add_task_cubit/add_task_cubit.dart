@@ -9,7 +9,7 @@ import '../../../../../../core/textCore.dart';
 
 class AddTaskCubit extends Cubit<AddTaskState> {
   AddTaskCubit() : super(AddTaskInitalState());
-  String? taskName ;
+  String? taskName;
   String? taskDescriptionController;
 
   String? startDateSelectedDate;
@@ -35,6 +35,4 @@ class AddTaskCubit extends Cubit<AddTaskState> {
     }
     return null;
   }
-
-
 }

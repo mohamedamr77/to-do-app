@@ -7,11 +7,12 @@ class DialogButton extends StatelessWidget {
       {super.key,
       required this.text,
       required this.result,
-      required this.color,required this.onTap});
+      required this.color,
+      required this.onTap});
   final String text;
   final bool result;
   final Color color;
- final void Function()? onTap;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {

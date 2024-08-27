@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -21,8 +20,8 @@ class BodyIfNotFoundTask extends StatelessWidget {
         ),
         Lottie.asset(
           "assets/images/lottie/see_down.json",
-          width: 300,
-          height: 300,
+          width: 250,
+          height: 250,
         ),
         const SizedBox(
           height: 60,

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/features/done_tasks/views/controller/done_task_cubit.dart';
 import 'package:todo/features/done_tasks/views/controller/done_task_state.dart';
-import '../../../../core/data/model/task_list.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import 'body_not_found_done_tasks.dart';
@@ -24,13 +22,13 @@ class _DoneTaskBodyState extends State<DoneTaskBody> {
     BlocProvider.of<DoneTaskCubit>(context).fetchAllTasks();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-
     return BlocBuilder<DoneTaskCubit, DoneTaskState>(
       builder: (context, state) {
-        if(state is DoneTaskNotesFoundState) {
-          List<TaskModel> tasks=state.tasksDone;
+        if (state is DoneTaskNotesFoundState) {
+          List<TaskModel> tasks = state.tasksDone;
           return SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
@@ -55,7 +53,7 @@ class _DoneTaskBodyState extends State<DoneTaskBody> {
               ),
             ),
           );
-        } else{
+        } else {
           return const BodyNotFoundDoneTasks();
         }
       },

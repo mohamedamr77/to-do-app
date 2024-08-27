@@ -8,13 +8,13 @@ import 'package:todo/core/imageCore.dart';
 import 'package:todo/core/textCore.dart';
 import 'package:todo/cubit/theme/get_cubit.dart';
 import 'package:todo/features/done_tasks/views/screen.dart';
-import 'package:todo/features/regester/views/regester_screen.dart';
 import '../../../regester/controller/get_cubit.dart';
 import '../../../archived_tasks/views/screen.dart';
 
 class DrawerBody extends StatelessWidget {
-  const DrawerBody({super.key,});
-
+  const DrawerBody({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,10 @@ class DrawerBody extends StatelessWidget {
                                     : Colors.white),
                         CircleAvatar(
                           radius: 26,
-                          backgroundImage: FileImage(File( BlocProvider.of<GetUserCubit>(context).image!.path)),
+                          backgroundImage: FileImage(File(
+                              BlocProvider.of<GetUserCubit>(context)
+                                  .image!
+                                  .path)),
                         ),
                       ],
                     ),
@@ -49,7 +52,7 @@ class DrawerBody extends StatelessWidget {
                       width: 10,
                     ),
                     Text(
-                        BlocProvider.of<GetUserCubit>(context).name!,
+                      BlocProvider.of<GetUserCubit>(context).name!,
                       style: const TextStyle(
                           color: ColorApp.whiteColor,
                           fontFamily: FontFamilyApp.lexendDecaRegular,
@@ -159,9 +162,11 @@ class DrawerBody extends StatelessWidget {
                                 fontWeight: FontWeight.w500),
                       ),
                       trailing: Switch(
-                        value: BlocProvider.of<GetThemeCubit>(context).isDark,
+                        value: BlocProvider.of<GetThemeCubit>(context).isDark ??
+                            false,
                         onChanged: (bool value) {
-                          BlocProvider.of<GetThemeCubit>(context).changeTheme(value);
+                          BlocProvider.of<GetThemeCubit>(context)
+                              .changeTheme(value);
                         },
                       ),
                     ),

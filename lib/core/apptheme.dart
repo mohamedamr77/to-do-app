@@ -45,7 +45,7 @@ class AppTheme {
           //16 , w600,  Color(0xff24252C),
           titleMedium: TextStyle(
             color: Color(0xff24252C),
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: FontWeight.w600,
             fontFamily: "LexendDeca",
           ),
@@ -113,7 +113,7 @@ class AppTheme {
           ),
           titleMedium: const TextStyle(
             color: Color(0xffF0F0F0),
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: FontWeight.w600,
             fontFamily: "LexendDeca",
           ),

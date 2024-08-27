@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
-import 'package:todo/core/colorCore.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
@@ -14,6 +13,7 @@ import 'package:todo/features/task_details/views/controller/task_details_cubit.d
 import 'package:todo/core/shared_widget/show_deleteDialog.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/shared_widget/custom_container_show_data.dart';
+import '../../../edit_task/views/edit_task_view.dart';
 import '../../../home_page/controller/home_page_Cubit.dart';
 
 class TaskDetailsBody extends StatelessWidget {
@@ -29,24 +29,17 @@ class TaskDetailsBody extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
           child: Column(
             children: [
-
               const CustomAppbar(title: TextApp.taskDetailsText),
-
               const SizedBox(height: 20),
-
               CustomContainerShowData(
                 title: TextApp.taskNameText,
                 detailsTitle: task.taskName!,
               ),
-
               const SizedBox(height: 16),
-
               CustomContainerShowData(
                   title: TextApp.descriptionText,
                   detailsTitle: task.taskDescriptionController!),
-
               const SizedBox(height: 16),
-
               Card(
                 color: Theme.of(context).cardColor,
                 child: ListTile(
@@ -64,9 +57,7 @@ class TaskDetailsBody extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(height: 8),
-
               Card(
                 color: Theme.of(context).cardColor,
                 child: ListTile(
@@ -84,9 +75,7 @@ class TaskDetailsBody extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(height: 8),
-
               Card(
                 color: Theme.of(context).cardColor,
                 child: ListTile(
@@ -107,39 +96,61 @@ class TaskDetailsBody extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(height: 15),
-
               CustomButton(
                 backGroundColor: Theme.of(context).canvasColor == Colors.black
                     ? const Color(0xff90B6E2)
                     : const Color(0xff3F6188),
-                nameButton:
-                    task.archivedTask == true ? "Unarchive" : "Archive",
+                nameButton: task.archivedTask == true ? "Unarchive" : "Archive",
                 onTap: () {
-
-                  BlocProvider.of<TaskDetailsCubit>(context).updateArchive(index,task );
+                  BlocProvider.of<TaskDetailsCubit>(context)
+                      .updateArchive(task);
                   Navigator.pop(context);
                   BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
                 },
                 image: ImageApp.archieveIcon,
               ),
-
               const SizedBox(height: 8),
-
+              CustomButton(
+                backGroundColor: Theme.of(context).canvasColor == Colors.black
+                    ? const Color(0xff90B6E2)
+                    : const Color(0xff3F6188),
+                nameButton: "Edit ",
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditTaskScreen(
+                          taskModel: task,
+                        ),
+                      ));
+                },
+                widget: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: FaIcon(
+                    FontAwesomeIcons.edit,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
               CustomButton(
                 backGroundColor: const Color(0XFFBD5461),
                 nameButton: TextApp.deleteText,
                 onTap: () {
                   DeleteDialog.show(
-                      context: context,
-                      task: task,
-                      onTap: () {
-                        task.delete();
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageScreen(),),
-                        );
-                        BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
-                      },
+                    context: context,
+                    task: task,
+                    onTap: () {
+                      task.delete();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePageScreen(),
+                        ),
+                      );
+                      BlocProvider.of<HomePageCubit>(context).fetchAllTasks();
+                    },
                   );
                 },
                 image: ImageApp.deleteIcon,
@@ -150,6 +161,4 @@ class TaskDetailsBody extends StatelessWidget {
       ),
     );
   }
-
-
 }

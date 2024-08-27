@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 part 'task_model.g.dart';
 
@@ -6,6 +5,8 @@ part 'task_model.g.dart';
 class TaskModel extends HiveObject {
   @HiveField(0)
   String? taskName;
+  @HiveField(7)
+  int? id;
   @HiveField(1)
   String? taskDescriptionController;
   @HiveField(2)
@@ -18,13 +19,15 @@ class TaskModel extends HiveObject {
   bool archivedTask;
   @HiveField(6)
   bool doneTask;
-  TaskModel({
-    required this.taskName,
-    required this.taskDescriptionController,
-    required this.startDateSelectedDate,
-    required this.endDateSelectedDate,
-    required this.timeOfTask,
-    this.archivedTask = false,
-    this.doneTask = false,
-  });
+  TaskModel(
+      {required this.taskName,
+      required this.taskDescriptionController,
+      required this.startDateSelectedDate,
+      required this.endDateSelectedDate,
+      required this.timeOfTask,
+      this.archivedTask = false,
+      this.doneTask = false,
+      this.id}) {
+    this.id = DateTime.now().millisecondsSinceEpoch;
+  }
 }

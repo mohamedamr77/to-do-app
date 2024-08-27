@@ -11,11 +11,12 @@ class TaskCard extends StatefulWidget {
   const TaskCard(
       {super.key,
       required this.onTap,
-      required this.taskModel, required this.index});
+      required this.taskModel,
+      required this.index});
 
   final TaskModel taskModel;
   final void Function()? onTap;
-  final  int index;
+  final int index;
 
   @override
   State<TaskCard> createState() => _TaskCardState();
@@ -31,13 +32,14 @@ class _TaskCardState extends State<TaskCard> {
             context,
             MaterialPageRoute(
                 builder: (context) => TaskDetailsScreen(
-                      task: widget.taskModel, index: widget.index,
+                      task: widget.taskModel,
+                      index: widget.index,
                     ))).then((x) {
           setState(() {});
         }),
         leading: SvgPicture.asset(ImageApp.bagIcon),
-        title:
-            Text(widget.taskModel.taskName.toString(), style: Theme.of(context).textTheme.titleMedium),
+        title: Text(widget.taskModel.taskName.toString(),
+            style: Theme.of(context).textTheme.titleMedium),
         subtitle: Text(
           widget.taskModel.timeOfTask!,
           style: const TextStyle(

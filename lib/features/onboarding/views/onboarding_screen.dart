@@ -22,6 +22,9 @@ class CustomOnboarding extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+            ),
             const CustomBanner(),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,
@@ -38,11 +41,14 @@ class CustomOnboarding extends StatelessWidget {
               text: TextApp.startText,
               trailing: Image.asset(ImageApp.arrowStartImage),
               onTap: () {
-                BlocProvider.of<GetUserCubit>(context).image==null &&
-                    BlocProvider.of<GetUserCubit>(context).name==null ?
-                Navigator.pushNamed(context, CustomRegesterScreen.id):
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePageScreen(),));
-
+                BlocProvider.of<GetUserCubit>(context).image == null &&
+                        BlocProvider.of<GetUserCubit>(context).name == null
+                    ? Navigator.pushNamed(context, CustomRegesterScreen.id)
+                    : Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePageScreen(),
+                        ));
               },
             ),
           ],

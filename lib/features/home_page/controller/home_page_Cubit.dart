@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -14,9 +13,13 @@ class HomePageCubit extends Cubit<HomePageState> {
     try {
       var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
       List<TaskModel> tasks = notesBox.values.toList();
-      List<TaskModel> tasksNotArchive = tasks.where((notArchiveTask) => notArchiveTask.archivedTask == false).toList();
+      List<TaskModel> tasksNotArchive = tasks
+          .where((notArchiveTask) => notArchiveTask.archivedTask == false)
+          .toList();
       if (tasksNotArchive.isNotEmpty) {
-        emit(HomeScreenNotes(tasksNotArchive: tasksNotArchive)); // Pass the list of tasks to the state
+        emit(HomeScreenNotes(
+            tasksNotArchive:
+                tasksNotArchive)); // Pass the list of tasks to the state
       } else {
         emit(HomeScreenNotesNotFound());
       }
@@ -29,10 +32,12 @@ class HomePageCubit extends Cubit<HomePageState> {
   // Update doneTask status
   void updateDone(int index, TaskModel taskModel) {
     var notesBox = Hive.box<TaskModel>(BoxApp.kTaskBox);
-    taskModel.doneTask = !taskModel.doneTask;  // Toggle the doneTask status
+    taskModel.doneTask = !taskModel.doneTask; // Toggle the doneTask status
     notesBox.putAt(index, taskModel);
     List<TaskModel> tasks = notesBox.values.toList();
-    List<TaskModel> tasksNotArchive = tasks.where((notArchiveTask) => notArchiveTask.doneTask == true).toList();
+    List<TaskModel> tasksNotArchive = tasks
+        .where((notArchiveTask) => notArchiveTask.doneTask == true)
+        .toList();
     if (kDebugMode) {
       print(tasksNotArchive.length);
     }

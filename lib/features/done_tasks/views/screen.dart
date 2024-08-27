@@ -10,7 +10,7 @@ class DoneTaskScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => DoneTaskCubit(),
-      child: Scaffold(
+      child: const Scaffold(
         body: DoneTaskBody(),
       ),
     );

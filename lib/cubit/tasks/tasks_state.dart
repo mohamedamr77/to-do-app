@@ -1,2 +1,3 @@
 class TasksState {}
-class TasksInitalState extends TasksState{}
+
+class TasksInitalState extends TasksState {}

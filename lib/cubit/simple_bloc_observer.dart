@@ -1,24 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SimpleBlocObserver implements BlocObserver{
+class SimpleBlocObserver implements BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
     // TODO: implement onChange
-    debugPrint("Onchange: $change" );
+    debugPrint("Onchange: $change");
   }
 
   @override
   void onClose(BlocBase bloc) {
     // TODO: implement onClose
-    debugPrint("onClose: $bloc" );
-
+    debugPrint("onClose: $bloc");
   }
 
   @override
   void onCreate(BlocBase bloc) {
     // TODO: implement onCreate
-    debugPrint("onCreate: $bloc" );
+    debugPrint("onCreate: $bloc");
   }
 
   @override
@@ -35,5 +34,4 @@ class SimpleBlocObserver implements BlocObserver{
   void onTransition(Bloc bloc, Transition transition) {
     // TODO: implement onTransition
   }
-
 }

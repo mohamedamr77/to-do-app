@@ -16,7 +16,8 @@ class TaskDetailsScreen extends StatelessWidget {
       create: (context) => TaskDetailsCubit(),
       child: Scaffold(
         body: TaskDetailsBody(
-          task: task, index: index,
+          task: task,
+          index: index,
         ),
       ),
     );

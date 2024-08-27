@@ -1,39 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
 import 'package:todo/core/colorCore.dart';
 import 'package:todo/core/fontfamily.dart';
 import 'package:todo/core/imageCore.dart';
-import 'package:todo/core/textCore.dart';
 
 import '../../../../core/data/model/task_model.dart';
+import '../../../../core/shared_function/convert_date.dart';
 import '../../../done_details/views/screen.dart';
 
 class CardDoneList extends StatelessWidget {
-  const CardDoneList({super.key,
-
-    required this.taskModel});
-
+  const CardDoneList({super.key, required this.taskModel});
 
   final TaskModel taskModel;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () =>
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    DoneDetailsScreen(
-                      task: taskModel,
-                    ),
-              )),
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DoneDetailsScreen(
+              task: taskModel,
+            ),
+          )),
       child: Card(
         color: Theme.of(context).cardColor,
         child: ListTile(
           leading: SvgPicture.asset(ImageApp.bagIcon),
-          title: Text(taskModel.taskName!, style: Theme.of(context).textTheme.headlineLarge),
+          title: Text(taskModel.taskName!,
+              style: Theme.of(context).textTheme.headlineLarge),
           subtitle: Text(
             taskModel.timeOfTask!,
             style: const TextStyle(
@@ -46,20 +41,20 @@ class CardDoneList extends StatelessWidget {
           trailing: Column(
             children: [
               Text(
-                "fdsa",
-                style: const TextStyle(
+                "${ConvertDate(date: taskModel.startDateSelectedDate!)}",
+                style: TextStyle(
                   color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
                   fontFamily: FontFamilyApp.lexendDecaRegular,
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 10,
               ),
               Text(
-                "fsdafasd",
-                style: const TextStyle(
+                "${ConvertDate(date: taskModel.endDateSelectedDate!)}",
+                style: TextStyle(
                   color: ColorApp.dateDoneScreenColor,
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
