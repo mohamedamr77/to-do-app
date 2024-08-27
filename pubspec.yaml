@@ -50,6 +50,10 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   font_awesome_flutter: ^10.7.0
   flutter_native_splash: 2.3.13
+  flutter_local_notifications: ^17.2.2
+  timezone: ^0.9.4
+  flutter_timezone: ^3.0.0
+  workmanager: ^0.5.2
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
