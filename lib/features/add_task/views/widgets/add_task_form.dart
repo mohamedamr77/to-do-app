@@ -127,6 +127,9 @@ onTapButton(BuildContext context) {
       id: DateTime.now().millisecondsSinceEpoch,
     );
     BlocProvider.of<AddTaskCubit>(context).addTask(task);
-    LocalNotificationService.showBasicNotification();
+    LocalNotificationService.showBasicNotification(
+      title:   BlocProvider.of<AddTaskCubit>(context).taskName!,
+      des:  BlocProvider.of<AddTaskCubit>(context).taskDescriptionController!,
+    );
   }
 }

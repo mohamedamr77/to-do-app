@@ -27,7 +27,7 @@ class LocalNotificationService {
     );
   }
 
-  static void showBasicNotification() async {
+  static void showBasicNotification({required String title ,required String des}) async {
     NotificationDetails details = NotificationDetails(
       android: AndroidNotificationDetails(
           importance: Importance.max,
@@ -40,8 +40,8 @@ class LocalNotificationService {
     );
     await flutterLocalNotificationsPlugin.show(
         0, //id
-        "Basic Notification", //title
-        "Body Notification", //body
+       title, //title
+       des, //body
         details,
         payload: "Payload Data");
   }
