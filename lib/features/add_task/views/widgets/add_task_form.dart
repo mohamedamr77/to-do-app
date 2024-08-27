@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/features/add_task/views/controller/cubit/add_task_cubit/add_task_cubit.dart';
 import 'package:todo/features/add_task/views/controller/cubit/add_task_cubit/add_task_state.dart';
+import 'package:todo/service/lcoal_notification/local_notification_service.dart';
 import '../../../../core/data/model/task_model.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_button.dart';
@@ -126,5 +127,6 @@ onTapButton(BuildContext context) {
       id: DateTime.now().millisecondsSinceEpoch,
     );
     BlocProvider.of<AddTaskCubit>(context).addTask(task);
+    LocalNotificationService.showBasicNotification();
   }
 }

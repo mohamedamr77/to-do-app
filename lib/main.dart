@@ -13,12 +13,25 @@ import 'package:todo/cubit/simple_bloc_observer.dart';
 import 'package:todo/cubit/theme/get_cubit.dart';
 import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
 import 'package:todo/features/regester/views/regester_screen.dart';
+import 'package:todo/service/lcoal_notification/local_notification_service.dart';
+import 'package:todo/service/work_manager/work_manager_service.dart';
 import 'core/data/model/task_model.dart';
 import 'cubit/theme/get_State.dart';
 import 'features/archived_tasks/controller/archived_task_cubit.dart';
 import 'features/onboarding/views/onboarding_screen.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Future.wait(
+      [
+        LocalNotificationService.init(),
+        // WorkManagerService().init(),
+      ]
+  );
+  // for android 13 and higher  line 11
+  LocalNotificationService.requestPermission();
+
   Bloc.observer = SimpleBlocObserver();
   await Hive.initFlutter();
   Hive.registerAdapter(TaskModelAdapter());
