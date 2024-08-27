@@ -36,12 +36,9 @@ void main() async {
   await Hive.openBox(BoxApp.kUserBox);
   // final isDark = Hive.box(BoxApp.kThemeBox).get('isDark',defaultValue: false,);
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => BlocProvider(
-        create: (context) => GetThemeCubit()..initTheme(),
-        child: MyApp(),
-      ), // Wrap your app
+    BlocProvider(
+      create: (context) => GetThemeCubit()..initTheme(),
+      child: MyApp(),
     ),
   );
 }

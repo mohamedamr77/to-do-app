@@ -25,7 +25,7 @@ class TaskList extends StatelessWidget {
               );
             },
             itemCount: tasks.length,
-            separatorBuilder: (context, index) => const SizedBox(height: 10),
+            separatorBuilder: (context, index) => const SizedBox(height: 2),
           );
         } else {
           return const BodyIfNotFoundTask();

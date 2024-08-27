@@ -22,6 +22,9 @@ class CustomOnboarding extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+            ),
             const CustomBanner(),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,
