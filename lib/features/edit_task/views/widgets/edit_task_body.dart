@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/core/data/model/task_model.dart';
 import 'package:todo/features/archived_tasks/controller/archived_task_cubit.dart';
-import 'package:todo/features/home_page/controller/home_page_Cubit.dart';
-import 'package:todo/features/task_details/views/screen.dart';
 import '../../../../core/shared_widget/custom_appbar.dart';
 import '../../../../core/shared_widget/custom_button.dart';
 import '../../../../core/textCore.dart';
-import '../../../add_task/views/widgets/custom_data_picker.dart';
-import '../../../add_task/views/widgets/custom_time_picker.dart';
 import '../../../add_task/views/widgets/cutsom_field.dart';
 
 class EditTaskBody extends StatefulWidget {
@@ -31,10 +27,12 @@ class _EditTaskBodyState extends State<EditTaskBody> {
 
     // Ensure start and end dates are always initialized
     if (widget.taskModel.startDateSelectedDate == null) {
-      widget.taskModel.startDateSelectedDate = DateTime.now().toIso8601String().split('T')[0];
+      widget.taskModel.startDateSelectedDate =
+          DateTime.now().toIso8601String().split('T')[0];
     }
     if (widget.taskModel.endDateSelectedDate == null) {
-      widget.taskModel.endDateSelectedDate = DateTime.now().toIso8601String().split('T')[0];
+      widget.taskModel.endDateSelectedDate =
+          DateTime.now().toIso8601String().split('T')[0];
     }
   }
 
@@ -97,4 +95,3 @@ class _EditTaskBodyState extends State<EditTaskBody> {
     );
   }
 }
-

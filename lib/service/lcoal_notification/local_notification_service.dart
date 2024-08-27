@@ -27,21 +27,22 @@ class LocalNotificationService {
     );
   }
 
-  static void showBasicNotification({required String title ,required String des}) async {
+  static void showBasicNotification(
+      {required String title, required String des}) async {
     NotificationDetails details = NotificationDetails(
       android: AndroidNotificationDetails(
-          importance: Importance.max,
-          priority: Priority.high,
-          "id 1", //channel id
-          "basic notification ",
-          // sound: RawResourceAndroidNotificationSound(
-          //     'sally.mp3'.split('.').first)
+        importance: Importance.max,
+        priority: Priority.high,
+        "id 1", //channel id
+        "basic notification ",
+        // sound: RawResourceAndroidNotificationSound(
+        //     'sally.mp3'.split('.').first)
       ),
     );
     await flutterLocalNotificationsPlugin.show(
         0, //id
-       title, //title
-       des, //body
+        title, //title
+        des, //body
         details,
         payload: "Payload Data");
   }
@@ -66,13 +67,21 @@ class LocalNotificationService {
         payload: "Payload Data");
   }
 
-  static void showScheduledNotification({required String title , required String des,required int year ,required int month ,required int day , required int hour , required int minute ,required int id }) async {
+  static void showScheduledNotification(
+      {required String title,
+      required String des,
+      required int year,
+      required int month,
+      required int day,
+      required int hour,
+      required int minute,
+      required int id}) async {
     NotificationDetails details = NotificationDetails(
       android: AndroidNotificationDetails(
-          importance: Importance.max,
-          priority: Priority.high,
-          "id 3", //channel id
-          "Scheduled notification ", //Channel name
+        importance: Importance.max,
+        priority: Priority.high,
+        "id 3", //channel id
+        "Scheduled notification ", //Channel name
       ),
     );
 
@@ -89,11 +98,11 @@ class LocalNotificationService {
         title,
         des,
         tz.TZDateTime(
-          tz.local,  // Timezone
-          year,      // Year
-          month,         // Month (February)
-          day,         // Day
-          hour,         // Hour
+          tz.local, // Timezone
+          year, // Year
+          month, // Month (February)
+          day, // Day
+          hour, // Hour
           minute,
         ),
         details,
@@ -115,7 +124,7 @@ class LocalNotificationService {
 
     tz.initializeTimeZones();
     tz.setLocalLocation(tz.getLocation('Africa/Cairo'));
-    var currentTime =tz.TZDateTime.now(tz.local);
+    var currentTime = tz.TZDateTime.now(tz.local);
     var scheduledTime = tz.TZDateTime(
       tz.local,
       currentTime.year,
@@ -131,15 +140,14 @@ class LocalNotificationService {
       log("$scheduledTime");
     }
     await flutterLocalNotificationsPlugin.zonedSchedule(
-         3,
+        3,
         "Daily Scheduled Notification",
         "Body Scheduled ",
         scheduledTime,
         details,
         payload: "Zone scheduled",
         uiLocalNotificationDateInterpretation:
-        UILocalNotificationDateInterpretation.absoluteTime);
-
+            UILocalNotificationDateInterpretation.absoluteTime);
   }
 
   static void cancelNotification({required int id}) async {

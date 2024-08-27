@@ -19,7 +19,6 @@ class CustomDataPicker extends StatefulWidget {
   final Function(String) onDateSelected; // Changed to accept a String
   bool? clickInButton;
 
-
   @override
   State<CustomDataPicker> createState() => _CustomDataPickerState();
 }

@@ -87,7 +87,7 @@ class TaskDetailsAchievedBody extends StatelessWidget {
                   "Add Time",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-                subtitle:  Text(
+                subtitle: Text(
                   // _formatTaskTime(taskAchieved.timeOfTask),
                   taskAchieved.timeOfTask!,
                   style: TextStyle(

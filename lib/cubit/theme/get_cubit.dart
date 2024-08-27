@@ -5,14 +5,17 @@ import 'package:todo/cubit/theme/get_State.dart';
 
 class GetThemeCubit extends Cubit<GetThemeState> {
   GetThemeCubit() : super(GetThemeState());
-  bool isDark=false ;
+  bool isDark = false;
 
-  void initTheme()  {
-   if(state is ChangeThemingState) {
-     emit(GetThemeState());
-   }
+  void initTheme() {
+    if (state is ChangeThemingState) {
+      emit(GetThemeState());
+    }
     var box = Hive.box(BoxApp.kThemeBox);
-    final isDark =  box.get("isDark", defaultValue: false,);
+    final isDark = box.get(
+      "isDark",
+      defaultValue: false,
+    );
     this.isDark = isDark;
     emit(ChangeThemingState());
   }

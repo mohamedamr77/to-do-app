@@ -6,8 +6,8 @@ class WorkManagerService {
     // unigue name = > عشان لو عايز اقفل التاسك دى او اعمل اى عمليات عليها
 
     await Workmanager().registerPeriodicTask(
-        "id 1",
-        "show simple notification",
+      "id 1",
+      "show simple notification",
       // if i need call workmanager everyday call hour
       frequency: const Duration(hours: 12),
     );
@@ -27,11 +27,13 @@ class WorkManagerService {
   }
 }
 
-@pragma('vm:entry-point') // Mandatory if the App is obfuscated or using Flutter 3.1+
+@pragma(
+    'vm:entry-point') // Mandatory if the App is obfuscated or using Flutter 3.1+
 void actionTask() {
   // This is where your actual task will be performed
   // الحاجه الى هتتنفذ فى الباك جراوند
-  Workmanager().executeTask((taskName, inputData) {
+  Workmanager().executeTask(
+    (taskName, inputData) {
       LocalNotificationService.showDailyScheduledNotification();
       return Future.value(true);
     },

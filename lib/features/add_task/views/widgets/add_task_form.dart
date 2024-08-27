@@ -128,8 +128,8 @@ onTapButton(BuildContext context) {
     );
     BlocProvider.of<AddTaskCubit>(context).addTask(task);
     LocalNotificationService.showBasicNotification(
-      title:   BlocProvider.of<AddTaskCubit>(context).taskName!,
-      des:  BlocProvider.of<AddTaskCubit>(context).taskDescriptionController!,
+      title: BlocProvider.of<AddTaskCubit>(context).taskName!,
+      des: BlocProvider.of<AddTaskCubit>(context).taskDescriptionController!,
     );
   }
 }

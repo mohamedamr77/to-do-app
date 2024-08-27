@@ -38,7 +38,7 @@ class CardDoneList extends StatelessWidget {
               fontFamily: FontFamilyApp.lexendDecaRegular,
             ),
           ),
-          trailing:  Column(
+          trailing: Column(
             children: [
               Text(
                 "${ConvertDate(date: taskModel.startDateSelectedDate!)}",

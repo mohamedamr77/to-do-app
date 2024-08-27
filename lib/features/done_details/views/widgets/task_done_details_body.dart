@@ -87,9 +87,9 @@ class TaskDoneDetailsBody extends StatelessWidget {
                     "Time",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
-                  subtitle:  Text(
+                  subtitle: Text(
                     // task.startTimeSelectedTime!,
-                 task.timeOfTask! ,
+                    task.timeOfTask!,
                     style: TextStyle(
                       color:
                           ColorApp.subTitleListTileDateOrTimeOrTextFiledColor,

@@ -19,16 +19,15 @@ class TaskModel extends HiveObject {
   bool archivedTask;
   @HiveField(6)
   bool doneTask;
-  TaskModel({
-    required this.taskName,
-    required this.taskDescriptionController,
-    required this.startDateSelectedDate,
-    required this.endDateSelectedDate,
-    required this.timeOfTask,
-    this.archivedTask = false,
-    this.doneTask = false,
-    this.id
-  }){
-    this.id  = DateTime.now().millisecondsSinceEpoch;
+  TaskModel(
+      {required this.taskName,
+      required this.taskDescriptionController,
+      required this.startDateSelectedDate,
+      required this.endDateSelectedDate,
+      required this.timeOfTask,
+      this.archivedTask = false,
+      this.doneTask = false,
+      this.id}) {
+    this.id = DateTime.now().millisecondsSinceEpoch;
   }
 }
