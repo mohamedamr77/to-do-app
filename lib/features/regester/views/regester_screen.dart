@@ -11,7 +11,6 @@ import 'package:todo/features/regester/views/widgets/enter_name.dart';
 import '../../../core/imageCore.dart';
 import '../../onboarding/views/widgets/button_Started.dart';
 
-
 class CustomRegesterScreen extends StatefulWidget {
   const CustomRegesterScreen({super.key});
   static String id = "Register Screen";
