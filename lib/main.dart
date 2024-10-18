@@ -25,7 +25,7 @@ void main() async {
     LocalNotificationService.init(),
     // WorkManagerService().init(),
   ]);
-  // for android 13 and higher  line 11
+
   LocalNotificationService.requestPermission();
 
   Bloc.observer = SimpleBlocObserver();
@@ -68,9 +68,6 @@ class MyApp extends StatelessWidget {
             minTextAdapt: true,
             splitScreenMode: true,
             child: MaterialApp(
-              useInheritedMediaQuery: true,
-              locale: DevicePreview.locale(context),
-              builder: DevicePreview.appBuilder,
               theme: AppTheme.lightThemeData,
               themeMode: BlocProvider.of<GetThemeCubit>(context).isDark
                   ? ThemeMode.dark
@@ -78,7 +75,7 @@ class MyApp extends StatelessWidget {
               darkTheme: AppTheme.darkThemeData,
               routes: {
                 CustomRegesterScreen.id: (context) =>
-                    const CustomRegesterScreen(),
+                const CustomRegesterScreen(),
                 CustomOnboarding.id: (context) => const CustomOnboarding(),
                 // HomePageScreen.id: (context) =>  HomePageScreen(),
               },
